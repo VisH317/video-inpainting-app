@@ -12,6 +12,10 @@ from matplotlib import animation
 import torch
 import av
 import time
+import torch._dynamo as dynamo
+import logging
+
+dynamo.config.log_level = logging.INFO
 
 from core.utils import to_tensors
 
@@ -139,9 +143,8 @@ def setup():
     return opt_model, size
 
 
-def main_worker():
+def main_worker(model, size):
     # set up models
-    model, size = setup()
 
     # prepare datset
     args.use_mp4 = True if args.video.endswith('.mp4') else False
@@ -270,4 +273,5 @@ def main_worker():
 
 
 if __name__ == '__main__':
-    main_worker()
+    model, size = setup()
+    main_worker(model, size)

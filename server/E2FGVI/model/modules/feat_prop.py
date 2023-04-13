@@ -96,8 +96,8 @@ class BidirectionalPropagation(nn.Module):
 
             feats[module_name] = []
 
-            frame_idx = range(0, t)
-            flow_idx = range(-1, t - 1)
+            frame_idx = list(range(0, t, 1))
+            flow_idx = list(range(-1, t - 1, 1))
             mapping_idx = list(range(0, len(feats['spatial'])))
             mapping_idx += mapping_idx[::-1]
 
