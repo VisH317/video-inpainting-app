@@ -42,9 +42,7 @@ def get_frames(video_file):
     for frame in f.decode(video=0):
         yield cv2.resize(cv2.cvtColor(np.array(frame.to_image()), cv2.COLOR_RGB2BGR), [256,256])
 
-
-def mask(args):
-    # Setup device
+def mask_setup(args):
     args.config = 'get_mask/experiments/siammask/config_davis.json'
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     torch.backends.cudnn.benchmark = True
@@ -55,6 +53,12 @@ def mask(args):
     assert isfile(args.resume), '{} is not a valid file'.format(args.resume)
     print("loading")
     siammask = load_pretrain(siammask, args.resume)
+    opt_siammask = torch.compile(siammask)
+    return siammask
+
+def mask(args):
+    # Setup device
+    
 
     # siammask.eval().to(device)
 

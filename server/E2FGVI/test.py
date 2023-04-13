@@ -68,15 +68,15 @@ def read_mask(mpath, size):
     masks = []
     mnames = os.listdir(mpath) #comment this out 
     mnames.sort()
-    for mp in os.listdir(mpath):
-        m = Image.open(os.path.join(mpath, mp))
-        m = m.resize(size, Image.NEAREST) # comment this out
-        m = np.array(m.convert('L'))
-        m = np.array(m > 0).astype(np.uint8)
-        m = cv2.dilate(m,
+    for mp in mpath:
+        # m = Image.open(os.path.join(mpath, mp))
+        # m = m.resize(size, Image.NEAREST) # comment this out
+        # m = np.array(m.convert('L'))
+        # m = np.array(m > 0).astype(np.uint8)
+        mp = cv2.dilate(mp,
                        cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3)),
                        iterations=4)
-        masks.append(Image.fromarray(m * 255))
+        masks.append(Image.fromarray(mp * 255))
     return masks
 
 
@@ -116,7 +116,7 @@ def resize_frames(frames, size=None):
 # model = None
 # size = None
 
-def setup():
+def setup(args):
     global device
     global model
     global size
@@ -129,10 +129,10 @@ def setup():
         size = (args.width, args.height)
     else:
         size = None
-    args.use_mp4 = True if args.video.endswith('.mp4') else False
-    print(
-        f'Loading videos and masks from: {args.video} | INPUT MP4 format: {args.use_mp4}'
-    )
+    # args.use_mp4 = True if args.video.endswith('.mp4') else False
+    # print(
+    #     f'Loading videos and masks from: {args.video} | INPUT MP4 format: {args.use_mp4}'
+    # )
     net = importlib.import_module('model.' + args.model)
     model = net.InpaintGenerator().to(device)
     data = torch.load(args.ckpt, map_location=device)
@@ -147,12 +147,12 @@ def main_worker(model, size):
     # set up models
 
     # prepare datset
-    args.use_mp4 = True if args.video.endswith('.mp4') else False
-    print(
-        f'Loading videos and masks from: {args.video} | INPUT MP4 format: {args.use_mp4}'
-    )
-    frames = read_frame_from_videos(args)
-    #frames = args.frames
+    # args.use_mp4 = True if args.video.endswith('.mp4') else False
+    # print(
+    #     f'Loading videos and masks from: {args.video} | INPUT MP4 format: {args.use_mp4}'
+    # )
+    #frames = read_frame_from_videos(args)
+    frames = args.frames
     frames, size = resize_frames(frames, size)
     h, w = size[1], size[0]
     video_length = len(frames)
@@ -213,40 +213,40 @@ def main_worker(model, size):
 
     # saving videos
     print('Saving videos...')
-    save_dir_name = 'results'
-    ext_name = '_results.mp4'
-    save_base_name = args.video.split('/')[-1]
-    save_name = save_base_name.replace(
-        '.mp4', ext_name) if args.use_mp4 else save_base_name + ext_name
-    if not os.path.exists(save_dir_name):
-        os.makedirs(save_dir_name)
-    save_path = os.path.join(save_dir_name, save_name)
-    writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*"mp4v"),
-                             default_fps, size)
-    # output_file = io.BytesIO()
-    # output = av.open(output_file, 'w', format="mp4")
+    # save_dir_name = 'results'
+    # ext_name = '_results.mp4'
+    # save_base_name = args.video.split('/')[-1]
+    # save_name = save_base_name.replace(
+    #     '.mp4', ext_name) if args.use_mp4 else save_base_name + ext_name
+    # if not os.path.exists(save_dir_name):
+    #     os.makedirs(save_dir_name)
+    # save_path = os.path.join(save_dir_name, save_name)
+    # writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*"mp4v"),
+    #                          default_fps, size)
+    output_file = io.BytesIO()
+    output = av.open(output_file, 'w', format="mp4")
 
-    # FPS = 24
-    # stream = output.add_stream('h264', str(FPS))
-    # stream.width = w
-    # stream.height = h
-    # stream.pix_fmt = 'yuv444p'
-    # stream.options = {'crf': '17'}
+    FPS = 24
+    stream = output.add_stream('h264', str(FPS))
+    stream.width = w
+    stream.height = h
+    stream.pix_fmt = 'yuv444p'
+    stream.options = {'crf': '17'}
     for f in range(video_length):
-        comp = comp_frames[f].astype(np.uint8)
-        writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
-        # frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
-        # packet = stream.encode(frame)
-        # output.mux(packet)
-    writer.release()
+        # comp = comp_frames[f].astype(np.uint8)
+        # writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
+        frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
+        packet = stream.encode(frame)
+        output.mux(packet)
+    # writer.release()
     print("overall duration: ", duration)
     for i in individual_times:
         print("individual duration: ", i)
-    # packet = stream.encode(None)
-    # output.mux(packet)
-    # output.close()
+    packet = stream.encode(None)
+    output.mux(packet)
+    output.close()
     
-    # return output
+    return output
 
     # show results
     # print('Let us enjoy the result!')

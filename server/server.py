@@ -3,6 +3,7 @@ from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
+
 import argparse
 from mask import mask
 from inpaint import inpaint
