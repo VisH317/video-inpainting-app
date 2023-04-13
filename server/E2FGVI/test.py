@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 from matplotlib import animation
 import torch
 import av
+import time
 
 from core.utils import to_tensors
 
@@ -61,13 +62,13 @@ def get_ref_index(f, neighbor_ids, length):
 # read frame-wise masks
 def read_mask(mpath, size):
     masks = []
-    # mnames = os.listdir(mpath)
-    # mnames.sort()
+    mnames = os.listdir(mpath) #comment this out 
+    mnames.sort()
     for mp in mpath:
-        # m = Image.open(os.path.join(mpath, mp))
-        # m = m.resize(size, Image.NEAREST)
-        # m = np.array(m.convert('L'))
-        # m = np.array(m > 0).astype(np.uint8)
+        m = Image.open(os.path.join(mpath, mp))
+        m = m.resize(size, Image.NEAREST) # comment this out
+        m = np.array(m.convert('L'))
+        m = np.array(m > 0).astype(np.uint8)
         m = cv2.dilate(m,
                        cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3)),
                        iterations=4)
@@ -107,9 +108,9 @@ def resize_frames(frames, size=None):
         size = frames[0].size
     return frames, size
 
-device = None
-model = None
-size = None
+# device = None
+# model = None
+# size = None
 
 def setup():
     global device
@@ -137,14 +138,15 @@ def setup():
 
 def main_worker(args):
     # set up models
+    model = setup()
 
     # prepare datset
     args.use_mp4 = True
     print(
         f'Loading videos and masks from: {args.video} | INPUT MP4 format: {args.use_mp4}'
     )
-    #frames = read_frame_from_videos(args)
-    frames = args.frames
+    frames = read_frame_from_videos(args)
+    #frames = args.frames
     frames, size = resize_frames(frames, size)
     h, w = size[1], size[0]
     video_length = len(frames)
@@ -161,7 +163,10 @@ def main_worker(args):
 
     # completing holes by e2fgvi
     print(f'Start test...')
+    starttime = time.time()
+    individual_times = []
     for f in tqdm(range(0, video_length, neighbor_stride)):
+        tim = time.time()
         neighbor_ids = [
             i for i in range(max(0, f - neighbor_stride),
                              min(video_length, f + neighbor_stride + 1))
@@ -195,6 +200,10 @@ def main_worker(args):
                 else:
                     comp_frames[idx] = comp_frames[idx].astype(
                         np.float32) * 0.5 + img.astype(np.float32) * 0.5
+        newtim = time.time()
+        individual_times.append(newtim - tim)
+    endtime = time.time()
+    duration = endtime - starttime
 
     # saving videos
     print('Saving videos...')
@@ -206,27 +215,32 @@ def main_worker(args):
     if not os.path.exists(save_dir_name):
         os.makedirs(save_dir_name)
     save_path = os.path.join(save_dir_name, save_name)
-    # writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*"mp4v"),
-    #                          default_fps, size)
-    output_file = io.BytesIO()
-    output = av.open(output_file, 'w', format="mp4")
+    writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*"mp4v"),
+                             default_fps, size)
+    # output_file = io.BytesIO()
+    # output = av.open(output_file, 'w', format="mp4")
 
-    FPS = 24
-    stream = output.add_stream('h264', str(FPS))
-    stream.width = w
-    stream.height = h
-    stream.pix_fmt = 'yuv444p'
-    stream.options = {'crf': '17'}
+    # FPS = 24
+    # stream = output.add_stream('h264', str(FPS))
+    # stream.width = w
+    # stream.height = h
+    # stream.pix_fmt = 'yuv444p'
+    # stream.options = {'crf': '17'}
     for f in range(video_length):
         comp = comp_frames[f].astype(np.uint8)
-        frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
-        packet = stream.encode(frame)
-        output.mux(packet)
-    packet = stream.encode(None)
-    output.mux(packet)
-    output.close()
+        writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
+        # frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
+        # packet = stream.encode(frame)
+        # output.mux(packet)
+    writer.release()
+    print("overall duration: ", duration)
+    for i in individual_times:
+        print("individual duration: ", i)
+    # packet = stream.encode(None)
+    # output.mux(packet)
+    # output.close()
     
-    return output
+    # return output
 
     # show results
     # print('Let us enjoy the result!')
@@ -253,4 +267,4 @@ def main_worker(args):
 
 
 if __name__ == '__main__':
-    setup()
+    main_worker()
