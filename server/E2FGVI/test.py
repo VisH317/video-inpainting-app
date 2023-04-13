@@ -64,7 +64,7 @@ def read_mask(mpath, size):
     masks = []
     mnames = os.listdir(mpath) #comment this out 
     mnames.sort()
-    for mp in mpath:
+    for mp in os.listdir(mpath):
         m = Image.open(os.path.join(mpath, mp))
         m = m.resize(size, Image.NEAREST) # comment this out
         m = np.array(m.convert('L'))
@@ -125,7 +125,10 @@ def setup():
         size = (args.width, args.height)
     else:
         size = None
-
+    args.use_mp4 = True if args.video.endswith('.mp4') else False
+    print(
+        f'Loading videos and masks from: {args.video} | INPUT MP4 format: {args.use_mp4}'
+    )
     net = importlib.import_module('model.' + args.model)
     model = net.InpaintGenerator().to(device)
     data = torch.load(args.ckpt, map_location=device)
@@ -133,15 +136,15 @@ def setup():
     print(f'Loading model from: {args.ckpt}')
     model.eval()
     opt_model = torch.compile(model)
-    return opt_model
+    return opt_model, size
 
 
-def main_worker(args):
+def main_worker():
     # set up models
-    model = setup()
+    model, size = setup()
 
     # prepare datset
-    args.use_mp4 = True
+    args.use_mp4 = True if args.video.endswith('.mp4') else False
     print(
         f'Loading videos and masks from: {args.video} | INPUT MP4 format: {args.use_mp4}'
     )
