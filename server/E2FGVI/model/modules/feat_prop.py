@@ -6,7 +6,7 @@ import torch.nn as nn
 
 from mmcv.ops import ModulatedDeformConv2d, modulated_deform_conv2d
 
-from model.modules.flow_comp import flow_warp
+from .flow_comp import flow_warp
 
 
 class SecondOrderDeformableAlignment(ModulatedDeformConv2d):

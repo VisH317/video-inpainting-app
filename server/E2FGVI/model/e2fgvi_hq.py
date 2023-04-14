@@ -5,10 +5,10 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from model.modules.flow_comp import SPyNet
-from model.modules.feat_prop import BidirectionalPropagation, SecondOrderDeformableAlignment
-from model.modules.tfocal_transformer_hq import TemporalFocalTransformerBlock, SoftSplit, SoftComp
-from model.modules.spectral_norm import spectral_norm as _spectral_norm
+from .modules.flow_comp import SPyNet
+from .modules.feat_prop import BidirectionalPropagation, SecondOrderDeformableAlignment
+from .modules.tfocal_transformer_hq import TemporalFocalTransformerBlock, SoftSplit, SoftComp
+from .modules.spectral_norm import spectral_norm as _spectral_norm
 
 
 class BaseNetwork(nn.Module):

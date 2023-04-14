@@ -1,6 +1,6 @@
-2023-04-14T11:08:29,118 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager - Initializing plugins manager...
-2023-04-14T11:08:29,118 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager - Initializing plugins manager...
-2023-04-14T11:08:29,295 [INFO ] main org.pytorch.serve.ModelServer - 
+2023-04-14T11:16:55,434 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager - Initializing plugins manager...
+2023-04-14T11:16:55,434 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager - Initializing plugins manager...
+2023-04-14T11:16:55,595 [INFO ] main org.pytorch.serve.ModelServer - 
 Torchserve version: 0.7.1
 TS Home: /home/vish/miniconda3/lib/python3.9/site-packages
 Current directory: /home/vish/projects/deep-video-inpainting-server/server
@@ -32,7 +32,7 @@ Metrics report format: prometheus
 Enable metrics API: true
 Workflow Store: /home/vish/projects/deep-video-inpainting-server/server
 Model config: N/A
-2023-04-14T11:08:29,295 [INFO ] main org.pytorch.serve.ModelServer - 
+2023-04-14T11:16:55,595 [INFO ] main org.pytorch.serve.ModelServer - 
 Torchserve version: 0.7.1
 TS Home: /home/vish/miniconda3/lib/python3.9/site-packages
 Current directory: /home/vish/projects/deep-video-inpainting-server/server
@@ -64,80 +64,84 @@ Metrics report format: prometheus
 Enable metrics API: true
 Workflow Store: /home/vish/projects/deep-video-inpainting-server/server
 Model config: N/A
-2023-04-14T11:08:29,298 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager -  Loading snapshot serializer plugin...
-2023-04-14T11:08:29,298 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager -  Loading snapshot serializer plugin...
-2023-04-14T11:08:29,309 [INFO ] main org.pytorch.serve.ModelServer - Loading initial models: inpaint.mar
-2023-04-14T11:08:29,309 [INFO ] main org.pytorch.serve.ModelServer - Loading initial models: inpaint.mar
-2023-04-14T11:08:32,617 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Adding new version 1 for model inpaint
-2023-04-14T11:08:32,617 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Adding new version 1 for model inpaint
-2023-04-14T11:08:32,617 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Setting default version to 1 for model inpaint
-2023-04-14T11:08:32,617 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Setting default version to 1 for model inpaint
-2023-04-14T11:08:32,617 [INFO ] main org.pytorch.serve.wlm.ModelManager - Model inpaint loaded.
-2023-04-14T11:08:32,617 [INFO ] main org.pytorch.serve.wlm.ModelManager - Model inpaint loaded.
-2023-04-14T11:08:32,618 [DEBUG] main org.pytorch.serve.wlm.ModelManager - updateModel: inpaint, count: 1
-2023-04-14T11:08:32,618 [DEBUG] main org.pytorch.serve.wlm.ModelManager - updateModel: inpaint, count: 1
-2023-04-14T11:08:32,622 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/home/vish/miniconda3/bin/python, /home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml]
-2023-04-14T11:08:32,622 [INFO ] main org.pytorch.serve.ModelServer - Initialize Inference server with: EpollServerSocketChannel.
-2023-04-14T11:08:32,622 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/home/vish/miniconda3/bin/python, /home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml]
-2023-04-14T11:08:32,622 [INFO ] main org.pytorch.serve.ModelServer - Initialize Inference server with: EpollServerSocketChannel.
-2023-04-14T11:08:32,659 [INFO ] main org.pytorch.serve.ModelServer - Inference API bind to: http://127.0.0.1:8080
-2023-04-14T11:08:32,659 [INFO ] main org.pytorch.serve.ModelServer - Inference API bind to: http://127.0.0.1:8080
-2023-04-14T11:08:32,659 [INFO ] main org.pytorch.serve.ModelServer - Initialize Management server with: EpollServerSocketChannel.
-2023-04-14T11:08:32,659 [INFO ] main org.pytorch.serve.ModelServer - Initialize Management server with: EpollServerSocketChannel.
-2023-04-14T11:08:32,660 [INFO ] main org.pytorch.serve.ModelServer - Management API bind to: http://127.0.0.1:8081
-2023-04-14T11:08:32,660 [INFO ] main org.pytorch.serve.ModelServer - Management API bind to: http://127.0.0.1:8081
-2023-04-14T11:08:32,660 [INFO ] main org.pytorch.serve.ModelServer - Initialize Metrics server with: EpollServerSocketChannel.
-2023-04-14T11:08:32,660 [INFO ] main org.pytorch.serve.ModelServer - Initialize Metrics server with: EpollServerSocketChannel.
-2023-04-14T11:08:32,660 [INFO ] main org.pytorch.serve.ModelServer - Metrics API bind to: http://127.0.0.1:8082
-2023-04-14T11:08:32,660 [INFO ] main org.pytorch.serve.ModelServer - Metrics API bind to: http://127.0.0.1:8082
-2023-04-14T11:08:32,835 [WARN ] pool-3-thread-1 org.pytorch.serve.metrics.MetricCollector - worker pid is not available yet.
-2023-04-14T11:08:32,835 [WARN ] pool-3-thread-1 org.pytorch.serve.metrics.MetricCollector - worker pid is not available yet.
-2023-04-14T11:08:33,253 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681484913
-2023-04-14T11:08:33,254 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:143.70886993408203|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681484913
-2023-04-14T11:08:33,254 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:94.45799255371094|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681484913
-2023-04-14T11:08:33,254 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:39.7|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681484913
-2023-04-14T11:08:33,254 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUtilization.Percent:54.736328125|#Level:Host,device_id:0|#hostname:DESKTOP-LU4DJEU,timestamp:1681484913
-2023-04-14T11:08:33,254 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUsed.Megabytes:1121|#Level:Host,device_id:0|#hostname:DESKTOP-LU4DJEU,timestamp:1681484913
-2023-04-14T11:08:33,255 [INFO ] pool-3-thread-1 TS_METRICS - GPUUtilization.Percent:0|#Level:Host,device_id:0|#hostname:DESKTOP-LU4DJEU,timestamp:1681484913
-2023-04-14T11:08:33,255 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:22723.62890625|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681484913
-2023-04-14T11:08:33,255 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:2489.3671875|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681484913
-2023-04-14T11:08:33,255 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:11.3|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681484913
-2023-04-14T11:08:33,390 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
-2023-04-14T11:08:33,393 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
-2023-04-14T11:08:33,393 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]10362
-2023-04-14T11:08:33,393 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
-2023-04-14T11:08:33,393 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
-2023-04-14T11:08:33,393 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change null -> WORKER_STARTED
-2023-04-14T11:08:33,393 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change null -> WORKER_STARTED
-2023-04-14T11:08:33,396 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9000
-2023-04-14T11:08:33,396 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9000
-2023-04-14T11:08:33,399 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
-2023-04-14T11:08:33,401 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Flushing req. to backend at: 1681484913401
-2023-04-14T11:08:33,401 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Flushing req. to backend at: 1681484913401
-2023-04-14T11:08:33,411 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
-2023-04-14T11:08:35,614 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - LISTING DIR:  ['.gitignore', 'mask.py', 'tshandler.py', '__pycache__', 'davis.py', 'predict.py', '.dockerignore', 'inpaint.mar', 'image', 'lib', 'demo_retarget.py', 'cp', 'model.py', 'E2FGVI', 'models', 'train_git.py', 'cog.yaml', 'test.py', 'get_mask', 'Dockerfile', 'serverREADME.md', 'requirements.txt', 'install.sh', 'server.py', 'logs', 'inpaint.py']
-2023-04-14T11:08:35,615 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
-2023-04-14T11:08:35,615 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
-2023-04-14T11:08:35,615 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 221, in <module>
-2023-04-14T11:08:35,615 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     worker.run_server()
-2023-04-14T11:08:35,616 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in run_server
-2023-04-14T11:08:35,616 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
-2023-04-14T11:08:35,616 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 154, in handle_connection
-2023-04-14T11:08:35,617 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
-2023-04-14T11:08:35,617 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 118, in load_model
-2023-04-14T11:08:35,617 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service = model_loader.load(
-2023-04-14T11:08:35,617 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 135, in load
-2023-04-14T11:08:35,617 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     initialize_fn(service.context)
-2023-04-14T11:08:35,617 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/fc1a2146b9374ecf94f761fc528a81dc/tshandler.py", line 29, in initialize
-2023-04-14T11:08:35,617 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from server.mask import mask_setup
-2023-04-14T11:08:35,618 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/fc1a2146b9374ecf94f761fc528a81dc/server/mask.py", line 8, in <module>
-2023-04-14T11:08:35,618 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from get_mask.test import *
-2023-04-14T11:08:35,618 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ModuleNotFoundError: No module named 'get_mask'
-2023-04-14T11:08:35,661 [INFO ] epollEventLoopGroup-5-1 org.pytorch.serve.wlm.WorkerThread - 9000 Worker disconnected. WORKER_STARTED
-2023-04-14T11:08:35,661 [INFO ] epollEventLoopGroup-5-1 org.pytorch.serve.wlm.WorkerThread - 9000 Worker disconnected. WORKER_STARTED
-2023-04-14T11:08:35,662 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
-2023-04-14T11:08:35,662 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
-2023-04-14T11:08:35,662 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died.
+2023-04-14T11:16:55,598 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager -  Loading snapshot serializer plugin...
+2023-04-14T11:16:55,598 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager -  Loading snapshot serializer plugin...
+2023-04-14T11:16:55,609 [INFO ] main org.pytorch.serve.ModelServer - Loading initial models: inpaint.mar
+2023-04-14T11:16:55,609 [INFO ] main org.pytorch.serve.ModelServer - Loading initial models: inpaint.mar
+2023-04-14T11:17:00,737 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Adding new version 1 for model inpaint
+2023-04-14T11:17:00,737 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Adding new version 1 for model inpaint
+2023-04-14T11:17:00,737 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Setting default version to 1 for model inpaint
+2023-04-14T11:17:00,737 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Setting default version to 1 for model inpaint
+2023-04-14T11:17:00,738 [INFO ] main org.pytorch.serve.wlm.ModelManager - Model inpaint loaded.
+2023-04-14T11:17:00,738 [INFO ] main org.pytorch.serve.wlm.ModelManager - Model inpaint loaded.
+2023-04-14T11:17:00,738 [DEBUG] main org.pytorch.serve.wlm.ModelManager - updateModel: inpaint, count: 1
+2023-04-14T11:17:00,738 [DEBUG] main org.pytorch.serve.wlm.ModelManager - updateModel: inpaint, count: 1
+2023-04-14T11:17:00,742 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/home/vish/miniconda3/bin/python, /home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml]
+2023-04-14T11:17:00,742 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/home/vish/miniconda3/bin/python, /home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml]
+2023-04-14T11:17:00,742 [INFO ] main org.pytorch.serve.ModelServer - Initialize Inference server with: EpollServerSocketChannel.
+2023-04-14T11:17:00,742 [INFO ] main org.pytorch.serve.ModelServer - Initialize Inference server with: EpollServerSocketChannel.
+2023-04-14T11:17:00,773 [INFO ] main org.pytorch.serve.ModelServer - Inference API bind to: http://127.0.0.1:8080
+2023-04-14T11:17:00,773 [INFO ] main org.pytorch.serve.ModelServer - Inference API bind to: http://127.0.0.1:8080
+2023-04-14T11:17:00,773 [INFO ] main org.pytorch.serve.ModelServer - Initialize Management server with: EpollServerSocketChannel.
+2023-04-14T11:17:00,773 [INFO ] main org.pytorch.serve.ModelServer - Initialize Management server with: EpollServerSocketChannel.
+2023-04-14T11:17:00,774 [INFO ] main org.pytorch.serve.ModelServer - Management API bind to: http://127.0.0.1:8081
+2023-04-14T11:17:00,774 [INFO ] main org.pytorch.serve.ModelServer - Management API bind to: http://127.0.0.1:8081
+2023-04-14T11:17:00,774 [INFO ] main org.pytorch.serve.ModelServer - Initialize Metrics server with: EpollServerSocketChannel.
+2023-04-14T11:17:00,774 [INFO ] main org.pytorch.serve.ModelServer - Initialize Metrics server with: EpollServerSocketChannel.
+2023-04-14T11:17:00,774 [INFO ] main org.pytorch.serve.ModelServer - Metrics API bind to: http://127.0.0.1:8082
+2023-04-14T11:17:00,774 [INFO ] main org.pytorch.serve.ModelServer - Metrics API bind to: http://127.0.0.1:8082
+2023-04-14T11:17:00,936 [WARN ] pool-3-thread-1 org.pytorch.serve.metrics.MetricCollector - worker pid is not available yet.
+2023-04-14T11:17:00,936 [WARN ] pool-3-thread-1 org.pytorch.serve.metrics.MetricCollector - worker pid is not available yet.
+2023-04-14T11:17:01,346 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:75.0|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681485421
+2023-04-14T11:17:01,347 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:141.9470672607422|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681485421
+2023-04-14T11:17:01,347 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:96.21979522705078|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681485421
+2023-04-14T11:17:01,347 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:40.4|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681485421
+2023-04-14T11:17:01,348 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUtilization.Percent:48.92578125|#Level:Host,device_id:0|#hostname:DESKTOP-LU4DJEU,timestamp:1681485421
+2023-04-14T11:17:01,348 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUsed.Megabytes:1002|#Level:Host,device_id:0|#hostname:DESKTOP-LU4DJEU,timestamp:1681485421
+2023-04-14T11:17:01,348 [INFO ] pool-3-thread-1 TS_METRICS - GPUUtilization.Percent:0|#Level:Host,device_id:0|#hostname:DESKTOP-LU4DJEU,timestamp:1681485421
+2023-04-14T11:17:01,348 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:22661.578125|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681485421
+2023-04-14T11:17:01,348 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:2551.41796875|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681485421
+2023-04-14T11:17:01,348 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:11.5|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681485421
+2023-04-14T11:17:01,547 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T11:17:01,549 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T11:17:01,549 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]31200
+2023-04-14T11:17:01,549 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T11:17:01,550 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T11:17:01,550 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change null -> WORKER_STARTED
+2023-04-14T11:17:01,550 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change null -> WORKER_STARTED
+2023-04-14T11:17:01,552 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9000
+2023-04-14T11:17:01,552 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9000
+2023-04-14T11:17:01,556 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T11:17:01,557 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Flushing req. to backend at: 1681485421557
+2023-04-14T11:17:01,557 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Flushing req. to backend at: 1681485421557
+2023-04-14T11:17:01,568 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T11:17:04,275 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - LISTING DIR:  ['.gitignore', 'mask.py', 'tshandler.py', 'davis.py', 'predict.py', '.dockerignore', 'inpaint.mar', 'image', 'lib', 'demo_retarget.py', 'cp', 'model.py', 'E2FGVI', 'models', 'train_git.py', 'cog.yaml', 'test.py', 'get_mask', 'Dockerfile', 'serverREADME.md', 'requirements.txt', 'install.sh', 'server.py', 'logs', 'inpaint.py']
+2023-04-14T11:17:04,276 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T11:17:04,276 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T11:17:04,276 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 221, in <module>
+2023-04-14T11:17:04,276 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     worker.run_server()
+2023-04-14T11:17:04,276 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in run_server
+2023-04-14T11:17:04,276 [INFO ] epollEventLoopGroup-5-1 org.pytorch.serve.wlm.WorkerThread - 9000 Worker disconnected. WORKER_STARTED
+2023-04-14T11:17:04,277 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2023-04-14T11:17:04,276 [INFO ] epollEventLoopGroup-5-1 org.pytorch.serve.wlm.WorkerThread - 9000 Worker disconnected. WORKER_STARTED
+2023-04-14T11:17:04,277 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
+2023-04-14T11:17:04,277 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
+2023-04-14T11:17:04,278 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 154, in handle_connection
+2023-04-14T11:17:04,278 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2023-04-14T11:17:04,278 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 118, in load_model
+2023-04-14T11:17:04,278 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service = model_loader.load(
+2023-04-14T11:17:04,278 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 135, in load
+2023-04-14T11:17:04,278 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     initialize_fn(service.context)
+2023-04-14T11:17:04,279 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/a0d982d6c5d04c378bdc16b7fb7f8687/tshandler.py", line 29, in initialize
+2023-04-14T11:17:04,279 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from server.mask import mask_setup
+2023-04-14T11:17:04,279 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/a0d982d6c5d04c378bdc16b7fb7f8687/server/mask.py", line 8, in <module>
+2023-04-14T11:17:04,279 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from .get_mask.test import *
+2023-04-14T11:17:04,279 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/a0d982d6c5d04c378bdc16b7fb7f8687/server/get_mask/test.py", line 26, in <module>
+2023-04-14T11:17:04,279 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from .utils.anchors import Anchors
+2023-04-14T11:17:04,279 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/a0d982d6c5d04c378bdc16b7fb7f8687/server/get_mask/utils/anchors.py", line 8, in <module>
+2023-04-14T11:17:04,280 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from get_mask.utils.bbox_helper import center2corner, corner2center
+2023-04-14T11:17:04,280 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ModuleNotFoundError: No module named 'get_mask'
+2023-04-14T11:17:04,278 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died.
 java.lang.InterruptedException: null
 	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679) ~[?:?]
 	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:435) ~[?:?]
@@ -147,7 +151,7 @@ java.lang.InterruptedException: null
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
 	at java.lang.Thread.run(Thread.java:833) [?:?]
-2023-04-14T11:08:35,662 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died.
+2023-04-14T11:17:04,278 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died.
 java.lang.InterruptedException: null
 	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679) ~[?:?]
 	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:435) ~[?:?]
@@ -157,333 +161,32 @@ java.lang.InterruptedException: null
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
 	at java.lang.Thread.run(Thread.java:833) [?:?]
-2023-04-14T11:08:35,670 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.BatchAggregator - Load model failed: inpaint, error: Worker died.
-2023-04-14T11:08:35,670 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.BatchAggregator - Load model failed: inpaint, error: Worker died.
-2023-04-14T11:08:35,670 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STARTED -> WORKER_STOPPED
-2023-04-14T11:08:35,670 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STARTED -> WORKER_STOPPED
-2023-04-14T11:08:35,670 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stderr
-2023-04-14T11:08:35,670 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stderr
-2023-04-14T11:08:35,670 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stdout
-2023-04-14T11:08:35,670 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stdout
-2023-04-14T11:08:35,671 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Retry worker: 9000 in 1 seconds.
-2023-04-14T11:08:35,671 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Retry worker: 9000 in 1 seconds.
-2023-04-14T11:08:35,677 [INFO ] W-9000-inpaint_1-stdout org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stdout
-2023-04-14T11:08:35,677 [INFO ] W-9000-inpaint_1-stdout org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stdout
-2023-04-14T11:08:35,677 [INFO ] W-9000-inpaint_1-stderr org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stderr
-2023-04-14T11:08:35,677 [INFO ] W-9000-inpaint_1-stderr org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stderr
-2023-04-14T11:08:36,671 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/home/vish/miniconda3/bin/python, /home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml]
-2023-04-14T11:08:36,671 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/home/vish/miniconda3/bin/python, /home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml]
-2023-04-14T11:08:37,370 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
-2023-04-14T11:08:37,372 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
-2023-04-14T11:08:37,372 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]10425
-2023-04-14T11:08:37,372 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
-2023-04-14T11:08:37,372 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STOPPED -> WORKER_STARTED
-2023-04-14T11:08:37,372 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STOPPED -> WORKER_STARTED
-2023-04-14T11:08:37,372 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
-2023-04-14T11:08:37,373 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9000
-2023-04-14T11:08:37,373 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9000
-2023-04-14T11:08:37,373 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Flushing req. to backend at: 1681484917373
-2023-04-14T11:08:37,373 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
-2023-04-14T11:08:37,373 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Flushing req. to backend at: 1681484917373
-2023-04-14T11:08:37,378 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
-2023-04-14T11:08:39,687 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - LISTING DIR:  ['.gitignore', 'mask.py', 'tshandler.py', '__pycache__', 'davis.py', 'predict.py', '.dockerignore', 'inpaint.mar', 'image', 'lib', 'demo_retarget.py', 'cp', 'model.py', 'E2FGVI', 'models', 'train_git.py', 'cog.yaml', 'test.py', 'get_mask', 'Dockerfile', 'serverREADME.md', 'requirements.txt', 'install.sh', 'server.py', 'logs', 'inpaint.py']
-2023-04-14T11:08:39,687 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
-2023-04-14T11:08:39,687 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
-2023-04-14T11:08:39,687 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 221, in <module>
-2023-04-14T11:08:39,687 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     worker.run_server()
-2023-04-14T11:08:39,688 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in run_server
-2023-04-14T11:08:39,688 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
-2023-04-14T11:08:39,688 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 154, in handle_connection
-2023-04-14T11:08:39,688 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
-2023-04-14T11:08:39,688 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 118, in load_model
-2023-04-14T11:08:39,689 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service = model_loader.load(
-2023-04-14T11:08:39,689 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 135, in load
-2023-04-14T11:08:39,689 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     initialize_fn(service.context)
-2023-04-14T11:08:39,689 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/fc1a2146b9374ecf94f761fc528a81dc/tshandler.py", line 29, in initialize
-2023-04-14T11:08:39,689 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from server.mask import mask_setup
-2023-04-14T11:08:39,689 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/fc1a2146b9374ecf94f761fc528a81dc/server/mask.py", line 8, in <module>
-2023-04-14T11:08:39,689 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from get_mask.test import *
-2023-04-14T11:08:39,690 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ModuleNotFoundError: No module named 'get_mask'
-2023-04-14T11:08:39,740 [INFO ] epollEventLoopGroup-5-2 org.pytorch.serve.wlm.WorkerThread - 9000 Worker disconnected. WORKER_STARTED
-2023-04-14T11:08:39,740 [INFO ] epollEventLoopGroup-5-2 org.pytorch.serve.wlm.WorkerThread - 9000 Worker disconnected. WORKER_STARTED
-2023-04-14T11:08:39,740 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
-2023-04-14T11:08:39,740 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
-2023-04-14T11:08:39,740 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died.
-java.lang.InterruptedException: null
-	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679) ~[?:?]
-	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:435) ~[?:?]
-	at org.pytorch.serve.wlm.WorkerThread.run(WorkerThread.java:191) [model-server.jar:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
-	at java.lang.Thread.run(Thread.java:833) [?:?]
-2023-04-14T11:08:39,740 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died.
-java.lang.InterruptedException: null
-	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679) ~[?:?]
-	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:435) ~[?:?]
-	at org.pytorch.serve.wlm.WorkerThread.run(WorkerThread.java:191) [model-server.jar:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
-	at java.lang.Thread.run(Thread.java:833) [?:?]
-2023-04-14T11:08:39,741 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.BatchAggregator - Load model failed: inpaint, error: Worker died.
-2023-04-14T11:08:39,741 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.BatchAggregator - Load model failed: inpaint, error: Worker died.
-2023-04-14T11:08:39,741 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STARTED -> WORKER_STOPPED
-2023-04-14T11:08:39,741 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STARTED -> WORKER_STOPPED
-2023-04-14T11:08:39,741 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stderr
-2023-04-14T11:08:39,741 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stderr
-2023-04-14T11:08:39,741 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stdout
-2023-04-14T11:08:39,741 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stdout
-2023-04-14T11:08:39,741 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Retry worker: 9000 in 1 seconds.
-2023-04-14T11:08:39,741 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Retry worker: 9000 in 1 seconds.
-2023-04-14T11:08:39,748 [INFO ] W-9000-inpaint_1-stdout org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stdout
-2023-04-14T11:08:39,748 [INFO ] W-9000-inpaint_1-stdout org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stdout
-2023-04-14T11:08:39,748 [INFO ] W-9000-inpaint_1-stderr org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stderr
-2023-04-14T11:08:39,748 [INFO ] W-9000-inpaint_1-stderr org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stderr
-2023-04-14T11:08:40,742 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/home/vish/miniconda3/bin/python, /home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml]
-2023-04-14T11:08:40,742 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/home/vish/miniconda3/bin/python, /home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml]
-2023-04-14T11:11:39,511 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager - Initializing plugins manager...
-2023-04-14T11:11:39,511 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager - Initializing plugins manager...
-2023-04-14T11:11:39,635 [INFO ] main org.pytorch.serve.ModelServer - 
-Torchserve version: 0.7.1
-TS Home: /home/vish/miniconda3/lib/python3.9/site-packages
-Current directory: /home/vish/projects/deep-video-inpainting-server/server
-Temp directory: /tmp
-Metrics config path: /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml
-Number of GPUs: 1
-Number of CPUs: 16
-Max heap size: 6404 M
-Python executable: /home/vish/miniconda3/bin/python
-Config file: N/A
-Inference address: http://127.0.0.1:8080
-Management address: http://127.0.0.1:8081
-Metrics address: http://127.0.0.1:8082
-Model Store: /home/vish/projects/deep-video-inpainting-server/server
-Initial Models: inpaint.mar
-Log dir: /home/vish/projects/deep-video-inpainting-server/server/logs
-Metrics dir: /home/vish/projects/deep-video-inpainting-server/server/logs
-Netty threads: 0
-Netty client threads: 0
-Default workers per model: 1
-Blacklist Regex: N/A
-Maximum Response Size: 6553500
-Maximum Request Size: 6553500
-Limit Maximum Image Pixels: true
-Prefer direct buffer: false
-Allowed Urls: [file://.*|http(s)?://.*]
-Custom python dependency for model allowed: false
-Metrics report format: prometheus
-Enable metrics API: true
-Workflow Store: /home/vish/projects/deep-video-inpainting-server/server
-Model config: N/A
-2023-04-14T11:11:39,635 [INFO ] main org.pytorch.serve.ModelServer - 
-Torchserve version: 0.7.1
-TS Home: /home/vish/miniconda3/lib/python3.9/site-packages
-Current directory: /home/vish/projects/deep-video-inpainting-server/server
-Temp directory: /tmp
-Metrics config path: /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml
-Number of GPUs: 1
-Number of CPUs: 16
-Max heap size: 6404 M
-Python executable: /home/vish/miniconda3/bin/python
-Config file: N/A
-Inference address: http://127.0.0.1:8080
-Management address: http://127.0.0.1:8081
-Metrics address: http://127.0.0.1:8082
-Model Store: /home/vish/projects/deep-video-inpainting-server/server
-Initial Models: inpaint.mar
-Log dir: /home/vish/projects/deep-video-inpainting-server/server/logs
-Metrics dir: /home/vish/projects/deep-video-inpainting-server/server/logs
-Netty threads: 0
-Netty client threads: 0
-Default workers per model: 1
-Blacklist Regex: N/A
-Maximum Response Size: 6553500
-Maximum Request Size: 6553500
-Limit Maximum Image Pixels: true
-Prefer direct buffer: false
-Allowed Urls: [file://.*|http(s)?://.*]
-Custom python dependency for model allowed: false
-Metrics report format: prometheus
-Enable metrics API: true
-Workflow Store: /home/vish/projects/deep-video-inpainting-server/server
-Model config: N/A
-2023-04-14T11:11:39,638 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager -  Loading snapshot serializer plugin...
-2023-04-14T11:11:39,638 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager -  Loading snapshot serializer plugin...
-2023-04-14T11:11:39,650 [INFO ] main org.pytorch.serve.ModelServer - Loading initial models: inpaint.mar
-2023-04-14T11:11:39,650 [INFO ] main org.pytorch.serve.ModelServer - Loading initial models: inpaint.mar
-2023-04-14T11:11:43,971 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Adding new version 1 for model inpaint
-2023-04-14T11:11:43,971 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Adding new version 1 for model inpaint
-2023-04-14T11:11:43,971 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Setting default version to 1 for model inpaint
-2023-04-14T11:11:43,971 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Setting default version to 1 for model inpaint
-2023-04-14T11:11:43,971 [INFO ] main org.pytorch.serve.wlm.ModelManager - Model inpaint loaded.
-2023-04-14T11:11:43,971 [INFO ] main org.pytorch.serve.wlm.ModelManager - Model inpaint loaded.
-2023-04-14T11:11:43,972 [DEBUG] main org.pytorch.serve.wlm.ModelManager - updateModel: inpaint, count: 1
-2023-04-14T11:11:43,972 [DEBUG] main org.pytorch.serve.wlm.ModelManager - updateModel: inpaint, count: 1
-2023-04-14T11:11:43,976 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/home/vish/miniconda3/bin/python, /home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml]
-2023-04-14T11:11:43,976 [INFO ] main org.pytorch.serve.ModelServer - Initialize Inference server with: EpollServerSocketChannel.
-2023-04-14T11:11:43,976 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/home/vish/miniconda3/bin/python, /home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml]
-2023-04-14T11:11:43,976 [INFO ] main org.pytorch.serve.ModelServer - Initialize Inference server with: EpollServerSocketChannel.
-2023-04-14T11:11:44,007 [INFO ] main org.pytorch.serve.ModelServer - Inference API bind to: http://127.0.0.1:8080
-2023-04-14T11:11:44,007 [INFO ] main org.pytorch.serve.ModelServer - Inference API bind to: http://127.0.0.1:8080
-2023-04-14T11:11:44,007 [INFO ] main org.pytorch.serve.ModelServer - Initialize Management server with: EpollServerSocketChannel.
-2023-04-14T11:11:44,007 [INFO ] main org.pytorch.serve.ModelServer - Initialize Management server with: EpollServerSocketChannel.
-2023-04-14T11:11:44,008 [INFO ] main org.pytorch.serve.ModelServer - Management API bind to: http://127.0.0.1:8081
-2023-04-14T11:11:44,008 [INFO ] main org.pytorch.serve.ModelServer - Management API bind to: http://127.0.0.1:8081
-2023-04-14T11:11:44,008 [INFO ] main org.pytorch.serve.ModelServer - Initialize Metrics server with: EpollServerSocketChannel.
-2023-04-14T11:11:44,008 [INFO ] main org.pytorch.serve.ModelServer - Initialize Metrics server with: EpollServerSocketChannel.
-2023-04-14T11:11:44,008 [INFO ] main org.pytorch.serve.ModelServer - Metrics API bind to: http://127.0.0.1:8082
-2023-04-14T11:11:44,008 [INFO ] main org.pytorch.serve.ModelServer - Metrics API bind to: http://127.0.0.1:8082
-2023-04-14T11:11:44,205 [WARN ] pool-3-thread-1 org.pytorch.serve.metrics.MetricCollector - worker pid is not available yet.
-2023-04-14T11:11:44,205 [WARN ] pool-3-thread-1 org.pytorch.serve.metrics.MetricCollector - worker pid is not available yet.
-2023-04-14T11:11:44,599 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681485104
-2023-04-14T11:11:44,600 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:142.82818222045898|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681485104
-2023-04-14T11:11:44,600 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:95.33868026733398|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681485104
-2023-04-14T11:11:44,600 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:40.0|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681485104
-2023-04-14T11:11:44,601 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUtilization.Percent:57.8125|#Level:Host,device_id:0|#hostname:DESKTOP-LU4DJEU,timestamp:1681485104
-2023-04-14T11:11:44,601 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUsed.Megabytes:1184|#Level:Host,device_id:0|#hostname:DESKTOP-LU4DJEU,timestamp:1681485104
-2023-04-14T11:11:44,601 [INFO ] pool-3-thread-1 TS_METRICS - GPUUtilization.Percent:0|#Level:Host,device_id:0|#hostname:DESKTOP-LU4DJEU,timestamp:1681485104
-2023-04-14T11:11:44,601 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:22732.0|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681485104
-2023-04-14T11:11:44,601 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:2480.99609375|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681485104
-2023-04-14T11:11:44,601 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:11.2|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681485104
-2023-04-14T11:11:44,737 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
-2023-04-14T11:11:44,739 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
-2023-04-14T11:11:44,739 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]26289
-2023-04-14T11:11:44,739 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
-2023-04-14T11:11:44,739 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change null -> WORKER_STARTED
-2023-04-14T11:11:44,739 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
-2023-04-14T11:11:44,739 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change null -> WORKER_STARTED
-2023-04-14T11:11:44,742 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9000
-2023-04-14T11:11:44,742 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9000
-2023-04-14T11:11:44,745 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
-2023-04-14T11:11:44,747 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Flushing req. to backend at: 1681485104747
-2023-04-14T11:11:44,747 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Flushing req. to backend at: 1681485104747
-2023-04-14T11:11:44,758 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
-2023-04-14T11:11:47,146 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - LISTING DIR:  ['.gitignore', 'mask.py', 'tshandler.py', 'davis.py', 'predict.py', '.dockerignore', 'inpaint.mar', 'image', 'lib', 'demo_retarget.py', 'cp', 'model.py', 'E2FGVI', 'models', 'train_git.py', 'cog.yaml', 'test.py', 'get_mask', 'Dockerfile', 'serverREADME.md', 'requirements.txt', 'install.sh', 'server.py', 'logs', 'inpaint.py']
-2023-04-14T11:11:47,147 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
-2023-04-14T11:11:47,147 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
-2023-04-14T11:11:47,147 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 221, in <module>
-2023-04-14T11:11:47,147 [INFO ] epollEventLoopGroup-5-1 org.pytorch.serve.wlm.WorkerThread - 9000 Worker disconnected. WORKER_STARTED
-2023-04-14T11:11:47,147 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     worker.run_server()
-2023-04-14T11:11:47,147 [INFO ] epollEventLoopGroup-5-1 org.pytorch.serve.wlm.WorkerThread - 9000 Worker disconnected. WORKER_STARTED
-2023-04-14T11:11:47,148 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in run_server
-2023-04-14T11:11:47,148 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
-2023-04-14T11:11:47,148 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
-2023-04-14T11:11:47,148 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
-2023-04-14T11:11:47,149 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 154, in handle_connection
-2023-04-14T11:11:47,149 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
-2023-04-14T11:11:47,149 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 118, in load_model
-2023-04-14T11:11:47,149 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service = model_loader.load(
-2023-04-14T11:11:47,149 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 135, in load
-2023-04-14T11:11:47,149 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     initialize_fn(service.context)
-2023-04-14T11:11:47,150 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/6ee0ded4e10b4376a5318834fd695603/tshandler.py", line 29, in initialize
-2023-04-14T11:11:47,150 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from server.mask import mask_setup
-2023-04-14T11:11:47,150 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/6ee0ded4e10b4376a5318834fd695603/server/mask.py", line 8, in <module>
-2023-04-14T11:11:47,150 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from .get_mask.test import *
-2023-04-14T11:11:47,150 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/6ee0ded4e10b4376a5318834fd695603/server/get_mask/test.py", line 15, in <module>
-2023-04-14T11:11:47,151 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from get_mask.utils.log_helper import init_log, add_file_handler
-2023-04-14T11:11:47,151 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ModuleNotFoundError: No module named 'get_mask'
-2023-04-14T11:11:47,148 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died.
-java.lang.InterruptedException: null
-	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679) ~[?:?]
-	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:435) ~[?:?]
-	at org.pytorch.serve.wlm.WorkerThread.run(WorkerThread.java:191) [model-server.jar:?]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) [?:?]
-	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
-	at java.lang.Thread.run(Thread.java:833) [?:?]
-2023-04-14T11:11:47,148 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died.
-java.lang.InterruptedException: null
-	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679) ~[?:?]
-	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:435) ~[?:?]
-	at org.pytorch.serve.wlm.WorkerThread.run(WorkerThread.java:191) [model-server.jar:?]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) [?:?]
-	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
-	at java.lang.Thread.run(Thread.java:833) [?:?]
-2023-04-14T11:11:47,157 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.BatchAggregator - Load model failed: inpaint, error: Worker died.
-2023-04-14T11:11:47,157 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.BatchAggregator - Load model failed: inpaint, error: Worker died.
-2023-04-14T11:11:47,157 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STARTED -> WORKER_STOPPED
-2023-04-14T11:11:47,157 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STARTED -> WORKER_STOPPED
-2023-04-14T11:11:47,157 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stderr
-2023-04-14T11:11:47,157 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stderr
-2023-04-14T11:11:47,157 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stdout
-2023-04-14T11:11:47,157 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stdout
-2023-04-14T11:11:47,158 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Retry worker: 9000 in 1 seconds.
-2023-04-14T11:11:47,158 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Retry worker: 9000 in 1 seconds.
-2023-04-14T11:11:47,164 [INFO ] W-9000-inpaint_1-stdout org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stdout
-2023-04-14T11:11:47,164 [INFO ] W-9000-inpaint_1-stdout org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stdout
-2023-04-14T11:11:47,164 [INFO ] W-9000-inpaint_1-stderr org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stderr
-2023-04-14T11:11:47,164 [INFO ] W-9000-inpaint_1-stderr org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stderr
-2023-04-14T11:11:48,158 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/home/vish/miniconda3/bin/python, /home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml]
-2023-04-14T11:11:48,158 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/home/vish/miniconda3/bin/python, /home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml]
-2023-04-14T11:11:50,278 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
-2023-04-14T11:11:50,281 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
-2023-04-14T11:11:50,281 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]26357
-2023-04-14T11:11:50,281 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STOPPED -> WORKER_STARTED
-2023-04-14T11:11:50,281 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
-2023-04-14T11:11:50,281 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STOPPED -> WORKER_STARTED
-2023-04-14T11:11:50,281 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
-2023-04-14T11:11:50,281 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9000
-2023-04-14T11:11:50,281 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9000
-2023-04-14T11:11:50,282 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
-2023-04-14T11:11:50,282 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Flushing req. to backend at: 1681485110282
-2023-04-14T11:11:50,282 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Flushing req. to backend at: 1681485110282
-2023-04-14T11:11:50,289 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
-2023-04-14T11:12:12,714 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - LISTING DIR:  ['.gitignore', 'mask.py', 'tshandler.py', '__pycache__', 'davis.py', 'predict.py', '.dockerignore', 'inpaint.mar', 'image', 'lib', 'demo_retarget.py', 'cp', 'model.py', 'E2FGVI', 'models', 'train_git.py', 'cog.yaml', 'test.py', 'get_mask', 'Dockerfile', 'serverREADME.md', 'requirements.txt', 'install.sh', 'server.py', 'logs', 'inpaint.py']
-2023-04-14T11:12:12,715 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
-2023-04-14T11:12:12,715 [INFO ] epollEventLoopGroup-5-2 org.pytorch.serve.wlm.WorkerThread - 9000 Worker disconnected. WORKER_STARTED
-2023-04-14T11:12:12,715 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
-2023-04-14T11:12:12,715 [INFO ] epollEventLoopGroup-5-2 org.pytorch.serve.wlm.WorkerThread - 9000 Worker disconnected. WORKER_STARTED
-2023-04-14T11:12:12,715 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 221, in <module>
-2023-04-14T11:12:12,715 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
-2023-04-14T11:12:12,715 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - System state is : WORKER_STARTED
-2023-04-14T11:12:12,715 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     worker.run_server()
-2023-04-14T11:12:12,715 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died.
-java.lang.InterruptedException: null
-	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679) ~[?:?]
-	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:435) ~[?:?]
-	at org.pytorch.serve.wlm.WorkerThread.run(WorkerThread.java:191) [model-server.jar:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
-	at java.lang.Thread.run(Thread.java:833) [?:?]
-2023-04-14T11:12:12,716 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in run_server
-2023-04-14T11:12:12,715 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Backend worker monitoring thread interrupted or backend worker process died.
-java.lang.InterruptedException: null
-	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679) ~[?:?]
-	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:435) ~[?:?]
-	at org.pytorch.serve.wlm.WorkerThread.run(WorkerThread.java:191) [model-server.jar:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
-	at java.lang.Thread.run(Thread.java:833) [?:?]
-2023-04-14T11:12:12,716 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
-2023-04-14T11:12:12,716 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.BatchAggregator - Load model failed: inpaint, error: Worker died.
-2023-04-14T11:12:12,716 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.BatchAggregator - Load model failed: inpaint, error: Worker died.
-2023-04-14T11:12:12,716 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STARTED -> WORKER_STOPPED
-2023-04-14T11:12:12,716 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STARTED -> WORKER_STOPPED
-2023-04-14T11:12:12,716 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stderr
-2023-04-14T11:12:12,716 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stderr
-2023-04-14T11:12:12,716 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stdout
-2023-04-14T11:12:12,716 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stdout
-2023-04-14T11:12:12,716 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 154, in handle_connection
-2023-04-14T11:12:12,716 [INFO ] W-9000-inpaint_1-stdout org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stdout
-2023-04-14T11:12:12,716 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Retry worker: 9000 in 1 seconds.
-2023-04-14T11:12:12,716 [INFO ] W-9000-inpaint_1-stdout org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stdout
-2023-04-14T11:12:12,716 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Retry worker: 9000 in 1 seconds.
-2023-04-14T11:12:12,724 [INFO ] W-9000-inpaint_1-stderr org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stderr
-2023-04-14T11:12:12,724 [INFO ] W-9000-inpaint_1-stderr org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stderr
-2023-04-14T11:12:13,717 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/home/vish/miniconda3/bin/python, /home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml]
-2023-04-14T11:12:13,717 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/home/vish/miniconda3/bin/python, /home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml]
-2023-04-14T11:12:14,454 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
-2023-04-14T11:12:14,456 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
-2023-04-14T11:12:14,456 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]26554
-2023-04-14T11:12:14,456 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STOPPED -> WORKER_STARTED
-2023-04-14T11:12:14,456 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
-2023-04-14T11:12:14,456 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STOPPED -> WORKER_STARTED
-2023-04-14T11:12:14,456 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9000
-2023-04-14T11:12:14,456 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9000
-2023-04-14T11:12:14,456 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
-2023-04-14T11:12:14,457 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Flushing req. to backend at: 1681485134457
-2023-04-14T11:12:14,457 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
-2023-04-14T11:12:14,457 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Flushing req. to backend at: 1681485134457
-2023-04-14T11:12:14,464 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T11:17:04,285 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.BatchAggregator - Load model failed: inpaint, error: Worker died.
+2023-04-14T11:17:04,285 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.BatchAggregator - Load model failed: inpaint, error: Worker died.
+2023-04-14T11:17:04,285 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STARTED -> WORKER_STOPPED
+2023-04-14T11:17:04,285 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STARTED -> WORKER_STOPPED
+2023-04-14T11:17:04,286 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stderr
+2023-04-14T11:17:04,286 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stderr
+2023-04-14T11:17:04,286 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stdout
+2023-04-14T11:17:04,286 [WARN ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - terminateIOStreams() threadName=W-9000-inpaint_1-stdout
+2023-04-14T11:17:04,286 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Retry worker: 9000 in 1 seconds.
+2023-04-14T11:17:04,286 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Retry worker: 9000 in 1 seconds.
+2023-04-14T11:17:04,294 [INFO ] W-9000-inpaint_1-stdout org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stdout
+2023-04-14T11:17:04,294 [INFO ] W-9000-inpaint_1-stdout org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stdout
+2023-04-14T11:17:04,294 [INFO ] W-9000-inpaint_1-stderr org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stderr
+2023-04-14T11:17:04,294 [INFO ] W-9000-inpaint_1-stderr org.pytorch.serve.wlm.WorkerLifeCycle - Stopped Scanner - W-9000-inpaint_1-stderr
+2023-04-14T11:17:05,287 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/home/vish/miniconda3/bin/python, /home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml]
+2023-04-14T11:17:05,287 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/home/vish/miniconda3/bin/python, /home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml]
+2023-04-14T11:17:06,000 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T11:17:06,002 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T11:17:06,002 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]31266
+2023-04-14T11:17:06,002 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T11:17:06,002 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STOPPED -> WORKER_STARTED
+2023-04-14T11:17:06,002 [DEBUG] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - W-9000-inpaint_1 State change WORKER_STOPPED -> WORKER_STARTED
+2023-04-14T11:17:06,002 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T11:17:06,002 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9000
+2023-04-14T11:17:06,002 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9000
+2023-04-14T11:17:06,003 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Flushing req. to backend at: 1681485426003
+2023-04-14T11:17:06,003 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T11:17:06,003 [INFO ] W-9000-inpaint_1 org.pytorch.serve.wlm.WorkerThread - Flushing req. to backend at: 1681485426003
+2023-04-14T11:17:06,008 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
