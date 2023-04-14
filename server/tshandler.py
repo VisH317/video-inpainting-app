@@ -1,10 +1,12 @@
 import torch
 import argparse
+from ts.torch_handler.base_handler import BaseHandler
 # custom handler for torchserve
-from .E2FGVI.test import setup, main_worker
-from .mask import mask_setup, mask
+from E2FGVI.test import setup, main_worker
+from mask import mask_setup, mask
+import zipfile
 
-class InpaintHandler(object):
+class InpaintHandler(BaseHandler):
 
     def __init__(self):
         self.initialized = False
@@ -15,7 +17,13 @@ class InpaintHandler(object):
 
     def initialize(self, context):
         properties = context.system_properties
-        self.device = torch.device("cuda:" + str(properties.get("gpu_id")) if torch.cuda.is_available() else "cpu")
+        model_dir = properties.get("model_dir")
+        if not torch.cuda.is_available() or properties.get("gpu_id") is None:
+            raise RuntimeError("This model is not supported on CPU machines.")
+        self.device = torch.device("cuda:" + str(properties.get("gpu_id")))
+
+        with zipfile.ZipFile(model_dir + "/server.zip", "r") as zip_ref:
+            zip_ref.extractall(model_dir)
 
         self.mask_weights = 'cp/SiamMask_DAVIS.pth'
         self.inpaint_weights = 'E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth'
@@ -37,7 +45,7 @@ class InpaintHandler(object):
         self.model = model
         self.size = size
 
-    def handle(self, data, context):
+    def inference(self, data, context):
         # data params: video (mp4), x, y, w, h (bounding box to inpaint)
         args = argparse.Namespace()
         args.resume = 'cp/SiamMask_DAVIS.pth'

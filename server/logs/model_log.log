@@ -1,0 +1,782 @@
+2023-04-14T09:49:15,832 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T09:49:15,834 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T09:49:15,835 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]2917
+2023-04-14T09:49:15,835 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T09:49:15,835 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T09:49:15,841 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T09:49:15,855 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T09:49:15,857 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T09:49:15,857 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T09:49:15,858 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T09:49:15,858 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T09:49:15,858 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T09:49:15,858 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T09:49:15,858 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T09:49:15,859 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T09:49:15,859 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T09:49:15,859 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T09:49:15,859 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T09:49:15,860 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T09:49:15,860 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T09:49:15,860 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T09:49:15,860 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/3df20f0befdc4400a1e76bc2ddf0a4c0/tshandler.py", line 4, in <module>
+2023-04-14T09:49:15,860 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from .E2FGVI.test import setup, main_worker
+2023-04-14T09:49:15,861 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ImportError: attempted relative import with no known parent package
+2023-04-14T09:49:15,861 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-14T09:49:15,861 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - During handling of the above exception, another exception occurred:
+2023-04-14T09:49:15,861 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-14T09:49:15,861 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T09:49:15,861 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 221, in <module>
+2023-04-14T09:49:15,862 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     worker.run_server()
+2023-04-14T09:49:15,862 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in run_server
+2023-04-14T09:49:15,862 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2023-04-14T09:49:15,862 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 154, in handle_connection
+2023-04-14T09:49:15,863 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2023-04-14T09:49:15,863 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 118, in load_model
+2023-04-14T09:49:15,864 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service = model_loader.load(
+2023-04-14T09:49:15,864 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 102, in load
+2023-04-14T09:49:15,864 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = self._load_default_handler(handler)
+2023-04-14T09:49:15,864 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 151, in _load_default_handler
+2023-04-14T09:49:15,864 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name, "ts.torch_handler")
+2023-04-14T09:49:15,864 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T09:49:15,865 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T09:49:15,865 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T09:49:15,865 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T09:49:15,865 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+2023-04-14T09:49:15,865 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ModuleNotFoundError: No module named 'ts.torch_handler.tshandler:InpaintHandler'
+2023-04-14T09:49:17,558 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T09:49:17,559 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T09:49:17,559 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]2965
+2023-04-14T09:49:17,559 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T09:49:17,559 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T09:49:17,560 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T09:49:17,567 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T09:49:17,568 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T09:49:17,568 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T09:49:17,568 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T09:49:17,568 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T09:49:17,568 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T09:49:17,568 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T09:49:17,568 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T09:49:17,569 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T09:49:17,569 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T09:49:17,569 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T09:49:17,569 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T09:49:17,569 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T09:49:17,569 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T09:49:17,569 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T09:49:17,569 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/3df20f0befdc4400a1e76bc2ddf0a4c0/tshandler.py", line 4, in <module>
+2023-04-14T09:49:19,274 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T09:49:19,276 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T09:49:19,277 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]2984
+2023-04-14T09:49:19,277 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T09:49:19,277 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T09:49:19,278 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T09:49:19,284 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T09:49:19,284 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T09:49:19,285 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T09:49:19,285 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T09:49:19,285 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T09:49:19,285 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T09:49:19,285 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T09:49:19,286 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T09:49:19,286 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T09:49:19,286 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T09:49:19,286 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T09:49:19,286 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T09:49:19,286 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T09:49:21,981 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T09:49:21,983 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T09:49:21,983 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]3021
+2023-04-14T09:49:21,983 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T09:49:21,984 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T09:49:21,985 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T09:49:21,991 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T09:49:21,992 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T09:49:21,992 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T09:49:21,992 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T09:49:21,992 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T09:49:21,992 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T09:49:21,993 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T09:49:21,993 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T09:49:21,993 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T09:49:21,993 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T09:49:21,993 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T09:49:21,993 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T09:49:21,993 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T09:49:21,994 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T09:49:21,994 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T09:49:25,719 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T09:49:25,721 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T09:49:25,721 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]3041
+2023-04-14T09:49:25,722 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T09:49:25,722 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T09:49:25,723 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T09:49:25,729 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T09:49:25,730 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T09:49:25,730 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T09:49:25,730 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T09:49:25,730 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T09:49:25,731 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T09:49:25,731 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T09:49:25,731 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T09:49:25,731 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T09:49:25,731 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T09:49:25,731 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T09:49:25,732 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T09:49:25,732 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T09:49:31,433 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T09:49:31,435 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T09:49:31,435 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]3084
+2023-04-14T09:49:31,435 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T09:49:31,435 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T09:49:31,436 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T09:49:31,442 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T09:49:31,443 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T09:49:31,443 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T09:49:31,443 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T09:49:31,443 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T09:49:31,443 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T09:49:31,443 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T09:49:31,443 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T09:49:31,444 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T09:49:31,444 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T09:49:31,444 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T09:49:31,444 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T09:49:31,444 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T09:49:31,444 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T09:49:31,444 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T09:49:31,444 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/3df20f0befdc4400a1e76bc2ddf0a4c0/tshandler.py", line 4, in <module>
+2023-04-14T09:49:40,206 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T09:49:40,208 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T09:49:40,208 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]3150
+2023-04-14T09:49:40,208 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T09:49:40,208 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T09:49:40,209 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T09:49:40,215 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T09:49:40,216 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T09:49:40,216 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T09:49:40,216 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T09:49:40,216 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T09:49:40,216 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T09:49:40,216 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T09:49:40,216 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T09:49:40,216 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T09:49:40,216 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T09:49:40,217 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T09:49:40,217 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T09:49:40,217 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T09:49:40,217 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T09:49:40,217 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T09:49:40,217 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/3df20f0befdc4400a1e76bc2ddf0a4c0/tshandler.py", line 4, in <module>
+2023-04-14T09:49:40,217 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from .E2FGVI.test import setup, main_worker
+2023-04-14T09:49:40,217 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ImportError: attempted relative import with no known parent package
+2023-04-14T09:49:40,217 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-14T09:49:53,910 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T09:49:53,912 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T09:49:53,912 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]3261
+2023-04-14T09:49:53,912 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T09:49:53,912 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T09:49:53,913 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T09:49:53,919 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T09:49:53,920 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T09:49:53,920 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T09:49:53,920 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T09:49:53,920 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T09:49:53,920 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T09:49:53,920 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T09:49:53,920 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T09:49:53,920 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T09:49:53,920 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T09:49:53,920 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T09:49:53,921 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T09:49:53,921 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T09:49:53,921 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T09:49:53,921 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T09:49:53,921 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/3df20f0befdc4400a1e76bc2ddf0a4c0/tshandler.py", line 4, in <module>
+2023-04-14T09:49:53,921 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from .E2FGVI.test import setup, main_worker
+2023-04-14T09:49:53,921 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ImportError: attempted relative import with no known parent package
+2023-04-14T09:49:53,921 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-14T09:49:53,921 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - During handling of the above exception, another exception occurred:
+2023-04-14T09:50:15,617 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T09:50:15,619 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T09:50:15,619 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]3355
+2023-04-14T09:50:15,619 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T09:50:15,619 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T09:50:15,620 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T09:50:15,632 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T09:50:15,632 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T09:50:15,632 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T09:50:15,632 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T09:50:15,632 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T09:50:15,632 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T09:50:15,633 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T09:50:15,633 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T09:50:15,633 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T09:50:15,633 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T09:50:15,633 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T09:50:15,633 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T09:50:15,633 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T09:50:15,633 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T09:50:15,633 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T09:50:15,633 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/3df20f0befdc4400a1e76bc2ddf0a4c0/tshandler.py", line 4, in <module>
+2023-04-14T09:50:15,634 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from .E2FGVI.test import setup, main_worker
+2023-04-14T09:50:15,634 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ImportError: attempted relative import with no known parent package
+2023-04-14T09:50:15,634 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-14T09:50:15,634 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - During handling of the above exception, another exception occurred:
+2023-04-14T09:50:50,326 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T09:50:50,328 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T09:50:50,328 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]4143
+2023-04-14T09:50:50,328 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T09:50:50,328 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T09:50:50,329 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T09:50:50,339 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T09:50:50,340 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T09:50:50,341 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T09:50:50,341 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T09:50:50,341 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T09:50:50,341 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T09:50:50,341 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T09:50:50,341 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T09:50:50,341 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T09:50:50,341 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T09:50:50,342 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T09:50:50,342 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T09:50:50,342 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T09:50:50,342 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T09:50:50,342 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T09:50:50,342 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/3df20f0befdc4400a1e76bc2ddf0a4c0/tshandler.py", line 4, in <module>
+2023-04-14T09:50:50,342 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from .E2FGVI.test import setup, main_worker
+2023-04-14T09:50:50,342 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ImportError: attempted relative import with no known parent package
+2023-04-14T10:14:15,650 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:14:15,651 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:14:15,652 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]6256
+2023-04-14T10:14:15,652 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:14:15,652 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:14:15,658 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:14:15,670 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:14:15,671 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:14:15,672 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:14:15,672 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:14:15,672 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:14:15,672 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:14:15,672 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:14:15,672 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:14:15,673 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:14:15,673 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:14:15,673 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:14:15,673 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:14:15,673 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T10:14:15,674 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T10:14:15,674 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T10:14:15,674 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/5ca0a2922bd1476ab91ded3e7a1f31fc/tshandler.py", line 4, in <module>
+2023-04-14T10:14:15,674 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from E2FGVI.test import setup, main_worker
+2023-04-14T10:14:15,674 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ModuleNotFoundError: No module named 'E2FGVI'
+2023-04-14T10:14:15,674 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-14T10:14:15,675 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - During handling of the above exception, another exception occurred:
+2023-04-14T10:14:15,675 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-14T10:14:15,675 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:14:15,675 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 221, in <module>
+2023-04-14T10:14:15,675 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     worker.run_server()
+2023-04-14T10:14:15,676 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in run_server
+2023-04-14T10:14:15,676 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2023-04-14T10:14:15,676 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 154, in handle_connection
+2023-04-14T10:14:15,677 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2023-04-14T10:14:15,679 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 118, in load_model
+2023-04-14T10:14:15,679 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service = model_loader.load(
+2023-04-14T10:14:15,680 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 102, in load
+2023-04-14T10:14:15,681 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = self._load_default_handler(handler)
+2023-04-14T10:14:15,681 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 151, in _load_default_handler
+2023-04-14T10:14:15,682 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name, "ts.torch_handler")
+2023-04-14T10:14:15,683 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:14:15,683 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:14:15,683 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:14:15,683 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:14:15,683 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 972, in _find_and_load_unlocked
+2023-04-14T10:14:15,683 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T10:14:15,684 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:14:15,684 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:14:15,684 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+2023-04-14T10:14:15,684 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ModuleNotFoundError: No module named 'ts.torch_handler.tshandler'
+2023-04-14T10:14:17,381 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:14:17,383 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:14:17,384 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]6305
+2023-04-14T10:14:17,384 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:14:17,384 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:14:17,385 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:14:17,391 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:14:17,392 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:14:17,392 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:14:17,392 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:14:17,392 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:14:17,392 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:14:17,392 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:14:17,393 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:14:17,393 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:14:17,393 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:14:17,393 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:14:17,393 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:14:17,393 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T10:14:19,106 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:14:19,108 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:14:19,108 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]6333
+2023-04-14T10:14:19,108 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:14:19,108 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:14:19,109 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:14:19,116 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:14:19,117 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:14:19,117 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:14:19,117 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:14:19,117 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:14:19,117 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:14:19,117 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:14:19,118 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:14:19,118 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:14:19,118 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:14:19,118 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:14:19,118 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:14:21,815 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:14:21,817 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:14:21,817 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]6361
+2023-04-14T10:14:21,817 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:14:21,817 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:14:21,818 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:14:21,824 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:14:21,825 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:14:21,825 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:14:21,826 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:14:21,826 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:14:21,826 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:14:21,826 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:14:21,826 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:14:21,826 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:14:21,827 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:14:21,827 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:14:21,827 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:14:21,827 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T10:14:21,827 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T10:14:21,827 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T10:14:21,827 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/5ca0a2922bd1476ab91ded3e7a1f31fc/tshandler.py", line 4, in <module>
+2023-04-14T10:14:25,551 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:14:25,553 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:14:25,553 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]6399
+2023-04-14T10:14:25,554 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:14:25,554 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:14:25,554 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:14:25,561 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:14:25,561 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:14:25,562 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:14:25,562 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:14:25,562 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:14:25,562 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:14:25,562 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:14:25,562 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:14:25,562 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:14:25,562 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:14:25,562 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:14:25,562 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:14:25,563 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T10:14:25,563 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T10:14:25,563 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T10:14:25,563 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/5ca0a2922bd1476ab91ded3e7a1f31fc/tshandler.py", line 4, in <module>
+2023-04-14T10:14:25,563 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from E2FGVI.test import setup, main_worker
+2023-04-14T10:14:25,563 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ModuleNotFoundError: No module named 'E2FGVI'
+2023-04-14T10:14:25,563 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-14T10:14:25,563 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - During handling of the above exception, another exception occurred:
+2023-04-14T10:14:31,264 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:14:31,266 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:14:31,266 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]6433
+2023-04-14T10:14:31,266 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:14:31,267 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:14:31,267 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:14:31,274 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:14:31,275 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:14:31,275 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:14:31,275 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:14:31,275 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:14:31,275 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:14:31,275 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:14:31,275 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:14:31,275 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:14:31,275 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:14:31,275 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:14:31,276 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:14:31,276 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T10:14:31,276 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T10:14:31,276 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T10:14:31,276 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/5ca0a2922bd1476ab91ded3e7a1f31fc/tshandler.py", line 4, in <module>
+2023-04-14T10:14:31,276 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from E2FGVI.test import setup, main_worker
+2023-04-14T10:14:39,995 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:14:39,997 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:14:39,997 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]6505
+2023-04-14T10:14:39,997 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:14:39,997 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:14:39,998 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:14:40,004 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:14:40,005 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:14:40,005 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:14:40,005 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:14:40,006 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:14:40,006 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:14:40,006 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:14:40,006 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:14:40,006 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:14:40,006 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:14:40,006 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:14:40,006 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:14:40,007 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T10:14:40,007 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T10:14:40,007 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T10:14:40,007 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/5ca0a2922bd1476ab91ded3e7a1f31fc/tshandler.py", line 4, in <module>
+2023-04-14T10:14:53,710 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:14:53,712 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:14:53,712 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]6539
+2023-04-14T10:14:53,712 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:14:53,712 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:14:53,713 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:14:53,719 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:14:53,720 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:14:53,720 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:14:53,720 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:14:53,720 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:14:53,720 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:14:53,720 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:14:53,720 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:14:53,720 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:14:53,721 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:14:53,721 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:14:53,721 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:14:53,721 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T10:14:53,721 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T10:14:53,721 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T10:14:53,721 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/5ca0a2922bd1476ab91ded3e7a1f31fc/tshandler.py", line 4, in <module>
+2023-04-14T10:14:53,721 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from E2FGVI.test import setup, main_worker
+2023-04-14T10:14:53,721 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ModuleNotFoundError: No module named 'E2FGVI'
+2023-04-14T10:15:15,488 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:15:15,490 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:15:15,490 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]6585
+2023-04-14T10:15:15,490 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:15:15,490 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:15:15,491 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:15:15,504 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:15:15,505 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:15:15,505 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:15:15,505 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:15:15,505 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:15:15,505 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:15:15,505 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:15:15,505 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:15:15,505 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:15:15,505 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:15:15,505 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:15:15,506 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:15:15,506 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T10:15:15,506 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T10:15:15,506 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T10:15:15,506 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/5ca0a2922bd1476ab91ded3e7a1f31fc/tshandler.py", line 4, in <module>
+2023-04-14T10:15:15,506 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from E2FGVI.test import setup, main_worker
+2023-04-14T10:15:15,506 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ModuleNotFoundError: No module named 'E2FGVI'
+2023-04-14T10:15:50,196 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:15:50,198 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:15:50,198 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]6654
+2023-04-14T10:15:50,198 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:15:50,198 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:15:50,199 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:15:50,210 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:15:50,211 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:15:50,211 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:15:50,211 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:15:50,211 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:15:50,211 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:15:50,211 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:15:50,211 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:15:50,211 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:15:50,211 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:15:50,211 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:15:50,211 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:15:50,211 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T10:15:50,211 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T10:15:50,212 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T10:15:50,212 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/5ca0a2922bd1476ab91ded3e7a1f31fc/tshandler.py", line 4, in <module>
+2023-04-14T10:15:50,212 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from E2FGVI.test import setup, main_worker
+2023-04-14T10:15:50,212 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ModuleNotFoundError: No module named 'E2FGVI'
+2023-04-14T10:15:50,212 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-14T10:15:50,212 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - During handling of the above exception, another exception occurred:
+2023-04-14T10:15:50,212 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-14T10:32:36,729 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:32:36,731 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:32:36,731 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]7808
+2023-04-14T10:32:36,731 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:32:36,731 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:32:36,738 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:32:36,750 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:32:36,815 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:32:36,816 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:32:36,816 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:32:36,816 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:32:36,816 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:32:36,816 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:32:36,817 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:32:36,817 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:32:36,817 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:32:36,817 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:32:36,817 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:32:36,818 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T10:32:36,818 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T10:32:36,818 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T10:32:36,818 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/2342c0a12521466eb642fd7e3eb4af20/tshandler.py", line 5, in <module>
+2023-04-14T10:32:36,818 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from E2FGVI.test import setup, main_worker
+2023-04-14T10:32:36,818 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ModuleNotFoundError: No module named 'E2FGVI'
+2023-04-14T10:32:36,819 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-14T10:32:36,819 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - During handling of the above exception, another exception occurred:
+2023-04-14T10:32:36,819 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-14T10:32:36,819 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:32:36,819 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 221, in <module>
+2023-04-14T10:32:36,819 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     worker.run_server()
+2023-04-14T10:32:36,820 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in run_server
+2023-04-14T10:32:36,820 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2023-04-14T10:32:36,820 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 154, in handle_connection
+2023-04-14T10:32:36,820 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2023-04-14T10:32:36,821 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 118, in load_model
+2023-04-14T10:32:36,821 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service = model_loader.load(
+2023-04-14T10:32:36,821 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 102, in load
+2023-04-14T10:32:36,822 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = self._load_default_handler(handler)
+2023-04-14T10:32:36,822 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 151, in _load_default_handler
+2023-04-14T10:32:36,822 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name, "ts.torch_handler")
+2023-04-14T10:32:36,822 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:32:36,822 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:32:36,822 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:32:36,823 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:32:36,823 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 972, in _find_and_load_unlocked
+2023-04-14T10:32:36,823 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T10:32:36,823 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:32:36,823 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:32:36,823 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+2023-04-14T10:32:36,824 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ModuleNotFoundError: No module named 'ts.torch_handler.tshandler'
+2023-04-14T10:32:38,527 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:32:38,529 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:32:38,529 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]7857
+2023-04-14T10:32:38,529 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:32:38,529 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:32:38,530 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:32:38,537 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:32:38,600 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:32:38,600 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:32:38,600 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:32:38,601 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:32:38,601 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:32:38,601 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:32:38,601 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:32:38,601 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:32:38,601 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:32:38,601 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:32:38,601 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:32:38,602 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T10:32:38,602 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T10:32:38,602 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T10:32:40,292 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:32:40,294 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:32:40,294 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]7876
+2023-04-14T10:32:40,294 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:32:40,295 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:32:40,295 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:32:40,301 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:32:40,364 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:32:40,364 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:32:40,364 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:32:40,364 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:32:40,365 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:32:40,365 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:32:40,365 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:32:40,365 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:32:40,365 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:32:40,365 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:32:40,365 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:32:40,365 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T10:32:43,059 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:32:43,062 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:32:43,062 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]7939
+2023-04-14T10:32:43,062 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:32:43,062 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:32:43,063 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:32:43,069 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:32:43,132 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:32:43,132 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:32:43,133 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:32:43,133 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:32:43,133 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:32:43,134 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:32:43,134 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:32:43,134 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:32:43,134 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:32:43,134 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:32:43,134 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:32:46,829 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:32:46,832 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:32:46,832 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]8009
+2023-04-14T10:32:46,832 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:32:46,832 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:32:46,833 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:32:46,839 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:32:46,905 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:32:46,905 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:32:46,905 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:32:46,905 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:32:46,905 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:32:46,905 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:32:46,905 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:32:46,905 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:32:46,905 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:32:46,906 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:32:46,906 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:32:46,906 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T10:32:46,906 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T10:32:46,906 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T10:32:46,906 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/2342c0a12521466eb642fd7e3eb4af20/tshandler.py", line 5, in <module>
+2023-04-14T10:32:52,608 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:32:52,610 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:32:52,610 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]8095
+2023-04-14T10:32:52,610 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:32:52,610 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:32:52,611 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:32:52,617 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:32:52,683 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:32:52,684 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:32:52,684 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:32:52,684 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:32:52,684 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:32:52,684 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:32:52,684 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:32:52,685 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:32:52,685 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:32:52,685 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:32:52,685 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:32:52,685 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T10:32:52,685 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T10:33:14,670 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:33:14,671 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:33:14,672 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]8436
+2023-04-14T10:33:14,672 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:33:14,672 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:33:14,678 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:33:14,693 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:33:14,757 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:33:14,757 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:33:14,758 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:33:14,758 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:33:14,758 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:33:14,758 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:33:14,758 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:33:14,759 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:33:14,759 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:33:14,759 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:33:14,759 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:33:14,760 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T10:33:14,760 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T10:33:14,760 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T10:33:14,760 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/88d4ba73569e49958c973cda80dde64c/tshandler.py", line 5, in <module>
+2023-04-14T10:33:14,760 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     from E2FGVI.test import setup, main_worker
+2023-04-14T10:33:14,761 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ModuleNotFoundError: No module named 'E2FGVI'
+2023-04-14T10:33:14,761 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-14T10:33:14,761 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - During handling of the above exception, another exception occurred:
+2023-04-14T10:33:14,761 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-14T10:33:14,761 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:33:14,761 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 221, in <module>
+2023-04-14T10:33:14,761 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     worker.run_server()
+2023-04-14T10:33:14,762 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in run_server
+2023-04-14T10:33:14,762 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
+2023-04-14T10:33:14,762 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 154, in handle_connection
+2023-04-14T10:33:14,763 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
+2023-04-14T10:33:14,763 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 118, in load_model
+2023-04-14T10:33:14,763 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service = model_loader.load(
+2023-04-14T10:33:14,763 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 102, in load
+2023-04-14T10:33:14,764 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = self._load_default_handler(handler)
+2023-04-14T10:33:14,764 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 151, in _load_default_handler
+2023-04-14T10:33:14,764 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name, "ts.torch_handler")
+2023-04-14T10:33:14,764 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:33:14,764 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:33:14,764 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:33:14,764 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:33:14,764 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 972, in _find_and_load_unlocked
+2023-04-14T10:33:14,765 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T10:33:14,765 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:33:14,765 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:33:14,765 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+2023-04-14T10:33:14,766 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - ModuleNotFoundError: No module named 'ts.torch_handler.tshandler'
+2023-04-14T10:33:16,475 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:33:16,477 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:33:16,477 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]8495
+2023-04-14T10:33:16,477 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:33:16,477 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:33:16,478 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:33:16,484 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:33:16,548 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:33:16,549 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:33:16,549 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:33:16,549 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:33:16,549 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:33:16,549 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:33:16,549 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:33:16,550 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:33:16,550 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:33:16,550 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:33:16,550 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:33:18,254 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:33:18,256 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:33:18,257 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]8517
+2023-04-14T10:33:18,257 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:33:18,257 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:33:18,258 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:33:18,264 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:33:18,328 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:33:18,328 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:33:18,328 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:33:18,328 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:33:18,328 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:33:18,328 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:33:18,329 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:33:18,329 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:33:18,329 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:33:18,329 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:33:18,329 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:33:18,329 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T10:33:21,031 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:33:21,034 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:33:21,034 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]8542
+2023-04-14T10:33:21,034 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:33:21,034 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:33:21,035 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:33:21,041 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:33:21,102 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:33:21,102 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:33:21,102 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:33:21,103 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:33:21,103 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:33:21,103 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:33:21,103 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:33:21,103 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:33:21,104 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:33:21,104 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:33:21,104 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:33:24,808 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-14T10:33:24,812 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-14T10:33:24,812 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]8575
+2023-04-14T10:33:24,812 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-14T10:33:24,812 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-14T10:33:24,813 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-14T10:33:24,821 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-14T10:33:24,896 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
+2023-04-14T10:33:24,896 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-14T10:33:24,896 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 100, in load
+2023-04-14T10:33:24,896 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module, function_name = self._load_handler_file(handler)
+2023-04-14T10:33:24,897 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 145, in _load_handler_file
+2023-04-14T10:33:24,897 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     module = importlib.import_module(module_name)
+2023-04-14T10:33:24,897 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/importlib/__init__.py", line 127, in import_module
+2023-04-14T10:33:24,897 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _bootstrap._gcd_import(name[level:], package, level)
+2023-04-14T10:33:24,897 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+2023-04-14T10:33:24,897 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+2023-04-14T10:33:24,897 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+2023-04-14T10:33:24,897 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+2023-04-14T10:33:24,897 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+2023-04-14T10:33:24,897 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+2023-04-14T10:33:24,897 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/88d4ba73569e49958c973cda80dde64c/tshandler.py", line 5, in <module>
