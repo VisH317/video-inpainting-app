@@ -2,9 +2,8 @@ import torch
 import argparse
 from ts.torch_handler.base_handler import BaseHandler
 # custom handler for torchserve
-from E2FGVI.test import setup, main_worker
-from mask import mask_setup, mask
 import zipfile
+import os
 
 class InpaintHandler(BaseHandler):
 
@@ -24,6 +23,10 @@ class InpaintHandler(BaseHandler):
 
         with zipfile.ZipFile(model_dir + "/server.zip", "r") as zip_ref:
             zip_ref.extractall(model_dir)
+
+        print("LISTING DIR: ", os.listdir("./server"))
+        from server.E2FGVI.test import setup
+        from server.mask import mask_setup
 
         self.mask_weights = 'cp/SiamMask_DAVIS.pth'
         self.inpaint_weights = 'E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth'
@@ -47,6 +50,10 @@ class InpaintHandler(BaseHandler):
 
     def inference(self, data, context):
         # data params: video (mp4), x, y, w, h (bounding box to inpaint)
+        print("LISTING DIR: ", os.listdir())
+        from server.E2FGVI.test import main_worker
+        from server.mask import mask
+
         args = argparse.Namespace()
         args.resume = 'cp/SiamMask_DAVIS.pth'
         args.mask_dilation = 32
@@ -68,6 +75,6 @@ class InpaintHandler(BaseHandler):
         args.neighbor_stride = 5
         args.savefps = 24
 
-        out = main_worker(args)
+        out = main_worker(self.model, self.size, args, self.device)
 
         return out

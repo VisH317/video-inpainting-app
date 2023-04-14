@@ -12,22 +12,22 @@ from PIL import Image
 from os import makedirs
 from os.path import join, isdir, isfile
 
-from get_mask.utils.log_helper import init_log, add_file_handler
-from get_mask.utils.load_helper import load_pretrain
-from get_mask.utils.bbox_helper import get_axis_aligned_bbox, cxy_wh_2_rect
-from get_mask.utils.benchmark_helper import load_dataset, dataset_zoo
+from .utils.log_helper import init_log, add_file_handler
+from .utils.load_helper import load_pretrain
+from .utils.bbox_helper import get_axis_aligned_bbox, cxy_wh_2_rect
+from .utils.benchmark_helper import load_dataset, dataset_zoo
 
 import torch
 from torch.autograd import Variable
 import torch.nn.functional as F
 
-import get_mask.models as models
+from . import models
 
-from get_mask.utils.anchors import Anchors
-from get_mask.utils.tracker_config import TrackerConfig
+from .utils.anchors import Anchors
+from .utils.tracker_config import TrackerConfig
 
-from get_mask.utils.config_helper import load_config
-from get_mask.utils.pyvotkit.region import vot_overlap, vot_float2str
+from .utils.config_helper import load_config
+from .utils.pyvotkit.region import vot_overlap, vot_float2str
 
 thrs = np.arange(0.3, 0.5, 0.05)
 

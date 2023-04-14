@@ -1,2 +1,9 @@
 DAVIS_demo
 results
+server/inpaint.mar
+server/cp/SiamMask_DAVIS.pth
+server/server.zip
+server/server.zip
+server.zip
+*.zip
+*.pth

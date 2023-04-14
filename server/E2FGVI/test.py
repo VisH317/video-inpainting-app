@@ -17,32 +17,32 @@ import logging
 
 dynamo.config.log_level = logging.INFO
 
-from core.utils import to_tensors
+from .core.utils import to_tensors
 
-parser = argparse.ArgumentParser(description="E2FGVI")
-parser.add_argument("-v", "--video", type=str, required=True)
-parser.add_argument("-c", "--ckpt", type=str, required=True)
-parser.add_argument("-m", "--mask", type=str, required=True)
-parser.add_argument("--model", type=str, choices=['e2fgvi', 'e2fgvi_hq'])
-parser.add_argument("--step", type=int, default=10)
-parser.add_argument("--num_ref", type=int, default=-1)
-parser.add_argument("--neighbor_stride", type=int, default=5)
-parser.add_argument("--savefps", type=int, default=24)
+# parser = argparse.ArgumentParser(description="E2FGVI")
+# parser.add_argument("-v", "--video", type=str, required=True)
+# parser.add_argument("-c", "--ckpt", type=str, required=True)
+# parser.add_argument("-m", "--mask", type=str, required=True)
+# parser.add_argument("--model", type=str, choices=['e2fgvi', 'e2fgvi_hq'])
+# parser.add_argument("--step", type=int, default=10)
+# parser.add_argument("--num_ref", type=int, default=-1)
+# parser.add_argument("--neighbor_stride", type=int, default=5)
+# parser.add_argument("--savefps", type=int, default=24)
 
-# args for e2fgvi_hq (which can handle videos with arbitrary resolution)
-parser.add_argument("--set_size", action='store_true', default=False)
-parser.add_argument("--width", type=int)
-parser.add_argument("--height", type=int)
+# # args for e2fgvi_hq (which can handle videos with arbitrary resolution)
+# parser.add_argument("--set_size", action='store_true', default=False)
+# parser.add_argument("--width", type=int)
+# parser.add_argument("--height", type=int)
 
-args = parser.parse_args()
+# args = parser.parse_args()
 # new_args = args.Namespace()
 # new_args.model = "e2fgvi_hq"
 
 
-ref_length = args.step  # ref_step
-num_ref = args.num_ref
-neighbor_stride = args.neighbor_stride
-default_fps = args.savefps
+ref_length = None  # ref_step
+num_ref = None
+neighbor_stride = None
+default_fps = None
 
 
 # sample reference frames from the whole video
@@ -117,9 +117,6 @@ def resize_frames(frames, size=None):
 # size = None
 
 def setup(args):
-    global device
-    global model
-    global size
     # set up models
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -143,7 +140,17 @@ def setup(args):
     return opt_model, size
 
 
-def main_worker(model, size):
+def main_worker(model, size, args, device):
+    global num_ref
+    global default_fps
+    global neighbor_stride
+    global ref_length
+
+    num_ref = args.num_ref
+    default_fps = args.savefps
+    neighbor_stride = args.neighbor_stride
+    ref_length = args.step
+    
     # set up models
 
     # prepare datset
@@ -233,7 +240,7 @@ def main_worker(model, size):
     stream.pix_fmt = 'yuv444p'
     stream.options = {'crf': '17'}
     for f in range(video_length):
-        # comp = comp_frames[f].astype(np.uint8)
+        comp = comp_frames[f].astype(np.uint8)
         # writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
         frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
         packet = stream.encode(frame)
