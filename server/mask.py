@@ -93,11 +93,6 @@ def mask_setup(args):
     opt_siammask = torch.compile(siammask)
     return opt_siammask
 
-# if __name__=="__main__":
-#     args = argparse.Namespace()
-#     args.resume = 'cp/SiamMask_DAVIS.pth'
-#     args.mask_dilation = 32
-#     mask_setup(args)
 
 def mask(args):
     # Setup device
@@ -164,3 +159,9 @@ def mask(args):
     fps = totalf / toc
     print('SiamMask Time: {:02.1f}s Speed: {:3.1f}fps (with visulization!)'.format(toc, fps))
     return ims, masks
+
+# if __name__=="__main__":
+#     args = argparse.Namespace()
+#     args.resume = 'cp/SiamMask_DAVIS.pth'
+#     args.mask_dilation = 32
+#     mask_setup(args)

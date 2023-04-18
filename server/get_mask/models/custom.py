@@ -21,6 +21,7 @@ class ResDownS(nn.Module):
                 nn.Conv2d(inplane, outplane, kernel_size=1, bias=False),
                 nn.BatchNorm2d(outplane))
 
+    @torch.compile
     def forward(self, x):
         x = self.downsample(x)
         if x.size(3) < 20:
@@ -38,11 +39,13 @@ class ResDown(Features):
 
         self.downsample = ResDownS(1024, 256)
 
+    @torch.compile
     def forward(self, x):
         output = self.features(x)
         p3 = self.downsample(output[-1])
         return p3
 
+    @torch.compile
     def forward_all(self, x):
         output = self.features(x)
         p3 = self.downsample(output[-1])
@@ -63,6 +66,7 @@ class UP(RPN):
         self.cls = DepthCorr(feature_in, feature_out, self.cls_output)
         self.loc = DepthCorr(feature_in, feature_out, self.loc_output)
 
+    @torch.compile
     def forward(self, z_f, x_f):
         cls = self.cls(z_f, x_f)
         loc = self.loc(z_f, x_f)
@@ -75,6 +79,7 @@ class MaskCorr(Mask):
         self.oSz = oSz
         self.mask = DepthCorr(256, 256, self.oSz**2)
 
+    @torch.compile
     def forward(self, z, x):
         return self.mask(z, x)
 
@@ -111,6 +116,7 @@ class Refine(nn.Module):
         self.post1 = nn.Conv2d(16, 4, 3, padding=1)
         self.post2 = nn.Conv2d(4, 1, 3, padding=1)
 
+    @torch.compile
     def forward(self, f, corr_feature, pos=None):
         p0 = torch.nn.functional.pad(f[0], [16,16,16,16])[:, :, 4*pos[0]:4*pos[0]+60, 4*pos[1]:4*pos[1]+60]
         p1 = torch.nn.functional.pad(f[1], [8,8,8,8])[:, :, 2*pos[0]:2*pos[0]+30, 2*pos[1]:2*pos[1]+30]
@@ -134,17 +140,21 @@ class Custom(SiamMask):
         self.mask_model = MaskCorr()
         self.refine_model = Refine()
 
+    @torch.compile
     def refine(self, f, pos=None):
         return self.refine_model(f, pos)
 
+    @torch.compile
     def template(self, template):
         self.zf = self.features(template)
 
+    @torch.compile
     def track(self, search):
         search = self.features(search)
         rpn_pred_cls, rpn_pred_loc = self.rpn(self.zf, search)
         return rpn_pred_cls, rpn_pred_loc
 
+    @torch.compile
     def track_mask(self, search):
         self.feature, self.search = self.features.forward_all(search)
         rpn_pred_cls, rpn_pred_loc = self.rpn(self.zf, self.search)
@@ -152,6 +162,7 @@ class Custom(SiamMask):
         pred_mask = self.mask_model.mask.head(self.corr_feature)
         return rpn_pred_cls, rpn_pred_loc, pred_mask
 
+    @torch.compile
     def track_refine(self, pos):
         pred_mask = self.refine_model(self.feature, self.corr_feature, pos=pos)
         return pred_mask
