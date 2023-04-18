@@ -108,7 +108,7 @@ def read_frame_from_videos(args):
 # resize frames
 def resize_frames(frames, size=None):
     if size is not None:
-        frames = [f.resize(size) for f in frames]
+        frames = [f.resize(int(size)) for f in frames]
     else:
         size = frames[0].size
     return frames, size
@@ -161,7 +161,7 @@ def main_worker(model, size, args, device):
     # )
     #frames = read_frame_from_videos(args)
     frames = args.frames
-    frames, size = resize_frames(frames, size)
+    frames, size = resize_frames(frames)
     h, w = size[1], size[0]
     video_length = len(frames)
     imgs = to_tensors()(frames).unsqueeze(0) * 2 - 1

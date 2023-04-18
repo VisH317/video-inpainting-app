@@ -6,6 +6,7 @@ import zipfile
 import os
 import subprocess
 import io
+import sys
 
 class InpaintHandler(BaseHandler):
 
@@ -40,7 +41,9 @@ class InpaintHandler(BaseHandler):
         args = argparse.Namespace()
         args.resume = './server/cp/SiamMask_DAVIS.pth'
         args.mask_dilation = 32
-        self.siammask = mask_setup(args)
+        siammask, cfg = mask_setup(args)
+        self.siammask = siammask
+        self.cfg = cfg
 
         # inpaint setup args
         args.model = "e2fgvi_hq"
@@ -55,11 +58,11 @@ class InpaintHandler(BaseHandler):
 
     def preprocess(self, model_input):
         preprocessed_input = {
-            "data": io.BytesIO(model_input[0]),
-            "x": int.from_bytes(model_input[1]),
-            "y": int.from_bytes(model_input[2]),
-            "w": int.from_bytes(model_input[3]),
-            "h": int.from_bytes(model_input[4]),
+            "data": io.BytesIO(model_input[0]['data']),
+            "x": int.from_bytes(model_input[0]['x'], byteorder=sys.byteorder),
+            "y": int.from_bytes(model_input[0]['y'], byteorder=sys.byteorder),
+            "w": int.from_bytes(model_input[0]['w'], byteorder=sys.byteorder),
+            "h": int.from_bytes(model_input[0]['h'], byteorder=sys.byteorder),
         }
 
         return preprocessed_input
@@ -74,13 +77,13 @@ class InpaintHandler(BaseHandler):
         args = argparse.Namespace()
         args.resume = 'cp/SiamMask_DAVIS.pth'
         args.mask_dilation = 32
-        args.x = int(int(data.x)*256/330)
-        args.y = int(int(data.y)*256/590)
-        args.w = int(int(data.w)*256/330)
-        args.h = int(int(data.h)*256/590)
-        args.data = io.BytesIO(data.data)
+        args.x = int(int(data['x'])*256/330)
+        args.y = int(int(data['y'])*256/590)
+        args.w = int(int(data['w'])*256/330)
+        args.h = int(int(data['h'])*256/590)
+        args.data = data['data']
 
-        ims, masks = mask(args)
+        ims, masks = mask(args, self.siammask, self.cfg)
 
         # setup inpainting args
         args = argparse.Namespace()

@@ -75,7 +75,7 @@ def get_frames_old (video_name):
 
 def get_frames(video_file):
     print("video file: ", video_file, flush=True)
-    f = av.open(video_file.file)
+    f = av.open(video_file, 'r', format="mp4")
     for frame in f.decode(video=0):
         yield cv2.resize(cv2.cvtColor(np.array(frame.to_image()), cv2.COLOR_RGB2BGR), [256,256])
 
@@ -91,10 +91,10 @@ def mask_setup(args):
     print("loading")
     siammask = load_pretrain(siammask, args.resume)
     opt_siammask = torch.compile(siammask)
-    return opt_siammask
+    return opt_siammask, cfg
 
 
-def mask(args):
+def mask(args, siammask, cfg):
     # Setup device
     
 
