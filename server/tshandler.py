@@ -4,6 +4,7 @@ from ts.torch_handler.base_handler import BaseHandler
 # custom handler for torchserve
 import zipfile
 import os
+import subprocess
 
 class InpaintHandler(BaseHandler):
 
@@ -24,6 +25,9 @@ class InpaintHandler(BaseHandler):
         with zipfile.ZipFile(model_dir + "/server.zip", "r") as zip_ref:
             zip_ref.extractall(model_dir)
 
+        # process = subprocess.call(["sudo", "./server/get_mask/make.sh"], shell=True)
+        # process.wait()
+
         print("LISTING DIR: ", os.listdir("./server"))
         from server.E2FGVI.test import setup
         from server.mask import mask_setup
@@ -35,7 +39,7 @@ class InpaintHandler(BaseHandler):
         args = argparse.Namespace()
         args.resume = 'cp/SiamMask_DAVIS.pth'
         args.mask_dilation = 32
-        siammask = mask_setup(args)
+        self.siammask = mask_setup(args)
 
         # inpaint setup args
         args.model = "e2fgvi_hq"

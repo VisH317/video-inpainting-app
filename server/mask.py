@@ -54,7 +54,7 @@ def mask_setup(args):
     print("loading")
     siammask = load_pretrain(siammask, args.resume)
     opt_siammask = torch.compile(siammask)
-    return siammask
+    return opt_siammask
 
 def mask(args):
     # Setup device
