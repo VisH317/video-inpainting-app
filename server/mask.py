@@ -9,6 +9,43 @@ from .get_mask.test import *
 from .get_mask.models.custom import Custom
 import cv2
 import glob
+import json
+
+def local_load_config(args):
+    # assert os.path.exists(args.config), '"{}" not exists'.format(args.config)
+    # config = json.load(open("./get_mask/experiments/siammask/config_davis.json"))
+    config = {
+        "network": {
+            "arch": "Custom"
+        },
+        "hp": {
+            "instance_size": 255,
+            "base_size": 8,
+            "out_size": 120,
+            "seg_thr": 0.35,
+            "penalty_k": 0.04,
+            "window_influence": 0.4,
+            "lr": 1.0
+        },
+        "anchors": {
+            "stride": 8,
+            "ratios": [0.33, 0.5, 1, 2, 3],
+            "scales": [8],
+            "round_dight": 0
+        }
+    }
+
+    # deal with network
+    if 'network' not in config:
+        print('Warning: network lost in config. This will be error in next version')
+
+        config['network'] = {}
+
+        if not args.arch:
+            raise Exception('no arch provided')
+    args.arch = config['network']['arch']
+
+    return config
 
 
 def get_frames_old (video_name):
@@ -43,18 +80,24 @@ def get_frames(video_file):
         yield cv2.resize(cv2.cvtColor(np.array(frame.to_image()), cv2.COLOR_RGB2BGR), [256,256])
 
 def mask_setup(args):
-    args.config = 'get_mask/experiments/siammask/config_davis.json'
+    args.config = "./get_mask/experiments/siammask/config_davis.json"
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     torch.backends.cudnn.benchmark = True
 
     # Setup Model
-    cfg = load_config(args)
+    cfg = local_load_config(args)
     siammask = Custom(anchors=cfg['anchors'])
-    assert isfile(args.resume), '{} is not a valid file'.format(args.resume)
+    # assert isfile(args.resume), '{} is not a valid file'.format(args.resume)
     print("loading")
     siammask = load_pretrain(siammask, args.resume)
     opt_siammask = torch.compile(siammask)
     return opt_siammask
+
+# if __name__=="__main__":
+#     args = argparse.Namespace()
+#     args.resume = 'cp/SiamMask_DAVIS.pth'
+#     args.mask_dilation = 32
+#     mask_setup(args)
 
 def mask(args):
     # Setup device

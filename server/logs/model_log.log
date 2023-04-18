@@ -1,57 +1,20 @@
-2023-04-17T21:12:39,622 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
-2023-04-17T21:12:39,624 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
-2023-04-17T21:12:39,624 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]9998
-2023-04-17T21:12:39,624 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
-2023-04-17T21:12:39,625 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
-2023-04-17T21:12:39,631 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
-2023-04-17T21:12:39,644 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
-2023-04-17T21:12:41,459 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - LISTING DIR:  ['.gitignore', 'mask.py', 'tshandler.py', 'davis.py', 'predict.py', '.dockerignore', 'image', 'lib', 'demo_retarget.py', 'cp', 'model.py', 'E2FGVI', 'models', 'train_git.py', 'cog.yaml', 'test.py', 'get_mask', 'Dockerfile', 'serverREADME.md', 'requirements.txt', 'install.sh', 'server.py', 'logs', 'inpaint.py']
-2023-04-17T21:12:41,460 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
-2023-04-17T21:12:41,460 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
-2023-04-17T21:12:41,460 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 221, in <module>
-2023-04-17T21:12:41,460 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     worker.run_server()
-2023-04-17T21:12:41,461 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in run_server
-2023-04-17T21:12:41,461 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
-2023-04-17T21:12:41,462 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 154, in handle_connection
-2023-04-17T21:12:41,462 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service, result, code = self.load_model(msg)
-2023-04-17T21:12:41,462 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 118, in load_model
-2023-04-17T21:12:41,462 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     service = model_loader.load(
-2023-04-17T21:12:41,463 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_loader.py", line 135, in load
-2023-04-17T21:12:41,463 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     initialize_fn(service.context)
-2023-04-17T21:12:41,463 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/abc95aaa6e0b4b84aee4651c120de02d/tshandler.py", line 42, in initialize
-2023-04-17T21:12:41,463 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.siammask = mask_setup(args)
-2023-04-17T21:12:41,463 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/abc95aaa6e0b4b84aee4651c120de02d/server/mask.py", line 51, in mask_setup
-2023-04-17T21:12:41,463 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     cfg = load_config(args)
-2023-04-17T21:12:41,463 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/abc95aaa6e0b4b84aee4651c120de02d/server/get_mask/utils/config_helper.py", line 11, in load_config
-2023-04-17T21:12:41,464 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     assert exists(args.config), '"{}" not exists'.format(args.config)
-2023-04-17T21:12:41,464 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - AssertionError: "get_mask/experiments/siammask/config_davis.json" not exists
-2023-04-17T21:12:43,190 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
-2023-04-17T21:12:43,193 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
-2023-04-17T21:12:43,193 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]10062
-2023-04-17T21:12:43,193 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
-2023-04-17T21:12:43,193 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
-2023-04-17T21:12:43,194 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
-2023-04-17T21:12:43,199 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
-2023-04-17T21:12:45,023 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - LISTING DIR:  ['.gitignore', 'mask.py', 'tshandler.py', '__pycache__', 'davis.py', 'predict.py', '.dockerignore', 'image', 'lib', 'demo_retarget.py', 'cp', 'model.py', 'E2FGVI', 'models', 'train_git.py', 'cog.yaml', 'test.py', 'get_mask', 'Dockerfile', 'serverREADME.md', 'requirements.txt', 'install.sh', 'server.py', 'logs', 'inpaint.py']
-2023-04-17T21:12:45,023 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
-2023-04-17T21:12:45,024 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
-2023-04-17T21:12:45,024 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 221, in <module>
-2023-04-17T21:12:45,024 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     worker.run_server()
-2023-04-17T21:12:45,024 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in run_server
-2023-04-17T21:12:45,025 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
-2023-04-17T21:12:45,025 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 154, in handle_connection
-2023-04-17T21:12:46,743 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
-2023-04-17T21:12:46,745 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
-2023-04-17T21:12:46,746 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]10099
-2023-04-17T21:12:46,746 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
-2023-04-17T21:12:46,746 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
-2023-04-17T21:12:46,747 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
-2023-04-17T21:12:46,756 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
-2023-04-17T21:12:50,984 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - LISTING DIR:  ['.gitignore', 'mask.py', 'tshandler.py', '__pycache__', 'davis.py', 'predict.py', '.dockerignore', 'image', 'lib', 'demo_retarget.py', 'cp', 'model.py', 'E2FGVI', 'models', 'train_git.py', 'cog.yaml', 'test.py', 'get_mask', 'Dockerfile', 'serverREADME.md', 'requirements.txt', 'install.sh', 'server.py', 'logs', 'inpaint.py']
-2023-04-17T21:12:50,985 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend worker process died.
-2023-04-17T21:12:50,985 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
-2023-04-17T21:12:50,985 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 221, in <module>
-2023-04-17T21:12:50,985 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     worker.run_server()
-2023-04-17T21:12:50,985 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 189, in run_server
-2023-04-17T21:12:50,985 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.handle_connection(cl_socket)
-2023-04-17T21:12:50,986 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/model_service_worker.py", line 154, in handle_connection
+2023-04-17T21:35:16,863 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-17T21:35:16,865 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-17T21:35:16,865 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]21470
+2023-04-17T21:35:16,865 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-17T21:35:16,865 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-17T21:35:16,872 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-17T21:35:16,884 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-17T21:35:18,899 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - LISTING DIR:  ['.gitignore', 'mask.py', 'tshandler.py', 'davis.py', 'predict.py', '.dockerignore', 'image', 'lib', 'demo_retarget.py', 'cp', 'model.py', 'E2FGVI', 'models', 'train_git.py', 'cog.yaml', 'test.py', 'get_mask', 'Dockerfile', 'serverREADME.md', 'requirements.txt', 'install.sh', 'server.py', 'logs', 'inpaint.py']
+2023-04-17T21:35:18,899 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Created a temporary directory at /tmp/tmp0t3izpmr
+2023-04-17T21:35:18,899 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Writing /tmp/tmp0t3izpmr/_remote_module_non_scriptable.py
+2023-04-17T21:35:19,765 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - loading
+2023-04-17T21:35:19,765 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-17 21:35:19,764-rk0-load_helper.py# 31] load pretrained model from ./server/cp/SiamMask_DAVIS.pth
+2023-04-17T21:35:19,765 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - load pretrained model from ./server/cp/SiamMask_DAVIS.pth
+2023-04-17T21:35:21,038 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-17 21:35:21,038-rk0-load_helper.py# 25] remove prefix 'module.'
+2023-04-17T21:35:21,038 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - remove prefix 'module.'
+2023-04-17T21:35:21,039 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-17 21:35:21,039-rk0-load_helper.py# 18] used keys:356
+2023-04-17T21:35:21,039 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - used keys:356
+2023-04-17T21:35:21,525 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - load pretrained SPyNet...
+2023-04-17T21:35:21,525 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - load checkpoint from http path: https://download.openmmlab.com/mmediting/restorers/basicvsr/spynet_20210409-c6c1bd09.pth
+2023-04-17T21:35:21,526 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Loading model from: ./server/E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth

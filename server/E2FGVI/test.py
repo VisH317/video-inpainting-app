@@ -14,6 +14,7 @@ import av
 import time
 import torch._dynamo as dynamo
 import logging
+from .model.e2fgvi_hq import InpaintGenerator
 
 dynamo.config.log_level = logging.INFO
 
@@ -130,8 +131,8 @@ def setup(args):
     # print(
     #     f'Loading videos and masks from: {args.video} | INPUT MP4 format: {args.use_mp4}'
     # )
-    net = importlib.import_module('model.' + args.model)
-    model = net.InpaintGenerator().to(device)
+    # net = importlib.import_module('.model.' + args.model)
+    model = InpaintGenerator().to(device)
     data = torch.load(args.ckpt, map_location=device)
     model.load_state_dict(data)
     print(f'Loading model from: {args.ckpt}')

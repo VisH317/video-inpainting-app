@@ -32,12 +32,12 @@ class InpaintHandler(BaseHandler):
         from server.E2FGVI.test import setup
         from server.mask import mask_setup
 
-        self.mask_weights = 'cp/SiamMask_DAVIS.pth'
-        self.inpaint_weights = 'E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth'
+        self.mask_weights = './server/cp/SiamMask_DAVIS.pth'
+        self.inpaint_weights = './server/E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth'
 
         # siammask setup args:
         args = argparse.Namespace()
-        args.resume = 'cp/SiamMask_DAVIS.pth'
+        args.resume = './server/cp/SiamMask_DAVIS.pth'
         args.mask_dilation = 32
         self.siammask = mask_setup(args)
 
