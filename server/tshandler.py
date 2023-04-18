@@ -5,6 +5,7 @@ from ts.torch_handler.base_handler import BaseHandler
 import zipfile
 import os
 import subprocess
+import io
 
 class InpaintHandler(BaseHandler):
 
@@ -52,7 +53,19 @@ class InpaintHandler(BaseHandler):
         self.model = model
         self.size = size
 
-    def inference(self, data, context):
+    def preprocess(self, model_input):
+        preprocessed_input = {
+            "data": io.BytesIO(model_input[0]),
+            "x": int.from_bytes(model_input[1]),
+            "y": int.from_bytes(model_input[2]),
+            "w": int.from_bytes(model_input[3]),
+            "h": int.from_bytes(model_input[4]),
+        }
+
+        return preprocessed_input
+    
+
+    def inference(self, data):
         # data params: video (mp4), x, y, w, h (bounding box to inpaint)
         print("LISTING DIR: ", os.listdir())
         from server.E2FGVI.test import main_worker
@@ -65,7 +78,7 @@ class InpaintHandler(BaseHandler):
         args.y = int(int(data.y)*256/590)
         args.w = int(int(data.w)*256/330)
         args.h = int(int(data.h)*256/590)
-        args.data = data.data
+        args.data = io.BytesIO(data.data)
 
         ims, masks = mask(args)
 

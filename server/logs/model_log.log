@@ -1,20 +1,30 @@
-2023-04-17T21:35:16,863 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
-2023-04-17T21:35:16,865 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
-2023-04-17T21:35:16,865 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]21470
-2023-04-17T21:35:16,865 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
-2023-04-17T21:35:16,865 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
-2023-04-17T21:35:16,872 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
-2023-04-17T21:35:16,884 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
-2023-04-17T21:35:18,899 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - LISTING DIR:  ['.gitignore', 'mask.py', 'tshandler.py', 'davis.py', 'predict.py', '.dockerignore', 'image', 'lib', 'demo_retarget.py', 'cp', 'model.py', 'E2FGVI', 'models', 'train_git.py', 'cog.yaml', 'test.py', 'get_mask', 'Dockerfile', 'serverREADME.md', 'requirements.txt', 'install.sh', 'server.py', 'logs', 'inpaint.py']
-2023-04-17T21:35:18,899 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Created a temporary directory at /tmp/tmp0t3izpmr
-2023-04-17T21:35:18,899 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Writing /tmp/tmp0t3izpmr/_remote_module_non_scriptable.py
-2023-04-17T21:35:19,765 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - loading
-2023-04-17T21:35:19,765 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-17 21:35:19,764-rk0-load_helper.py# 31] load pretrained model from ./server/cp/SiamMask_DAVIS.pth
-2023-04-17T21:35:19,765 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - load pretrained model from ./server/cp/SiamMask_DAVIS.pth
-2023-04-17T21:35:21,038 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-17 21:35:21,038-rk0-load_helper.py# 25] remove prefix 'module.'
-2023-04-17T21:35:21,038 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - remove prefix 'module.'
-2023-04-17T21:35:21,039 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-17 21:35:21,039-rk0-load_helper.py# 18] used keys:356
-2023-04-17T21:35:21,039 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - used keys:356
-2023-04-17T21:35:21,525 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - load pretrained SPyNet...
-2023-04-17T21:35:21,525 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - load checkpoint from http path: https://download.openmmlab.com/mmediting/restorers/basicvsr/spynet_20210409-c6c1bd09.pth
-2023-04-17T21:35:21,526 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Loading model from: ./server/E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth
+2023-04-18T18:24:33,866 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-18T18:24:33,868 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-18T18:24:33,868 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]7324
+2023-04-18T18:24:33,868 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-18T18:24:33,868 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-18T18:24:33,874 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-18T18:24:33,887 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-18T18:24:35,833 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - LISTING DIR:  ['.gitignore', 'mask.py', 'tshandler.py', 'davis.py', 'predict.py', '.dockerignore', 'image', 'lib', 'demo_retarget.py', 'cp', 'model.py', 'E2FGVI', 'models', 'train_git.py', 'cog.yaml', 'test.py', 'get_mask', 'Dockerfile', 'serverREADME.md', 'requirements.txt', 'install.sh', 'server.py', 'logs', 'inpaint.py']
+2023-04-18T18:24:35,833 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Created a temporary directory at /tmp/tmp0f5y31t_
+2023-04-18T18:24:35,833 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Writing /tmp/tmp0f5y31t_/_remote_module_non_scriptable.py
+2023-04-18T18:24:36,630 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - loading
+2023-04-18T18:24:36,630 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 18:24:36,630-rk0-load_helper.py# 31] load pretrained model from ./server/cp/SiamMask_DAVIS.pth
+2023-04-18T18:24:36,631 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - load pretrained model from ./server/cp/SiamMask_DAVIS.pth
+2023-04-18T18:24:37,698 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 18:24:37,697-rk0-load_helper.py# 25] remove prefix 'module.'
+2023-04-18T18:24:37,698 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - remove prefix 'module.'
+2023-04-18T18:24:37,699 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - used keys:356
+2023-04-18T18:24:37,699 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 18:24:37,699-rk0-load_helper.py# 18] used keys:356
+2023-04-18T18:24:38,148 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - load pretrained SPyNet...
+2023-04-18T18:24:38,149 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - load checkpoint from http path: https://download.openmmlab.com/mmediting/restorers/basicvsr/spynet_20210409-c6c1bd09.pth
+2023-04-18T18:24:38,149 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Loading model from: ./server/E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth
+2023-04-18T18:24:45,358 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend received inference at: 1681856685
+2023-04-18T18:24:45,359 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Invoking custom service failed.
+2023-04-18T18:24:45,359 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-18T18:24:45,359 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/service.py", line 120, in predict
+2023-04-18T18:24:45,359 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     ret = self._entry_point(input_batch, self.context)
+2023-04-18T18:24:45,359 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/torch_handler/base_handler.py", line 330, in handle
+2023-04-18T18:24:45,360 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     data_preprocess = self.preprocess(data)
+2023-04-18T18:24:45,360 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/38dc564bfc0a4aaaab2536af1ced25ee/tshandler.py", line 58, in preprocess
+2023-04-18T18:24:45,360 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     "data": io.BytesIO(model_input["data"]),
+2023-04-18T18:24:45,360 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - TypeError: list indices must be integers or slices, not str
