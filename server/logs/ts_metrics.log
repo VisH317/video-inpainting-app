@@ -1428,3 +1428,13 @@
 2023-04-18T19:43:42,316 - MemoryAvailable.Megabytes:18551.3359375|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681861422
 2023-04-18T19:43:42,316 - MemoryUsed.Megabytes:6590.578125|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681861422
 2023-04-18T19:43:42,317 - MemoryUtilization.Percent:27.6|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681861422
+2023-04-18T19:44:42,321 - CPUUtilization.Percent:33.3|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681861482
+2023-04-18T19:44:42,321 - DiskAvailable.Gigabytes:144.54314041137695|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681861482
+2023-04-18T19:44:42,321 - DiskUsage.Gigabytes:93.62372207641602|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681861482
+2023-04-18T19:44:42,321 - DiskUtilization.Percent:39.3|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681861482
+2023-04-18T19:44:42,321 - GPUMemoryUtilization.Percent:89.453125|#Level:Host,device_id:0|#hostname:DESKTOP-LU4DJEU,timestamp:1681861482
+2023-04-18T19:44:42,321 - GPUMemoryUsed.Megabytes:1832|#Level:Host,device_id:0|#hostname:DESKTOP-LU4DJEU,timestamp:1681861482
+2023-04-18T19:44:42,321 - GPUUtilization.Percent:3|#Level:Host,device_id:0|#hostname:DESKTOP-LU4DJEU,timestamp:1681861482
+2023-04-18T19:44:42,321 - MemoryAvailable.Megabytes:18581.25390625|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681861482
+2023-04-18T19:44:42,322 - MemoryUsed.Megabytes:6559.953125|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681861482
+2023-04-18T19:44:42,322 - MemoryUtilization.Percent:27.5|#Level:Host|#hostname:DESKTOP-LU4DJEU,timestamp:1681861482
