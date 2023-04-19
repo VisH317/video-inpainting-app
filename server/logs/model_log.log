@@ -1,224 +1,224 @@
-2023-04-18T19:42:42,614 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
-2023-04-18T19:42:42,616 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
-2023-04-18T19:42:42,616 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]30523
-2023-04-18T19:42:42,616 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
-2023-04-18T19:42:42,617 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
-2023-04-18T19:42:42,623 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
-2023-04-18T19:42:42,635 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
-2023-04-18T19:42:44,608 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - LISTING DIR:  ['.gitignore', 'mask.py', 'tshandler.py', 'davis.py', 'predict.py', '.dockerignore', 'image', 'lib', 'demo_retarget.py', 'cp', 'model.py', 'E2FGVI', 'models', 'train_git.py', 'cog.yaml', 'test.py', 'get_mask', 'Dockerfile', 'serverREADME.md', 'requirements.txt', 'install.sh', 'server.py', 'logs', 'inpaint.py']
-2023-04-18T19:42:44,608 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Created a temporary directory at /tmp/tmpgdffs3mh
-2023-04-18T19:42:44,609 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Writing /tmp/tmpgdffs3mh/_remote_module_non_scriptable.py
-2023-04-18T19:42:45,384 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - loading
-2023-04-18T19:42:45,384 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:42:45,384-rk0-load_helper.py# 31] load pretrained model from ./server/cp/SiamMask_DAVIS.pth
-2023-04-18T19:42:45,385 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - load pretrained model from ./server/cp/SiamMask_DAVIS.pth
-2023-04-18T19:42:46,443 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:42:46,443-rk0-load_helper.py# 25] remove prefix 'module.'
-2023-04-18T19:42:46,443 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - remove prefix 'module.'
-2023-04-18T19:42:46,444 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:42:46,444-rk0-load_helper.py# 18] used keys:356
-2023-04-18T19:42:46,444 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - used keys:356
-2023-04-18T19:42:46,902 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - load pretrained SPyNet...
-2023-04-18T19:42:46,902 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - load checkpoint from http path: https://download.openmmlab.com/mmediting/restorers/basicvsr/spynet_20210409-c6c1bd09.pth
-2023-04-18T19:42:46,902 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Loading model from: ./server/E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth
-2023-04-18T19:42:47,868 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend received inference at: 1681861367
-2023-04-18T19:42:47,868 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - LISTING DIR:  ['tshandler.py', '__pycache__', 'MAR-INF', 'server', 'server.zip']
-2023-04-18T19:42:47,869 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - args:  Namespace(resume='cp/SiamMask_DAVIS.pth', mask_dilation=32, x=37, y=20, w=10368, h=5799, data=<_io.BytesIO object at 0x7f91f9cabbd0>)
-2023-04-18T19:42:47,869 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - video file:  <_io.BytesIO object at 0x7f91f9cabbd0>
-2023-04-18T19:42:49,151 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:42:49,151] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing template
-2023-04-18T19:42:49,641 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:42:49,641] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing template
-2023-04-18T19:42:50,150 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:42:50,150] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo done tracing template (RETURN_VALUE)
-2023-04-18T19:42:50,156 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:42:50,156] torch._dynamo.output_graph: [INFO] Step 2: calling compiler function debug_wrapper
-2023-04-18T19:42:50,518 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - hola:  79
-2023-04-18T19:42:50,518 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - starting the inference
-2023-04-18T19:42:50,518 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 0
-2023-04-18T19:42:50,518 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - shape: (256, 256, 3)
-2023-04-18T19:42:50,519 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (16005, 16005, 3)
-2023-04-18T19:42:54,324 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:42:54,324] torch._inductor.compile_fx: [INFO] Step 3: torchinductor compiling FORWARDS graph 0
-2023-04-18T19:42:54,390 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:42:54,390] torch._inductor.utils: [WARNING] DeviceCopy in input program
-2023-04-18T19:43:02,884 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:02,884] torch._inductor.compile_fx: [INFO] Step 3: torchinductor done compiling FORWARDS graph 0
-2023-04-18T19:43:02,885 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:02,885] torch._dynamo.output_graph: [INFO] Step 2: done compiler function debug_wrapper
-2023-04-18T19:43:07,719 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:07,719] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing track_mask
-2023-04-18T19:43:08,325 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:08,325] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo done tracing track_mask (RETURN_VALUE)
-2023-04-18T19:43:08,333 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:08,333] torch._dynamo.output_graph: [INFO] Step 2: calling compiler function debug_wrapper
-2023-04-18T19:43:12,969 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:12,969] torch._inductor.compile_fx: [INFO] Step 3: torchinductor compiling FORWARDS graph 1
-2023-04-18T19:43:13,032 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:13,032] torch._inductor.utils: [WARNING] DeviceCopy in input program
-2023-04-18T19:43:21,257 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:21,257] torch._inductor.compile_fx: [INFO] Step 3: torchinductor done compiling FORWARDS graph 1
-2023-04-18T19:43:21,259 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:21,259] torch._dynamo.output_graph: [INFO] Step 2: done compiler function debug_wrapper
-2023-04-18T19:43:21,425 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:21,425] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing track_refine
-2023-04-18T19:43:21,458 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:21,458] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing forward
-2023-04-18T19:43:21,480 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:21,480] torch._dynamo.output_graph: [INFO] Step 2: calling compiler function debug_wrapper
-2023-04-18T19:43:21,539 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:21,539] torch._inductor.compile_fx: [INFO] Step 3: torchinductor compiling FORWARDS graph 2
-2023-04-18T19:43:21,981 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:21,981] torch._inductor.compile_fx: [INFO] Step 3: torchinductor done compiling FORWARDS graph 2
-2023-04-18T19:43:21,982 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:21,981] torch._dynamo.output_graph: [INFO] Step 2: done compiler function debug_wrapper
-2023-04-18T19:43:21,994 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:21,994] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing <graph break in forward>
-2023-04-18T19:43:22,013 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - /home/vish/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:3737: UserWarning: nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.
-2023-04-18T19:43:22,013 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   warnings.warn("nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.")
-2023-04-18T19:43:22,034 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - /home/vish/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:3737: UserWarning: nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.
-2023-04-18T19:43:22,034 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   warnings.warn("nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.")
-2023-04-18T19:43:22,052 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - /home/vish/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:3737: UserWarning: nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.
-2023-04-18T19:43:22,053 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   warnings.warn("nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.")
-2023-04-18T19:43:22,059 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:22,059] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo done tracing <graph break in forward> (RETURN_VALUE)
-2023-04-18T19:43:22,061 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:22,061] torch._dynamo.output_graph: [INFO] Step 2: calling compiler function debug_wrapper
-2023-04-18T19:43:22,081 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - /home/vish/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:3737: UserWarning: nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.
-2023-04-18T19:43:22,082 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   warnings.warn("nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.")
-2023-04-18T19:43:22,108 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - /home/vish/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:3737: UserWarning: nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.
-2023-04-18T19:43:22,108 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   warnings.warn("nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.")
-2023-04-18T19:43:22,154 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - /home/vish/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:3737: UserWarning: nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.
-2023-04-18T19:43:22,154 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   warnings.warn("nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.")
-2023-04-18T19:43:22,361 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:22,361] torch._inductor.compile_fx: [INFO] Step 3: torchinductor compiling FORWARDS graph 3
-2023-04-18T19:43:22,550 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:22,550] torch._inductor.compile_fx: [INFO] Step 3: torchinductor done compiling FORWARDS graph 3
-2023-04-18T19:43:22,550 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:22,550] torch._dynamo.output_graph: [INFO] Step 2: done compiler function debug_wrapper
-2023-04-18T19:43:22,561 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:22,561] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing <graph break in track_refine>
-2023-04-18T19:43:22,700 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:22,700] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing track_refine
-2023-04-18T19:43:22,738 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:22,737] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing forward
-2023-04-18T19:43:22,764 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:22,763] torch._dynamo.output_graph: [INFO] Step 2: calling compiler function debug_wrapper
-2023-04-18T19:43:22,821 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:22,820] torch._inductor.compile_fx: [INFO] Step 3: torchinductor compiling FORWARDS graph 4
-2023-04-18T19:43:23,250 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:23,250] torch._inductor.compile_fx: [INFO] Step 3: torchinductor done compiling FORWARDS graph 4
-2023-04-18T19:43:23,250 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:23,250] torch._dynamo.output_graph: [INFO] Step 2: done compiler function debug_wrapper
-2023-04-18T19:43:23,394 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:23,394] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing track_refine
-2023-04-18T19:43:23,427 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:23,427] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing forward
-2023-04-18T19:43:23,449 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:23,449] torch._dynamo.output_graph: [INFO] Step 2: calling compiler function debug_wrapper
-2023-04-18T19:43:23,505 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:23,505] torch._inductor.compile_fx: [INFO] Step 3: torchinductor compiling FORWARDS graph 5
-2023-04-18T19:43:23,924 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:23,924] torch._inductor.compile_fx: [INFO] Step 3: torchinductor done compiling FORWARDS graph 5
-2023-04-18T19:43:23,924 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:23,924] torch._dynamo.output_graph: [INFO] Step 2: done compiler function debug_wrapper
-2023-04-18T19:43:25,090 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 1
-2023-04-18T19:43:25,090 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - 
-2023-04-18T19:43:25,090 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (32136, 32136, 3)
-2023-04-18T19:43:25,090 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 2
-2023-04-18T19:43:25,090 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (1028, 1028, 3)
-2023-04-18T19:43:25,091 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 3
-2023-04-18T19:43:25,091 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (998, 998, 3)
-2023-04-18T19:43:25,091 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 4
-2023-04-18T19:43:25,091 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (965, 965, 3)
-2023-04-18T19:43:25,091 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 5
-2023-04-18T19:43:25,091 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (950, 950, 3)
-2023-04-18T19:43:25,091 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 6
-2023-04-18T19:43:25,092 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (934, 934, 3)
-2023-04-18T19:43:25,092 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 7
-2023-04-18T19:43:25,092 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (915, 915, 3)
-2023-04-18T19:43:25,092 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 8
-2023-04-18T19:43:25,092 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (908, 908, 3)
-2023-04-18T19:43:25,092 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 9
-2023-04-18T19:43:25,092 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (890, 890, 3)
-2023-04-18T19:43:25,093 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 10
-2023-04-18T19:43:25,093 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (901, 901, 3)
-2023-04-18T19:43:25,093 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 11
-2023-04-18T19:43:25,093 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (904, 904, 3)
-2023-04-18T19:43:25,093 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 13673.861952331
-2023-04-18T19:43:25,093 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - SiamMask Time: 13673.9s Speed: 0.0fps (with visulization!)
-2023-04-18T19:43:25,093 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - NEWMASK:  <PIL.Image.Image image mode=RGB size=256x256 at 0x7F918E36C220>
-2023-04-18T19:43:25,094 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - SIZE:  (256, 256)
-2023-04-18T19:43:25,094 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Start test...
-2023-04-18T19:43:25,102 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   0%|          | 0/16 [00:00<?, ?it/s][2023-04-18 19:43:25,102] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing forward
-2023-04-18T19:43:25,189 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - /home/vish/miniconda3/lib/python3.9/site-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3483.)
-2023-04-18T19:43:25,189 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
-2023-04-18T19:43:25,194 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:25,194] torch._dynamo.output_graph: [INFO] Step 2: calling compiler function debug_wrapper
-2023-04-18T19:43:25,204 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:43:25,204] torch._inductor.compile_fx: [INFO] Step 3: torchinductor compiling FORWARDS graph 6
-2023-04-18T19:43:25,207 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - 
-2023-04-18T19:43:25,208 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   0%|          | 0/16 [00:00<?, ?it/s]
-2023-04-18T19:43:25,216 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Invoking custom service failed.
-2023-04-18T19:43:25,216 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
-2023-04-18T19:43:25,216 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/output_graph.py", line 670, in call_user_compiler
-2023-04-18T19:43:25,216 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     compiled_fn = compiler_fn(gm, self.fake_example_inputs())
-2023-04-18T19:43:25,216 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/debug_utils.py", line 1055, in debug_wrapper
-2023-04-18T19:43:25,217 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     compiled_gm = compiler_fn(gm, example_inputs)
-2023-04-18T19:43:25,217 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/__init__.py", line 1390, in __call__
-2023-04-18T19:43:25,217 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return compile_fx(model_, inputs_, config_patches=self.config)
-2023-04-18T19:43:25,217 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/compile_fx.py", line 455, in compile_fx
-2023-04-18T19:43:25,217 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return aot_autograd(
-2023-04-18T19:43:25,217 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/backends/common.py", line 48, in compiler_fn
-2023-04-18T19:43:25,217 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     cg = aot_module_simplified(gm, example_inputs, **kwargs)
-2023-04-18T19:43:25,217 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_functorch/aot_autograd.py", line 2805, in aot_module_simplified
-2023-04-18T19:43:25,218 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     compiled_fn = create_aot_dispatcher_function(
-2023-04-18T19:43:25,218 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/utils.py", line 163, in time_wrapper
-2023-04-18T19:43:25,218 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     r = func(*args, **kwargs)
-2023-04-18T19:43:25,218 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_functorch/aot_autograd.py", line 2498, in create_aot_dispatcher_function
-2023-04-18T19:43:25,218 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     compiled_fn = compiler_fn(flat_fn, fake_flat_args, aot_config)
-2023-04-18T19:43:25,218 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_functorch/aot_autograd.py", line 1713, in aot_wrapper_dedupe
-2023-04-18T19:43:25,218 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return compiler_fn(flat_fn, leaf_flat_args, aot_config)
-2023-04-18T19:43:25,218 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_functorch/aot_autograd.py", line 1326, in aot_dispatch_base
-2023-04-18T19:43:25,219 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     compiled_fw = aot_config.fw_compiler(fw_module, flat_args_with_views_handled)
-2023-04-18T19:43:25,219 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/utils.py", line 163, in time_wrapper
-2023-04-18T19:43:25,219 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     r = func(*args, **kwargs)
-2023-04-18T19:43:25,221 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/compile_fx.py", line 430, in fw_compiler
-2023-04-18T19:43:25,221 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return inner_compile(
-2023-04-18T19:43:25,221 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/debug_utils.py", line 595, in debug_wrapper
-2023-04-18T19:43:25,221 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     compiled_fn = compiler_fn(gm, example_inputs)
-2023-04-18T19:43:25,221 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/debug.py", line 239, in inner
-2023-04-18T19:43:25,221 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return fn(*args, **kwargs)
-2023-04-18T19:43:25,221 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/contextlib.py", line 79, in inner
-2023-04-18T19:43:25,221 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return func(*args, **kwds)
-2023-04-18T19:43:25,221 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/compile_fx.py", line 177, in compile_fx_inner
-2023-04-18T19:43:25,221 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     compiled_fn = graph.compile_to_fn()
-2023-04-18T19:43:25,222 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/graph.py", line 586, in compile_to_fn
-2023-04-18T19:43:25,222 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return self.compile_to_module().call
-2023-04-18T19:43:25,222 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/utils.py", line 163, in time_wrapper
-2023-04-18T19:43:25,222 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     r = func(*args, **kwargs)
-2023-04-18T19:43:25,222 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/graph.py", line 571, in compile_to_module
-2023-04-18T19:43:25,223 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     code = self.codegen()
-2023-04-18T19:43:25,223 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/graph.py", line 520, in codegen
-2023-04-18T19:43:25,223 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.scheduler = Scheduler(self.buffers)
-2023-04-18T19:43:25,223 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/utils.py", line 163, in time_wrapper
-2023-04-18T19:43:25,223 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     r = func(*args, **kwargs)
-2023-04-18T19:43:25,223 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/scheduler.py", line 605, in __init__
-2023-04-18T19:43:25,223 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     group_fn = self.get_backend(node.get_device()).group_fn
-2023-04-18T19:43:25,223 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/scheduler.py", line 1131, in get_backend
-2023-04-18T19:43:25,224 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.backends[device] = self.create_backend(device)
-2023-04-18T19:43:25,224 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/scheduler.py", line 1118, in create_backend
-2023-04-18T19:43:25,224 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     raise RuntimeError(
-2023-04-18T19:43:25,224 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - RuntimeError: Found NVIDIA GeForce GTX 1050 which is too old to be supported by the triton GPU compiler, which is used as the backend. Triton only supports devices of CUDA Capability >= 7.0, but your device is of CUDA capability 6.1
-2023-04-18T19:43:25,224 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
-2023-04-18T19:43:25,225 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - The above exception was the direct cause of the following exception:
-2023-04-18T19:43:25,225 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
-2023-04-18T19:43:25,225 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
-2023-04-18T19:43:25,225 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/service.py", line 120, in predict
-2023-04-18T19:43:25,225 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     ret = self._entry_point(input_batch, self.context)
-2023-04-18T19:43:25,225 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/torch_handler/base_handler.py", line 333, in handle
-2023-04-18T19:43:25,225 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     output = self.inference(data_preprocess)
-2023-04-18T19:43:25,225 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/22855227c4e942a8a23f916f8f10a60f/tshandler.py", line 108, in inference
-2023-04-18T19:43:25,225 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     out = main_worker(self.model, args, self.device)
-2023-04-18T19:43:25,225 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/22855227c4e942a8a23f916f8f10a60f/server/E2FGVI/test.py", line 205, in main_worker
-2023-04-18T19:43:25,225 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     pred_imgs, _ = model(masked_imgs, len(neighbor_ids))
-2023-04-18T19:43:25,226 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
-2023-04-18T19:43:25,226 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return forward_call(*args, **kwargs)
-2023-04-18T19:43:25,226 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 82, in forward
-2023-04-18T19:43:25,226 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return self.dynamo_ctx(self._orig_mod.forward)(*args, **kwargs)
-2023-04-18T19:43:25,226 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 209, in _fn
-2023-04-18T19:43:25,226 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return fn(*args, **kwargs)
-2023-04-18T19:43:25,226 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 337, in catch_errors
-2023-04-18T19:43:25,226 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return callback(frame, cache_size, hooks)
-2023-04-18T19:43:25,227 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 404, in _convert_frame
-2023-04-18T19:43:25,227 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     result = inner_convert(frame, cache_size, hooks)
-2023-04-18T19:43:25,227 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 104, in _fn
-2023-04-18T19:43:25,227 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return fn(*args, **kwargs)
-2023-04-18T19:43:25,227 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 262, in _convert_frame_assert
-2023-04-18T19:43:25,227 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _compile(
-2023-04-18T19:43:25,227 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/utils.py", line 163, in time_wrapper
-2023-04-18T19:43:25,228 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     r = func(*args, **kwargs)
-2023-04-18T19:43:25,228 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 324, in _compile
-2023-04-18T19:43:25,228 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     out_code = transform_code_object(code, transform)
-2023-04-18T19:43:25,228 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/bytecode_transformation.py", line 445, in transform_code_object
-2023-04-18T19:43:25,228 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     transformations(instructions, code_options)
-2023-04-18T19:43:25,228 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 311, in transform
-2023-04-18T19:43:25,228 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     tracer.run()
-2023-04-18T19:43:25,228 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 1726, in run
-2023-04-18T19:43:25,228 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     super().run()
-2023-04-18T19:43:25,228 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 576, in run
-2023-04-18T19:43:25,228 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     and self.step()
-2023-04-18T19:43:25,229 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 540, in step
-2023-04-18T19:43:25,229 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     getattr(self, inst.opname)(inst)
-2023-04-18T19:43:25,229 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 372, in wrapper
-2023-04-18T19:43:25,229 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.output.compile_subgraph(self, reason=reason)
-2023-04-18T19:43:25,229 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/output_graph.py", line 541, in compile_subgraph
-2023-04-18T19:43:25,229 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.compile_and_call_fx_graph(tx, pass2.graph_output_vars(), root)
-2023-04-18T19:43:25,229 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/output_graph.py", line 588, in compile_and_call_fx_graph
-2023-04-18T19:43:25,229 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     compiled_fn = self.call_user_compiler(gm)
-2023-04-18T19:43:25,229 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/utils.py", line 163, in time_wrapper
-2023-04-18T19:43:25,230 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     r = func(*args, **kwargs)
-2023-04-18T19:43:25,230 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/output_graph.py", line 675, in call_user_compiler
-2023-04-18T19:43:25,230 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     raise BackendCompilerFailed(self.compiler_fn, e) from e
-2023-04-18T19:43:25,231 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - torch._dynamo.exc.BackendCompilerFailed: debug_wrapper raised RuntimeError: Found NVIDIA GeForce GTX 1050 which is too old to be supported by the triton GPU compiler, which is used as the backend. Triton only supports devices of CUDA Capability >= 7.0, but your device is of CUDA capability 6.1
-2023-04-18T19:43:25,231 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
-2023-04-18T19:43:25,231 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Set torch._dynamo.config.verbose=True for more information
-2023-04-18T19:43:25,231 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
-2023-04-18T19:43:25,231 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
-2023-04-18T19:43:25,231 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - You can suppress this exception and fall back to eager by setting:
-2023-04-18T19:43:25,232 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     torch._dynamo.config.suppress_errors = True
+2023-04-18T19:59:54,488 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2023-04-18T19:59:54,490 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Successfully loaded /home/vish/miniconda3/lib/python3.9/site-packages/ts/configs/metrics.yaml.
+2023-04-18T19:59:54,491 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - [PID]23086
+2023-04-18T19:59:54,491 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Torch worker started.
+2023-04-18T19:59:54,491 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Python runtime: 3.9.12
+2023-04-18T19:59:54,497 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2023-04-18T19:59:54,515 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - model_name: inpaint, batchSize: 1
+2023-04-18T19:59:56,480 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - LISTING DIR:  ['.gitignore', 'mask.py', 'tshandler.py', 'davis.py', 'predict.py', '.dockerignore', 'image', 'lib', 'demo_retarget.py', 'cp', 'model.py', 'E2FGVI', 'models', 'train_git.py', 'cog.yaml', 'test.py', 'get_mask', 'Dockerfile', 'config.properties', 'serverREADME.md', 'requirements.txt', 'install.sh', 'server.py', 'logs', 'inpaint.py']
+2023-04-18T19:59:56,480 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Created a temporary directory at /tmp/tmp1qxxys7u
+2023-04-18T19:59:56,480 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Writing /tmp/tmp1qxxys7u/_remote_module_non_scriptable.py
+2023-04-18T19:59:57,262 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - loading
+2023-04-18T19:59:57,262 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:59:57,262-rk0-load_helper.py# 31] load pretrained model from ./server/cp/SiamMask_DAVIS.pth
+2023-04-18T19:59:57,262 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - load pretrained model from ./server/cp/SiamMask_DAVIS.pth
+2023-04-18T19:59:58,312 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:59:58,312-rk0-load_helper.py# 25] remove prefix 'module.'
+2023-04-18T19:59:58,312 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - remove prefix 'module.'
+2023-04-18T19:59:58,313 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 19:59:58,313-rk0-load_helper.py# 18] used keys:356
+2023-04-18T19:59:58,313 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - used keys:356
+2023-04-18T19:59:58,778 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - load pretrained SPyNet...
+2023-04-18T19:59:58,778 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - load checkpoint from http path: https://download.openmmlab.com/mmediting/restorers/basicvsr/spynet_20210409-c6c1bd09.pth
+2023-04-18T19:59:58,779 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Loading model from: ./server/E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth
+2023-04-18T20:00:18,340 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Backend received inference at: 1681862418
+2023-04-18T20:00:18,341 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - LISTING DIR:  ['tshandler.py', '__pycache__', 'MAR-INF', 'server', 'server.zip']
+2023-04-18T20:00:18,341 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - args:  Namespace(resume='cp/SiamMask_DAVIS.pth', mask_dilation=32, x=37, y=20, w=10368, h=5799, data=<_io.BytesIO object at 0x7f7aed4713b0>)
+2023-04-18T20:00:18,341 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - video file:  <_io.BytesIO object at 0x7f7aed4713b0>
+2023-04-18T20:00:19,652 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:19,652] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing template
+2023-04-18T20:00:20,162 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:20,162] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing template
+2023-04-18T20:00:20,695 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:20,694] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo done tracing template (RETURN_VALUE)
+2023-04-18T20:00:20,701 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:20,701] torch._dynamo.output_graph: [INFO] Step 2: calling compiler function debug_wrapper
+2023-04-18T20:00:21,067 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - hola:  79
+2023-04-18T20:00:21,068 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - starting the inference
+2023-04-18T20:00:21,068 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 0
+2023-04-18T20:00:21,068 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - shape: (256, 256, 3)
+2023-04-18T20:00:21,068 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (16005, 16005, 3)
+2023-04-18T20:00:25,069 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:25,069] torch._inductor.compile_fx: [INFO] Step 3: torchinductor compiling FORWARDS graph 0
+2023-04-18T20:00:25,137 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:25,137] torch._inductor.utils: [WARNING] DeviceCopy in input program
+2023-04-18T20:00:33,676 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:33,676] torch._inductor.compile_fx: [INFO] Step 3: torchinductor done compiling FORWARDS graph 0
+2023-04-18T20:00:33,677 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:33,677] torch._dynamo.output_graph: [INFO] Step 2: done compiler function debug_wrapper
+2023-04-18T20:00:38,548 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:38,548] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing track_mask
+2023-04-18T20:00:39,164 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:39,164] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo done tracing track_mask (RETURN_VALUE)
+2023-04-18T20:00:39,172 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:39,172] torch._dynamo.output_graph: [INFO] Step 2: calling compiler function debug_wrapper
+2023-04-18T20:00:43,920 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:43,920] torch._inductor.compile_fx: [INFO] Step 3: torchinductor compiling FORWARDS graph 1
+2023-04-18T20:00:43,980 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:43,980] torch._inductor.utils: [WARNING] DeviceCopy in input program
+2023-04-18T20:00:52,366 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:52,366] torch._inductor.compile_fx: [INFO] Step 3: torchinductor done compiling FORWARDS graph 1
+2023-04-18T20:00:52,367 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:52,367] torch._dynamo.output_graph: [INFO] Step 2: done compiler function debug_wrapper
+2023-04-18T20:00:52,537 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:52,537] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing track_refine
+2023-04-18T20:00:52,572 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:52,571] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing forward
+2023-04-18T20:00:52,594 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:52,594] torch._dynamo.output_graph: [INFO] Step 2: calling compiler function debug_wrapper
+2023-04-18T20:00:52,653 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:52,652] torch._inductor.compile_fx: [INFO] Step 3: torchinductor compiling FORWARDS graph 2
+2023-04-18T20:00:53,104 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:53,104] torch._inductor.compile_fx: [INFO] Step 3: torchinductor done compiling FORWARDS graph 2
+2023-04-18T20:00:53,104 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:53,104] torch._dynamo.output_graph: [INFO] Step 2: done compiler function debug_wrapper
+2023-04-18T20:00:53,117 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:53,116] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing <graph break in forward>
+2023-04-18T20:00:53,134 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - /home/vish/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:3737: UserWarning: nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.
+2023-04-18T20:00:53,135 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   warnings.warn("nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.")
+2023-04-18T20:00:53,155 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - /home/vish/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:3737: UserWarning: nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.
+2023-04-18T20:00:53,156 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   warnings.warn("nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.")
+2023-04-18T20:00:53,174 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - /home/vish/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:3737: UserWarning: nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.
+2023-04-18T20:00:53,175 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   warnings.warn("nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.")
+2023-04-18T20:00:53,181 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:53,181] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo done tracing <graph break in forward> (RETURN_VALUE)
+2023-04-18T20:00:53,183 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:53,183] torch._dynamo.output_graph: [INFO] Step 2: calling compiler function debug_wrapper
+2023-04-18T20:00:53,204 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - /home/vish/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:3737: UserWarning: nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.
+2023-04-18T20:00:53,204 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   warnings.warn("nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.")
+2023-04-18T20:00:53,231 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - /home/vish/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:3737: UserWarning: nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.
+2023-04-18T20:00:53,231 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   warnings.warn("nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.")
+2023-04-18T20:00:53,280 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - /home/vish/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:3737: UserWarning: nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.
+2023-04-18T20:00:53,280 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   warnings.warn("nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.")
+2023-04-18T20:00:53,487 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:53,486] torch._inductor.compile_fx: [INFO] Step 3: torchinductor compiling FORWARDS graph 3
+2023-04-18T20:00:53,727 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:53,727] torch._inductor.compile_fx: [INFO] Step 3: torchinductor done compiling FORWARDS graph 3
+2023-04-18T20:00:53,728 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:53,727] torch._dynamo.output_graph: [INFO] Step 2: done compiler function debug_wrapper
+2023-04-18T20:00:53,737 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:53,737] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing <graph break in track_refine>
+2023-04-18T20:00:53,868 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:53,867] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing track_refine
+2023-04-18T20:00:53,901 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:53,900] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing forward
+2023-04-18T20:00:53,922 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:53,922] torch._dynamo.output_graph: [INFO] Step 2: calling compiler function debug_wrapper
+2023-04-18T20:00:53,980 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:53,979] torch._inductor.compile_fx: [INFO] Step 3: torchinductor compiling FORWARDS graph 4
+2023-04-18T20:00:54,444 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:54,444] torch._inductor.compile_fx: [INFO] Step 3: torchinductor done compiling FORWARDS graph 4
+2023-04-18T20:00:54,444 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:54,444] torch._dynamo.output_graph: [INFO] Step 2: done compiler function debug_wrapper
+2023-04-18T20:00:54,597 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:54,597] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing track_refine
+2023-04-18T20:00:54,630 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:54,630] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing forward
+2023-04-18T20:00:54,653 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:54,652] torch._dynamo.output_graph: [INFO] Step 2: calling compiler function debug_wrapper
+2023-04-18T20:00:54,710 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:54,709] torch._inductor.compile_fx: [INFO] Step 3: torchinductor compiling FORWARDS graph 5
+2023-04-18T20:00:55,136 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:55,136] torch._inductor.compile_fx: [INFO] Step 3: torchinductor done compiling FORWARDS graph 5
+2023-04-18T20:00:55,136 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:55,136] torch._dynamo.output_graph: [INFO] Step 2: done compiler function debug_wrapper
+2023-04-18T20:00:56,281 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 1
+2023-04-18T20:00:56,281 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - 
+2023-04-18T20:00:56,281 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (32136, 32136, 3)
+2023-04-18T20:00:56,281 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 2
+2023-04-18T20:00:56,282 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (1028, 1028, 3)
+2023-04-18T20:00:56,282 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 3
+2023-04-18T20:00:56,282 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (998, 998, 3)
+2023-04-18T20:00:56,282 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 4
+2023-04-18T20:00:56,282 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (965, 965, 3)
+2023-04-18T20:00:56,282 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 5
+2023-04-18T20:00:56,283 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (950, 950, 3)
+2023-04-18T20:00:56,283 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 6
+2023-04-18T20:00:56,283 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (934, 934, 3)
+2023-04-18T20:00:56,283 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 7
+2023-04-18T20:00:56,283 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (915, 915, 3)
+2023-04-18T20:00:56,283 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 8
+2023-04-18T20:00:56,283 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (908, 908, 3)
+2023-04-18T20:00:56,284 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 9
+2023-04-18T20:00:56,284 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (890, 890, 3)
+2023-04-18T20:00:56,284 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 10
+2023-04-18T20:00:56,284 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (901, 901, 3)
+2023-04-18T20:00:56,284 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 11
+2023-04-18T20:00:56,284 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - im patch original: (904, 904, 3)
+2023-04-18T20:00:56,284 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 14725.08072055
+2023-04-18T20:00:56,284 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - SiamMask Time: 14725.1s Speed: 0.0fps (with visulization!)
+2023-04-18T20:00:56,285 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - NEWMASK:  <PIL.Image.Image image mode=RGB size=256x256 at 0x7F7A825AB310>
+2023-04-18T20:00:56,285 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - SIZE:  (256, 256)
+2023-04-18T20:00:56,285 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Start test...
+2023-04-18T20:00:56,286 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   0%|          | 0/16 [00:00<?, ?it/s][2023-04-18 20:00:56,286] torch._dynamo.symbolic_convert: [INFO] Step 1: torchdynamo start tracing forward
+2023-04-18T20:00:56,375 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - /home/vish/miniconda3/lib/python3.9/site-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3483.)
+2023-04-18T20:00:56,376 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+2023-04-18T20:00:56,380 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:56,380] torch._dynamo.output_graph: [INFO] Step 2: calling compiler function debug_wrapper
+2023-04-18T20:00:56,391 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - [2023-04-18 20:00:56,390] torch._inductor.compile_fx: [INFO] Step 3: torchinductor compiling FORWARDS graph 6
+2023-04-18T20:00:56,394 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG - 
+2023-04-18T20:00:56,394 [WARN ] W-9000-inpaint_1-stderr MODEL_LOG -   0%|          | 0/16 [00:00<?, ?it/s]
+2023-04-18T20:00:56,395 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Invoking custom service failed.
+2023-04-18T20:00:56,395 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-18T20:00:56,395 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/output_graph.py", line 670, in call_user_compiler
+2023-04-18T20:00:56,396 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     compiled_fn = compiler_fn(gm, self.fake_example_inputs())
+2023-04-18T20:00:56,396 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/debug_utils.py", line 1055, in debug_wrapper
+2023-04-18T20:00:56,396 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     compiled_gm = compiler_fn(gm, example_inputs)
+2023-04-18T20:00:56,396 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/__init__.py", line 1390, in __call__
+2023-04-18T20:00:56,396 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return compile_fx(model_, inputs_, config_patches=self.config)
+2023-04-18T20:00:56,396 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/compile_fx.py", line 455, in compile_fx
+2023-04-18T20:00:56,396 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return aot_autograd(
+2023-04-18T20:00:56,397 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/backends/common.py", line 48, in compiler_fn
+2023-04-18T20:00:56,397 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     cg = aot_module_simplified(gm, example_inputs, **kwargs)
+2023-04-18T20:00:56,398 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_functorch/aot_autograd.py", line 2805, in aot_module_simplified
+2023-04-18T20:00:56,398 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     compiled_fn = create_aot_dispatcher_function(
+2023-04-18T20:00:56,398 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/utils.py", line 163, in time_wrapper
+2023-04-18T20:00:56,398 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     r = func(*args, **kwargs)
+2023-04-18T20:00:56,399 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_functorch/aot_autograd.py", line 2498, in create_aot_dispatcher_function
+2023-04-18T20:00:56,399 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     compiled_fn = compiler_fn(flat_fn, fake_flat_args, aot_config)
+2023-04-18T20:00:56,399 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_functorch/aot_autograd.py", line 1713, in aot_wrapper_dedupe
+2023-04-18T20:00:56,399 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return compiler_fn(flat_fn, leaf_flat_args, aot_config)
+2023-04-18T20:00:56,399 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_functorch/aot_autograd.py", line 1326, in aot_dispatch_base
+2023-04-18T20:00:56,399 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     compiled_fw = aot_config.fw_compiler(fw_module, flat_args_with_views_handled)
+2023-04-18T20:00:56,400 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/utils.py", line 163, in time_wrapper
+2023-04-18T20:00:56,401 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     r = func(*args, **kwargs)
+2023-04-18T20:00:56,401 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/compile_fx.py", line 430, in fw_compiler
+2023-04-18T20:00:56,401 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return inner_compile(
+2023-04-18T20:00:56,401 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/debug_utils.py", line 595, in debug_wrapper
+2023-04-18T20:00:56,401 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     compiled_fn = compiler_fn(gm, example_inputs)
+2023-04-18T20:00:56,401 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/debug.py", line 239, in inner
+2023-04-18T20:00:56,402 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return fn(*args, **kwargs)
+2023-04-18T20:00:56,402 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/contextlib.py", line 79, in inner
+2023-04-18T20:00:56,402 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return func(*args, **kwds)
+2023-04-18T20:00:56,402 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/compile_fx.py", line 177, in compile_fx_inner
+2023-04-18T20:00:56,402 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     compiled_fn = graph.compile_to_fn()
+2023-04-18T20:00:56,402 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/graph.py", line 586, in compile_to_fn
+2023-04-18T20:00:56,402 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return self.compile_to_module().call
+2023-04-18T20:00:56,403 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/utils.py", line 163, in time_wrapper
+2023-04-18T20:00:56,403 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     r = func(*args, **kwargs)
+2023-04-18T20:00:56,403 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/graph.py", line 571, in compile_to_module
+2023-04-18T20:00:56,403 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     code = self.codegen()
+2023-04-18T20:00:56,403 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/graph.py", line 520, in codegen
+2023-04-18T20:00:56,403 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.scheduler = Scheduler(self.buffers)
+2023-04-18T20:00:56,403 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/utils.py", line 163, in time_wrapper
+2023-04-18T20:00:56,403 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     r = func(*args, **kwargs)
+2023-04-18T20:00:56,403 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/scheduler.py", line 605, in __init__
+2023-04-18T20:00:56,403 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     group_fn = self.get_backend(node.get_device()).group_fn
+2023-04-18T20:00:56,403 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/scheduler.py", line 1131, in get_backend
+2023-04-18T20:00:56,404 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.backends[device] = self.create_backend(device)
+2023-04-18T20:00:56,404 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_inductor/scheduler.py", line 1118, in create_backend
+2023-04-18T20:00:56,404 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     raise RuntimeError(
+2023-04-18T20:00:56,404 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - RuntimeError: Found NVIDIA GeForce GTX 1050 which is too old to be supported by the triton GPU compiler, which is used as the backend. Triton only supports devices of CUDA Capability >= 7.0, but your device is of CUDA capability 6.1
+2023-04-18T20:00:56,405 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-18T20:00:56,405 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - The above exception was the direct cause of the following exception:
+2023-04-18T20:00:56,405 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-18T20:00:56,405 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Traceback (most recent call last):
+2023-04-18T20:00:56,405 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/service.py", line 120, in predict
+2023-04-18T20:00:56,405 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     ret = self._entry_point(input_batch, self.context)
+2023-04-18T20:00:56,405 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/ts/torch_handler/base_handler.py", line 333, in handle
+2023-04-18T20:00:56,405 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     output = self.inference(data_preprocess)
+2023-04-18T20:00:56,405 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/8e57d03472d34b46892dd2b2c0cd8472/tshandler.py", line 108, in inference
+2023-04-18T20:00:56,406 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     out = main_worker(self.model, args, self.device)
+2023-04-18T20:00:56,406 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/tmp/models/8e57d03472d34b46892dd2b2c0cd8472/server/E2FGVI/test.py", line 205, in main_worker
+2023-04-18T20:00:56,406 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     pred_imgs, _ = model(masked_imgs, len(neighbor_ids))
+2023-04-18T20:00:56,406 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+2023-04-18T20:00:56,407 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return forward_call(*args, **kwargs)
+2023-04-18T20:00:56,407 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 82, in forward
+2023-04-18T20:00:56,407 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return self.dynamo_ctx(self._orig_mod.forward)(*args, **kwargs)
+2023-04-18T20:00:56,407 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 209, in _fn
+2023-04-18T20:00:56,407 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return fn(*args, **kwargs)
+2023-04-18T20:00:56,407 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/eval_frame.py", line 337, in catch_errors
+2023-04-18T20:00:56,407 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return callback(frame, cache_size, hooks)
+2023-04-18T20:00:56,407 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 404, in _convert_frame
+2023-04-18T20:00:56,407 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     result = inner_convert(frame, cache_size, hooks)
+2023-04-18T20:00:56,408 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 104, in _fn
+2023-04-18T20:00:56,408 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return fn(*args, **kwargs)
+2023-04-18T20:00:56,408 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 262, in _convert_frame_assert
+2023-04-18T20:00:56,408 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     return _compile(
+2023-04-18T20:00:56,408 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/utils.py", line 163, in time_wrapper
+2023-04-18T20:00:56,408 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     r = func(*args, **kwargs)
+2023-04-18T20:00:56,409 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 324, in _compile
+2023-04-18T20:00:56,409 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     out_code = transform_code_object(code, transform)
+2023-04-18T20:00:56,409 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/bytecode_transformation.py", line 445, in transform_code_object
+2023-04-18T20:00:56,409 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     transformations(instructions, code_options)
+2023-04-18T20:00:56,409 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/convert_frame.py", line 311, in transform
+2023-04-18T20:00:56,409 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     tracer.run()
+2023-04-18T20:00:56,409 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 1726, in run
+2023-04-18T20:00:56,409 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     super().run()
+2023-04-18T20:00:56,409 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 576, in run
+2023-04-18T20:00:56,409 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     and self.step()
+2023-04-18T20:00:56,410 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 540, in step
+2023-04-18T20:00:56,410 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     getattr(self, inst.opname)(inst)
+2023-04-18T20:00:56,410 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/symbolic_convert.py", line 372, in wrapper
+2023-04-18T20:00:56,410 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.output.compile_subgraph(self, reason=reason)
+2023-04-18T20:00:56,410 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/output_graph.py", line 541, in compile_subgraph
+2023-04-18T20:00:56,410 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     self.compile_and_call_fx_graph(tx, pass2.graph_output_vars(), root)
+2023-04-18T20:00:56,410 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/output_graph.py", line 588, in compile_and_call_fx_graph
+2023-04-18T20:00:56,411 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     compiled_fn = self.call_user_compiler(gm)
+2023-04-18T20:00:56,411 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/utils.py", line 163, in time_wrapper
+2023-04-18T20:00:56,411 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     r = func(*args, **kwargs)
+2023-04-18T20:00:56,411 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -   File "/home/vish/miniconda3/lib/python3.9/site-packages/torch/_dynamo/output_graph.py", line 675, in call_user_compiler
+2023-04-18T20:00:56,411 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     raise BackendCompilerFailed(self.compiler_fn, e) from e
+2023-04-18T20:00:56,411 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - torch._dynamo.exc.BackendCompilerFailed: debug_wrapper raised RuntimeError: Found NVIDIA GeForce GTX 1050 which is too old to be supported by the triton GPU compiler, which is used as the backend. Triton only supports devices of CUDA Capability >= 7.0, but your device is of CUDA capability 6.1
+2023-04-18T20:00:56,411 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-18T20:00:56,411 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - Set torch._dynamo.config.verbose=True for more information
+2023-04-18T20:00:56,411 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-18T20:00:56,411 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - 
+2023-04-18T20:00:56,412 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG - You can suppress this exception and fall back to eager by setting:
+2023-04-18T20:00:56,412 [INFO ] W-9000-inpaint_1-stdout MODEL_LOG -     torch._dynamo.config.suppress_errors = True
