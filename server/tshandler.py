@@ -9,6 +9,7 @@ import io
 import sys
 from PIL import Image
 import cv2
+import deepspeed
 
 class InpaintHandler(BaseHandler):
 
@@ -44,6 +45,15 @@ class InpaintHandler(BaseHandler):
         args.resume = './server/cp/SiamMask_DAVIS.pth'
         args.mask_dilation = 32
         siammask, cfg = mask_setup(args)
+        tp_config = {
+            enabled: True,
+            tp_size: 2,
+        }
+        siammask = deepspeed.init_inference(
+            siammask,
+            dtype=torch.float,
+            tensor_parallel=tp_config
+        )
         self.siammask = siammask
         self.cfg = cfg
 
@@ -55,6 +65,11 @@ class InpaintHandler(BaseHandler):
         args.ckpt = self.inpaint_weights
 
         model, size = setup(args)
+        model = deepspeed.init_inference(
+            model,
+            dtype=torch.float,
+            tensor_parallel=tp_config
+        )
         self.model = model
         self.size = size
 
