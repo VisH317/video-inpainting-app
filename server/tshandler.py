@@ -46,8 +46,8 @@ class InpaintHandler(BaseHandler):
         args.mask_dilation = 32
         siammask, cfg = mask_setup(args)
         tp_config = {
-            enabled: True,
-            tp_size: 2,
+            "enabled": True,
+            "tp_size": 2,
         }
         siammask = deepspeed.init_inference(
             siammask,
@@ -123,3 +123,8 @@ class InpaintHandler(BaseHandler):
         out = main_worker(self.model, args, self.device)
 
         return out
+
+
+if __name__=="__main__":
+    i = InpaintHandler()
+    i.initialize()
