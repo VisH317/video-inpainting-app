@@ -36,7 +36,16 @@ function BoxSelect({ navigation, route }: any) {
         formdata.append('y', y)
         formdata.append('w', w)
         formdata.append('h', h)
-        RNFetchBlob.fetch("POST", "http://10.0.2.2:8000/video", 
+        RNFetchBlob.RNFetchBlob.config({
+            fileCache: true,
+            addAndroidDownloads: {
+                useDownloadManager: true,
+                mime: "video/mp4",
+                description: "video with object removed from download manager",
+                path: `${RNFetchBlob.fs.dirs.DownloadDir}/video/vid.mp4`,
+                notification: true
+            }
+        }).fetch("POST", "http://10.0.2.2:8000/video", 
             {
                 "content-type": "multipart/form-data"
             },
@@ -47,21 +56,8 @@ function BoxSelect({ navigation, route }: any) {
                 {name: 'w', data: w},
                 {name: 'h', data: h},
             ]
-        ).then(res => {
-            setRes(res)
-            RNFetchBlob.config({
-                fileCache: true,
-                addAndroidDownloads: {
-                    useDownloadManager: true,
-                    mime: "video/mp4",
-                    description: "video with object removed from download manager",
-                    path: `${RNFetchBlob.fs.dirs.DownloadDir}/video/vid.mp4`,
-                    notification: true
-                }
-            }).fetch("GET", "http://10.0.2.2:8000/video").then(res => {
-                console.log("downloaded to: ", res.path())
-                navigation.navigate("Completed")
-        })
+        ).then((res: any) => {
+            navigation.navigate("Completed")
         })
     }
 
