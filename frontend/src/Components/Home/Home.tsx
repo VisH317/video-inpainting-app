@@ -46,7 +46,7 @@ export default function Home({ navigation }: any) {
                 start={{x: 0, y: 0}}
                 end={{x: 1, y: 1}}/> */}
             <LinearGradient style={styles.bottomRect} 
-                colors={["#FFA89C", "#FF8C67"]} 
+                colors={["#374151", "#374151"]} 
                 start={{x: 0, y: 0}}
                 end={{x: 1, y: 1}}/>
             <ImgStack/>
