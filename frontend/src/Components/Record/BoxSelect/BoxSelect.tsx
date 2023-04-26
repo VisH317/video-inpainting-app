@@ -52,7 +52,7 @@ function BoxSelect({ navigation, route }: any) {
         // "http://10.0.2.2:8080/predictions/inpaint"
         // const res = await axios.post("http://10.0.2.2:5001")
         // console.log(res)
-        RNFetchBlob.fetch("POST", "https://172.17.192.1:8080/predictions/inpaint/", 
+        RNFetchBlob.fetch("POST", "http://10.0.2.2:5001/predictions/inpaint/", 
             {
                 "content-type": "multipart/form-data"
             },
