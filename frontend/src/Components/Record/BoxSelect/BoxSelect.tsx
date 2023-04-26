@@ -50,9 +50,9 @@ function BoxSelect({ navigation, route }: any) {
         //     }
         // })
         // "http://10.0.2.2:8080/predictions/inpaint"
-        // const res = await axios.post("http://10.0.2.2:5001")
+        // const res = await axios.get("http://10.0.2.2:5001")
         // console.log(res)
-        RNFetchBlob.fetch("POST", "http://10.0.2.2:5001/predictions/inpaint/", 
+        RNFetchBlob.fetch("GET", "https://96f4-96-248-107-65.ngrok-free.app", 
             {
                 "content-type": "multipart/form-data"
             },
