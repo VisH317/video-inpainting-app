@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         width: "90%",
         borderRadius: 20,
-        backgroundColor: "transparent",
+        backgroundColor: "#374151",
         padding: 5,
         zIndex: 100,
         overflow: "hidden"

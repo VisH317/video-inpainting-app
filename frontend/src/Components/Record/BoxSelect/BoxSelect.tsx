@@ -27,8 +27,10 @@ function BoxSelect({ navigation, route }: any) {
     const [y, sety] = useState<number>(-1)
     const [w, setw] = useState<number>(0)
     const [h, seth] = useState<number>(0)
+    const [sub, setSub] = useState<boolean>(false)
 
     function onSubmit(event: React.FormEvent<HTMLInputElement>) {
+        setSub(true)
         event.preventDefault()
         const formdata = new FormData()
         formdata.append('file', {uri, type: "video/mp4", name: "file.mp4"})
@@ -36,7 +38,16 @@ function BoxSelect({ navigation, route }: any) {
         formdata.append('y', y)
         formdata.append('w', w)
         formdata.append('h', h)
-        RNFetchBlob.fetch("POST", "http://10.0.2.2:8000/video", 
+        RNFetchBlob.RNFetchBlob.config({
+            fileCache: true,
+            addAndroidDownloads: {
+                useDownloadManager: true,
+                mime: "video/mp4",
+                description: "video with object removed from download manager",
+                path: `${RNFetchBlob.fs.dirs.DownloadDir}/video/vid.mp4`,
+                notification: true
+            }
+        }).fetch("POST", "http://10.0.2.2:8000/video", 
             {
                 "content-type": "multipart/form-data"
             },
@@ -47,21 +58,9 @@ function BoxSelect({ navigation, route }: any) {
                 {name: 'w', data: w},
                 {name: 'h', data: h},
             ]
-        ).then(res => {
-            setRes(res)
-            RNFetchBlob.config({
-                fileCache: true,
-                addAndroidDownloads: {
-                    useDownloadManager: true,
-                    mime: "video/mp4",
-                    description: "video with object removed from download manager",
-                    path: `${RNFetchBlob.fs.dirs.DownloadDir}/video/vid.mp4`,
-                    notification: true
-                }
-            }).fetch("GET", "http://10.0.2.2:8000/video").then(res => {
-                console.log("downloaded to: ", res.path())
-                navigation.navigate("Completed")
-        })
+        ).then((res: any) => {
+            setSub(false)
+            navigation.navigate("Completed")
         })
     }
 
@@ -116,6 +115,11 @@ function BoxSelect({ navigation, route }: any) {
                             <FontAwesomeIcon icon={faCheck} color="#333" size={35}/>
                         </Pressable>
                     </LinearGradient>
+                </View>
+            </View>
+            <View style={sub ? styles.backdrop : styles.invisible}>
+                <View style={sub ? styles.modal : styles.invisible}>
+                    <Text>Loading...</Text>
                 </View>
             </View>
         </View>
