@@ -7,3 +7,4 @@ server/server.zip
 server.zip
 *.zip
 *.pth
+server/logs

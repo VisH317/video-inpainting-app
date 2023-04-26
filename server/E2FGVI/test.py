@@ -139,8 +139,8 @@ def setup(args):
     model.load_state_dict(data)
     print(f'Loading model from: {args.ckpt}')
     model.eval()
-    opt_model = torch.compile(model)
-    return opt_model, size
+    # opt_model = torch.compile(model) TEMPORARY FOR TESTING
+    return model, size
 
 
 def main_worker(model, args, device):
