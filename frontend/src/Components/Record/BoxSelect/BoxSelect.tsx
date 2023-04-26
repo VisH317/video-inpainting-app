@@ -13,12 +13,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck'
 import { faInfo } from '@fortawesome/free-solid-svg-icons/faInfo'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft'
+import axios from 'axios'
 
 function BoxSelect({ navigation, route }: any) {
 
     const [uri, setUri] = useAtom(videoURI)
     const [resp, setRes] = useAtom(response)
-    console.log("uri: ", uri)
 
     // set loading state
     const [loading, setLoading] = useState(false)
@@ -29,38 +29,47 @@ function BoxSelect({ navigation, route }: any) {
     const [h, seth] = useState<number>(0)
     const [sub, setSub] = useState<boolean>(false)
 
-    function onSubmit(event: React.FormEvent<HTMLInputElement>) {
+    async function onSubmit(event: React.FormEvent<HTMLInputElement>) {
+        console.log("submitting")
         setSub(true)
         event.preventDefault()
         const formdata = new FormData()
         formdata.append('file', {uri, type: "video/mp4", name: "file.mp4"})
-        formdata.append('x', x)
-        formdata.append('y', y)
-        formdata.append('w', w)
-        formdata.append('h', h)
-        RNFetchBlob.RNFetchBlob.config({
-            fileCache: true,
-            addAndroidDownloads: {
-                useDownloadManager: true,
-                mime: "video/mp4",
-                description: "video with object removed from download manager",
-                path: `${RNFetchBlob.fs.dirs.DownloadDir}/video/vid.mp4`,
-                notification: true
-            }
-        }).fetch("POST", "http://10.0.2.2:8000/video", 
+        formdata.append('x', String(x))
+        formdata.append('y', String(y))
+        formdata.append('w', String(w))
+        formdata.append('h', String(h))
+        // RNFetchBlob.config({
+        //     fileCache: true,
+        //     addAndroidDownloads: {
+        //         useDownloadManager: true,
+        //         mime: "video/mp4",
+        //         description: "video with object removed from download manager",
+        //         path: `${RNFetchBlob.fs.dirs.DownloadDir}/video/vid.mp4`,
+        //         notification: true
+        //     }
+        // })
+        // "http://10.0.2.2:8080/predictions/inpaint"
+        // const res = await axios.post("http://10.0.2.2:5001")
+        // console.log(res)
+        RNFetchBlob.fetch("POST", "https://172.17.192.1:8080/predictions/inpaint/", 
             {
                 "content-type": "multipart/form-data"
             },
             [
-                {name: 'file', data: RNFetchBlob.wrap(uri), filename: 'vid.mp4'},
-                {name: 'x', data: x},
-                {name: 'y', data: y},
-                {name: 'w', data: w},
-                {name: 'h', data: h},
+                {name: 'data', data: RNFetchBlob.wrap(uri), filename: 'vid.mp4'},
+                {name: 'x', data: String(x)},
+                {name: 'y', data: String(y)},
+                {name: 'w', data: String(w)},
+                {name: 'h', data: String(h)},
             ]
         ).then((res: any) => {
+            console.log("finished...", res)
             setSub(false)
             navigation.navigate("Completed")
+        }).catch(reason => {
+            console.log("not working!!!!!!")
+            console.log(reason)
         })
     }
 
