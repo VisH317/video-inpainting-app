@@ -8,4 +8,5 @@ server.zip
 *.zip
 *.pth
 server/logs
+test
 test2
