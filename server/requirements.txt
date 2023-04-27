@@ -12,4 +12,3 @@ dadaptation
 openmim
 torchserve
 torch-model-archiver
-torch-workflow-archiver
