@@ -49,7 +49,7 @@ function BoxSelect({ navigation, route }: any) {
         //         notification: true
         //     }
         // })
-        RNFetchBlob.fetch("POST", "https://96f4-96-248-107-65.ngrok-free.app/predictions/inpaint", 
+        const res = await RNFetchBlob.fetch("POST", "https://96f4-96-248-107-65.ngrok-free.app/predictions/inpaint", 
             {
                 "content-type": "multipart/form-data"
             },
@@ -60,14 +60,21 @@ function BoxSelect({ navigation, route }: any) {
                 {name: 'w', data: String(w)},
                 {name: 'h', data: String(h)},
             ]
-        ).then((res: any) => {
-            console.log("finished...", res)
-            setSub(false)
-            navigation.navigate("Completed")
-        }).catch(reason => {
-            console.log("not working!!!!!!")
-            console.log(reason)
-        })
+           )
+        // .then((res: any) => {
+        //     console.log("finished...", res)
+        //     setSub(false)
+        //     navigation.navigate("Completed")
+        // }).catch(reason => {
+        //     console.log("not working!!!!!!")
+        //     console.log(reason)
+        // })
+        console.log("finished: ", res)
+        console.log("path: ", res.path)
+        const dir = RNFetchBlob.fs.dirs.DocumentDir + "/vid.mp4"
+        RNFetchBlob.fs.writeFile(dir, res.data)
+        setSub(false)
+        navigation.navigate("Completed")
     }
 
     const set = (x: number, y: number, w: number, h: number) => {
