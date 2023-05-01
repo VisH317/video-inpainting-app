@@ -7,6 +7,7 @@ import io
 import sys
 import json
 import base64
+import uuid
 
 class InpaintHandler(BaseHandler):
 
@@ -83,7 +84,9 @@ class InpaintHandler(BaseHandler):
     
     def postprocess(self, input):
         # out = json.dumps(str(input))
-        out = base64.b64encode(input.read())
+        # out = base64.b64encode(input.read())
+        # return [out]
+        out = { 'id': input }
         return [out]
     
 
@@ -103,6 +106,16 @@ class InpaintHandler(BaseHandler):
         args.data = data['data']
 
         i = io.BytesIO()
+
+        id = str(uuid.uuid4())
+
+        if not os.path.exists(f"{id}.mp4"):
+            open(f"{id}.mp4", 'w+')
+
+        with open("{}.mp4".format(id), 'wb') as f:
+            f.write(args.data.getbuffer())
+
+        return id
         
 
         # ims, masks = mask(args, self.siammask, self.cfg)
@@ -131,6 +144,6 @@ class InpaintHandler(BaseHandler):
         return args.data
 
 
-if __name__=="__main__":
-    i = InpaintHandler()
-    i.initialize()
+# if __name__=="__main__":
+#     i = InpaintHandler()
+#     i.initialize()

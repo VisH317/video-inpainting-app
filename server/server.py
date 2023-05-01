@@ -5,8 +5,8 @@ from pydantic import BaseModel
 
 
 import argparse
-from mask import mask
-from inpaint import inpaint
+# from mask import mask
+# from inpaint import inpaint
 
 app = FastAPI()
 
