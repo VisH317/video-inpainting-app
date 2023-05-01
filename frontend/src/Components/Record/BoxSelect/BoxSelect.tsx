@@ -60,7 +60,15 @@ function BoxSelect({ navigation, route }: any) {
                 {name: 'w', data: String(w)},
                 {name: 'h', data: String(h)},
             ]
-           )
+        )
+
+        var Base64Code = res.data.split("data:video/mp4;base64,"); //base64Image is my image base64 string
+
+        const dirs = RNFetchBlob.fs.dirs;
+
+        var path = dirs.DCIMDir + "/vid.mp4";
+
+        RNFetchBlob.fs.writeFile(path, Base64Code[1], 'base64')
         // .then((res: any) => {
         //     console.log("finished...", res)
         //     setSub(false)
@@ -69,12 +77,12 @@ function BoxSelect({ navigation, route }: any) {
         //     console.log("not working!!!!!!")
         //     console.log(reason)
         // })
-        console.log("finished: ", res)
-        console.log("path: ", res.path)
-        const dir = RNFetchBlob.fs.dirs.DocumentDir + "/vid.mp4"
-        RNFetchBlob.fs.writeFile(dir, res.data)
-        setSub(false)
-        navigation.navigate("Completed")
+        // console.log("finished: ", res)
+        // console.log("path: ", res.path)
+        // const dir = RNFetchBlob.fs.dirs.DocumentDir + "/vid.mp4"
+        // RNFetchBlob.fs.writeFile(dir, res.data)
+        // setSub(false)
+        // navigation.navigate("Completed")
     }
 
     const set = (x: number, y: number, w: number, h: number) => {
