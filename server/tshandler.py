@@ -10,6 +10,7 @@ import sys
 from PIL import Image
 import cv2
 import deepspeed
+import uuid
 
 class InpaintHandler(BaseHandler):
 
@@ -84,6 +85,11 @@ class InpaintHandler(BaseHandler):
 
         return preprocessed_input
     
+    
+    def postprocess(self, input):
+        ret = { "id": input }
+        return ret
+    
 
     def inference(self, data):
         # data params: video (mp4), x, y, w, h (bounding box to inpaint)
@@ -122,7 +128,12 @@ class InpaintHandler(BaseHandler):
 
         out = main_worker(self.model, args, self.device)
 
-        return out
+        uuid = str(uuid.uuid4())
+
+        with open("results/{}.mp4".format(uuid), 'wb') as f:
+            f.write(out.getbuffer())
+
+        return uuid
 
 
 if __name__=="__main__":
