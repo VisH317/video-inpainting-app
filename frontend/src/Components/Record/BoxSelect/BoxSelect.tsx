@@ -49,7 +49,7 @@ function BoxSelect({ navigation, route }: any) {
         //         notification: true
         //     }
         // })
-        RNFetchBlob.fetch("POST", "https://3fd0-96-248-107-65.ngrok-free.app/predictions/inpaint", 
+        RNFetchBlob.fetch("POST", "https://10.0.2.2:5000/video", 
             {
                 "content-type": "multipart/form-data"
             },
@@ -72,7 +72,7 @@ function BoxSelect({ navigation, route }: any) {
                     path: `${RNFetchBlob.fs.dirs.DownloadDir}/video/vid.mp4`,
                     notification: true
                 }
-            }).fetch("GET", `http://localhost:8000/video?${res.data.id}`)
+            }).fetch("GET", `http://10.0.2.2:5000/video?${res.data.id}`)
                 .then(res => console.log("downloaded to:", res.path))
         })
 
