@@ -66,3 +66,7 @@ If you find the codes useful in your research, please cite:
 ```
 
 
+**Plan for batch inference:**
+ * setup message queue => add to message queue on fastapi response
+ * setup worker with multiple models to process in parallel through load balancer distribution, use pool multiprocessing
+ * setup id reception on response

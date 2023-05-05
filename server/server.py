@@ -8,6 +8,7 @@ import cv2
 from PIL import Image
 import torch
 import uuid
+import deepspeed
 
 import argparse
 # from mask import mask
@@ -21,11 +22,11 @@ tp_config = {
     "enabled": True,
     "tp_size": 2,
 }
-# siammask = deepspeed.init_inference(
-#     siammask,
-#     dtype=torch.float,
-#     tensor_parallel=tp_config
-# )
+siammask = deepspeed.init_inference(
+    siammask,
+    dtype=torch.float,
+    tensor_parallel=tp_config
+)
 
 inpaint_weights = './server/E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth'
 
@@ -36,11 +37,11 @@ args.width = "1280"
 args.ckpt = inpaint_weights
 
 model, size = setup(args)
-# model = deepspeed.init_inference(
-#     model,
-#     dtype=torch.float,
-#     tensor_parallel=tp_config
-# )
+model = deepspeed.init_inference(
+    model,
+    dtype=torch.float,
+    tensor_parallel=tp_config
+)
 
 app = FastAPI()
 
