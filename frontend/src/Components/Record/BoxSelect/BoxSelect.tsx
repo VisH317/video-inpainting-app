@@ -72,7 +72,7 @@ function BoxSelect({ navigation, route }: any) {
                     path: `${RNFetchBlob.fs.dirs.DownloadDir}/video/vid.mp4`,
                     notification: true
                 }
-            }).fetch("GET", `http://10.0.2.2:5000/video?${res.data.id}`)
+            }).fetch("GET", res.data.url)
                 .then(res => console.log("downloaded to:", res.path))
         })
 
