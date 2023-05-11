@@ -10,3 +10,4 @@ server.zip
 server/logs
 test
 test2
+server/.env

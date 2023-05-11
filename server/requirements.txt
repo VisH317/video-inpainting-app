@@ -12,3 +12,5 @@ dadaptation
 openmim
 torchserve
 torch-model-archiver
+supabase
+dotenv

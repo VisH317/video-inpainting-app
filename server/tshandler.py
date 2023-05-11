@@ -11,15 +11,19 @@ from PIL import Image
 import cv2
 import deepspeed
 import uuid
+from supabase import create_client, Client
+from dotenv import load_dotenv
 
 class InpaintHandler(BaseHandler):
 
     def __init__(self):
+        load_dotenv()
         self.initialized = False
         self.siammask = None
         self.model = None
         self.size = None
         self.device = None
+        self.client: Client = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_ANON"))
 
     def initialize(self, context):
         properties = context.system_properties
@@ -87,7 +91,7 @@ class InpaintHandler(BaseHandler):
     
     
     def postprocess(self, input):
-        ret = { "id": input }
+        ret = { "url": input }
         return ret
     
 
@@ -133,7 +137,12 @@ class InpaintHandler(BaseHandler):
         with open("results/{}.mp4".format(uuid), 'wb') as f:
             f.write(out.getbuffer())
 
-        return uuid
+        res = self.client.storage().upload(f"{uuid}.mp4", f"results/{uuid}.mp4")
+        print(res)
+        
+        url = self.client.storage().get_public_url(f"{uuid}.mp4")
+
+        return url
 
 
 if __name__=="__main__":
