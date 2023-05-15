@@ -158,7 +158,7 @@ function BoxSelect({ navigation, route }: any) {
                     <Text>Loading...</Text>
                 </View>
             </View>
-            <View style={{ position: "absolute",  flex: 1, justifyContent: "center", alignItems: "center", width: "100%", height: "100%", backgroundColor: "#000000dd", zIndex: 500 }}>
+            <View style={{ position: "absolute",  flex: 1, display: sub ? "flex" : "none", justifyContent: "center", alignItems: "center", width: "100%", height: "100%", backgroundColor: "#000000dd", zIndex: 500 }}>
                 <ActivityIndicator size="large"/>
                 <Text style={{color: "#64748b", textAlign: "center", marginTop: 25}}>{"Your inpainted video is being processed and will \nbe ready shortly"}</Text>
             </View>
