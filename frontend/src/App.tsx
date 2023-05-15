@@ -40,14 +40,14 @@ function App() {
             <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} backgroundColor={backgroundStyle.backgroundColor}/>
             <NavigationContainer ref={navigationRef}>
                 <Tab.Navigator screenOptions={({ route }) => ({
-                    tabbarIcon: ({ focused, color, size }) => {
+                    tabBarIcon: ({ focused, color, size }) => {
                         let iconName;
                         if(route.name==="Home") iconName = faHome
                         if(route.name==="Camera") iconName = faCamera
                         if(route.name==="Files") iconName = faFolder
                         return <FontAwesomeIcon icon={iconName} color={color}/>
                     },
-                    tabBarActiveTintColor: "#ff8c67",
+                    tabBarActiveTintColor: "#3b82f6",
                     tabBarInactiveTintColor: "#979797",
                     headerShown: false
                 })}>
