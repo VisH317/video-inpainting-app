@@ -86,10 +86,10 @@ export default function Record({ navigation }: any) {
             <View style={{flex: 1, flexDirection: "column-reverse", height: 635, width: "100%", position: "absolute", top: 0, left: 0}}>
             <View style={styles.btnContainer}>
                 <Pressable style={styles.upload} onPressOut={updateVideos}>
-                    <Text><FontAwesomeIcon icon={faFileUpload} color="black" size={25}/></Text>
+                    <Text><FontAwesomeIcon icon={faFileUpload} color="white" size={25}/></Text>
                 </Pressable>
-                <Pressable style={isRecording ? styles.startActive : styles.startrr} onPressOut={startRecording}><Text></Text></Pressable>
-                <Pressable><FontAwesomeIcon icon={faInfo} color="black" size={25}/></Pressable>
+                <Pressable style={isRecording ? styles.startActive : styles.start} onPressOut={startRecording}><Text></Text></Pressable>
+                <Pressable><FontAwesomeIcon icon={faInfo} color="white" size={25}/></Pressable>
             </View>
             </View>
         </View>
@@ -137,8 +137,8 @@ const styles = StyleSheet.create({
         borderWidth: 5,
     },
     upload: {
-        width: 50,
-        height: 50,
+        width: 20,
+        height: 20,
         backgroundColor: "transparent",
         color: "white",
         // left: "calc(25%-10px)",

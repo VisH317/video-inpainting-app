@@ -16,7 +16,7 @@ import {
 
 function Loading(props) {
     return (
-        <View>
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
             <ActivityIndicator size="large"/>
             <Text>Your inpainted video is being processed and will be ready shortly</Text>
         </View>
