@@ -88,7 +88,7 @@ export default function Record({ navigation }: any) {
                 <Pressable style={styles.upload} onPressOut={updateVideos}>
                     <Text><FontAwesomeIcon icon={faFileUpload} color="black" size={25}/></Text>
                 </Pressable>
-                <Pressable style={styles.start} onPressOut={startRecording}><Text></Text></Pressable>
+                <Pressable style={isRecording ? styles.startActive : styles.startrr} onPressOut={startRecording}><Text></Text></Pressable>
                 <Pressable><FontAwesomeIcon icon={faInfo} color="black" size={25}/></Pressable>
             </View>
             </View>
@@ -124,15 +124,23 @@ const styles = StyleSheet.create({
         height: 60,
         backgroundColor: "transparent",
         borderRadius: 30,
-        borderColor: "black",
-        padding: 10,
+        borderColor: "white",
+        borderWidth: 5,
+    },
+    startActive: {
+        width: 60,
+        height: 60,
+        backgroundColor: "#3b82f6",
+        padding: 2,
+        borderRadius: 30,
+        borderColor: "#3b82f6",
         borderWidth: 5,
     },
     upload: {
-        width: 20,
-        height: 20,
+        width: 50,
+        height: 50,
         backgroundColor: "transparent",
-        color: "black",
+        color: "white",
         // left: "calc(25%-10px)",
         // top: "85%"
     }

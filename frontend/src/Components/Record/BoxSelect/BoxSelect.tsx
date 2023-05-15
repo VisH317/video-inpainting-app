@@ -14,6 +14,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck'
 import { faInfo } from '@fortawesome/free-solid-svg-icons/faInfo'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft'
 import axios from 'axios'
+import GestureDemo from '../Test'
 
 function BoxSelect({ navigation, route }: any) {
 
@@ -114,12 +115,13 @@ function BoxSelect({ navigation, route }: any) {
     ) : (
         <View style={styles.chooseImage}>
             <VideoFirstFrame uri={uri} setValues={set}/>
+            {/* <GestureDemo/> */}
             {/* <Text>Select an Area to Remove:</Text>
             <TextInput onChangeText={setx} value={x} placeholder="x:"/>
             <TextInput onChangeText={sety} value={y} placeholder="y:"/>
             <TextInput onChangeText={setw} value={w} placeholder="w:"/>
             <TextInput onChangeText={seth} value={h} placeholder="h:"/> */}
-            <View style={styles.btnContainer}>
+            <View style={styles.btnContainer}/>
                 <View style={styles.actions}>
                     <View style={{borderRadius: 32.5}}>
                     <TouchableNativeFeedback background={TouchableNativeFeedback.Ripple(
@@ -127,7 +129,7 @@ function BoxSelect({ navigation, route }: any) {
                         true
                     )} onPress={() => console.log("hola")}>
                         <View style={{width: 65, height: 65, overflow: "hidden", borderRadius: 32.5, display: "flex", justifyContent: "center", alignItems: "center"}}>
-                            <FontAwesomeIcon icon={faArrowLeft} color="#333" size={35}/>
+                            <FontAwesomeIcon icon={faArrowLeft} color="white" size={35}/>
                         </View>
                     </TouchableNativeFeedback>
                     </View>
@@ -138,20 +140,19 @@ function BoxSelect({ navigation, route }: any) {
                         true
                     )} onPress={() => console.log("hola")}>
                         <View style={{width: 65, height: 65, overflow: "hidden", borderRadius: 32.5, display: "flex", justifyContent: "center", alignItems: "center"}}>
-                            <FontAwesomeIcon icon={faInfo} color="#333" size={35}/>
+                            <FontAwesomeIcon icon={faInfo} color="white" size={35}/>
                         </View>
                     </TouchableNativeFeedback>
                     </View>
 
-                    <LinearGradient colors={['#FF8C67', '#FFA89C']}
+                    <LinearGradient colors={['#3b82f6', '#3b82f6']}
                         style={styles.button} 
                         start={{ y: 0.0, x: 0.0 }} end={{ y: 1.0, x: 1.0 }}>
                         <Pressable onPress={onSubmit}>
-                            <FontAwesomeIcon icon={faCheck} color="#333" size={35}/>
+                            <FontAwesomeIcon icon={faCheck} color="white" size={35}/>
                         </Pressable>
                     </LinearGradient>
                 </View>
-            </View>
             <View style={sub ? styles.backdrop : styles.invisible}>
                 <View style={sub ? styles.modal : styles.invisible}>
                     <Text>Loading...</Text>

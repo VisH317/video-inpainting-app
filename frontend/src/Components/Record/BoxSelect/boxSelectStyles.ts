@@ -18,13 +18,13 @@ const styles = StyleSheet.create({
         borderRadius: 32.5
     },
     actions: {
-        zIndex: 3,
+        zIndex: 300,
         width: "100%",
         display: "flex",
         justifyContent: "space-around",
         alignItems: "center",
         height: 80,
-        flexDirection: "row"
+        flexDirection: "row",
     },
     videoCont: {
         position: 'absolute',
@@ -44,11 +44,12 @@ const styles = StyleSheet.create({
         width: "100%", 
         position: "absolute", 
         top: 0, 
-        left: 0
+        left: 0,
+        zIndex:-10,
     },
     chooseImage: {
         flexDirection: 'column',
-        // flex: 1
+        flex: 1
     },
     text: {
         fontSize: 30

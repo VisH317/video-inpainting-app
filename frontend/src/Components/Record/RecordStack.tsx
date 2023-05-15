@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Record from './Record'
 import BoxSelect from './BoxSelect/BoxSelect'
 import Completed from '../Completed'
+import GestureDemo from './Test'
 
 const Stack = createNativeStackNavigator()
 

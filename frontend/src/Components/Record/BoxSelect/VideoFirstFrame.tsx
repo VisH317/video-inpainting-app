@@ -41,11 +41,12 @@ export default function VideoFirstFrame(props: VideoFrameProps) {
             seth(Math.abs(Math.round(g.y)-y))
             setabsxf(Math.round(g.absoluteX))
             setabsyf(Math.round(g.absoluteY))
+            console.log("alewsjfoiawj")
             props.setValues(x, y, Math.abs(Math.round(g.x)-x), Math.abs(Math.round(g.y)-y))
         })
 
     const boundingBoxStyle = {
-        borderColor: "blue",
+        borderColor: "#2563eb",
         borderWidth: 2,
         position: "absolute",
         top: absy,
@@ -58,9 +59,10 @@ export default function VideoFirstFrame(props: VideoFrameProps) {
     let player: any
 
     return (
-        <>
+        <GestureHandlerRootView style={{flex:1, zIndex:0}}>
             <View style={styles.videoCont}>
                 <View style={boundingBoxStyle}/>
+                
                 <GestureDetector gesture={pan} style={styles.videoCont}>
                         <Video source={{uri: props.uri}} ref={ref=>player=ref} controls={false} paused={p}
                             onBuffer={() => console.log("buffering")} onError={() => console.log("ERROR")}
@@ -68,13 +70,41 @@ export default function VideoFirstFrame(props: VideoFrameProps) {
                                 player.seek(0)
                                 setp(true)
                         }}/>
+                        {/* <View style={{ flex: 1, backgroundColor: "black" }}>
+                        <Text
+                            style={{ color: "white", fontSize: 24 }}
+                        >{`Gesture started at:  ${absx}`}</Text>
+                        <Text
+                            style={{ color: "white", fontSize: 24 }}
+                        >{`Gesture moved to:  ${absy}`}</Text>
+                        <Text
+                            style={{ color: "white", fontSize: 24 }}
+                        >{`Gesture updated to:  ${absxf}`}</Text>
+                        <Text
+                            style={{ color: "white", fontSize: 24 }}
+                        >{`Gesture ended at:  ${absyf}`}</Text>
+                        </View> */}
                         
                 </GestureDetector>
-                {/* <Canvas style={{flex: 1}}>
-                    <Path path={path}/> 
-                </Canvas> */}
-                {/* <Text style={{position: "relative", top: 20}}>x: {x}, y: {y}, w: {w}, h: {h}</Text> */}
             </View>
-        </>
+        </GestureHandlerRootView>
+    // <GestureHandlerRootView style={{ flex: 1 }}>
+    //   <GestureDetector gesture={pan}>
+    //     <View style={{...styles.videoCont, backgroundColor: "black"}}>
+    //       <Text
+    //         style={{ color: "white", fontSize: 24 }}
+    //       >{`Gesture started at:  ${absx}`}</Text>
+    //       <Text
+    //         style={{ color: "white", fontSize: 24 }}
+    //       >{`Gesture moved to:  ${absy}`}</Text>
+    //       <Text
+    //         style={{ color: "white", fontSize: 24 }}
+    //       >{`Gesture updated to:  ${absxf}`}</Text>
+    //       <Text
+    //         style={{ color: "white", fontSize: 24 }}
+    //       >{`Gesture ended at:  ${absyf}`}</Text>
+    //     </View>
+    //   </GestureDetector>
+    // </GestureHandlerRootView>
     )
 }
