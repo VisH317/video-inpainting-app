@@ -8,15 +8,19 @@ import sys
 import json
 import base64
 import uuid
+from supabase import create_client, Client
+from dotenv import load_dotenv
 
 class InpaintHandler(BaseHandler):
 
     def __init__(self):
+        load_dotenv()
         self.initialized = False
         self.siammask = None
         self.model = None
         self.size = None
         self.device = None
+        self.client: Client = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_ANON"))
 
     def initialize(self, context):
         properties = context.system_properties
@@ -86,7 +90,7 @@ class InpaintHandler(BaseHandler):
         # out = json.dumps(str(input))
         # out = base64.b64encode(input.read())
         # return [out]
-        out = { 'id': input }
+        out = { 'url': input }
         return [out]
     
 
@@ -115,7 +119,12 @@ class InpaintHandler(BaseHandler):
         with open("{}.mp4".format(id), 'wb') as f:
             f.write(args.data.getbuffer())
 
-        return id
+        res = self.client.storage().upload(f"{uuid}.mp4", f"results/{uuid}.mp4")
+        print(res)
+        
+        url = self.client.storage().get_public_url(f"{uuid}.mp4")
+
+        return url
         
 
         # ims, masks = mask(args, self.siammask, self.cfg)

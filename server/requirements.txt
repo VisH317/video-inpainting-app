@@ -13,4 +13,4 @@ openmim
 torchserve
 torch-model-archiver
 supabase
-dotenv
+python-dotenv
