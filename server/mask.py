@@ -90,8 +90,8 @@ def mask_setup(args):
     # assert isfile(args.resume), '{} is not a valid file'.format(args.resume)
     print("loading")
     siammask = load_pretrain(siammask, args.resume)
-    opt_siammask = torch.compile(siammask)
-    return opt_siammask, cfg
+    # opt_siammask = torch.compile(siammask)
+    return siammask, cfg
 
 
 def mask(args, siammask, cfg):
