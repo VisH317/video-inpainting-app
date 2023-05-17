@@ -109,6 +109,7 @@ class InpaintHandler(BaseHandler):
         args.y = int(int(data['y'])*256/590)
         args.w = int(int(data['w'])*256/330)
         args.h = int(int(data['h'])*256/590)
+        print("preargs: ", data['x'], ", ", data['y'], ", ", data['w'], ", ", data['h'])
         print("args: ", args.x, ", ", args.y, ", ", args.w, ", ", args.h)
         args.data = data['data']
 
