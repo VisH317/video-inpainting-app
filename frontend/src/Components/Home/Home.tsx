@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
         height: 173,
         left: -15,
         // backgroundColor: "#FFA89C",
-        backgroundColor: "#FFA89C",
+        backgroundColor: "#e2e8f0",
         transform: [{ rotate: '6deg' }]
     },
     imgContainer: {
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
         left: -25,
         bottom: -15,
         // backgroundColor: "#FFA89C",
-        backgroundColor: "#FFA89C",
+        backgroundColor: "#f1f5f9",
         transform: [{ rotate: '-6deg' }]
     },
     mainText: {
