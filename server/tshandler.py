@@ -17,13 +17,12 @@ from dotenv import load_dotenv
 class InpaintHandler(BaseHandler):
 
     def __init__(self):
-        load_dotenv()
         self.initialized = False
         self.siammask = None
         self.model = None
         self.size = None
         self.device = None
-        self.client: Client = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_ANON"))
+        self.client: Client = None  #create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_ANON"))
 
     def initialize(self, context):
         properties = context.system_properties
@@ -39,6 +38,8 @@ class InpaintHandler(BaseHandler):
         # process.wait()
 
         print("LISTING DIR: ", os.listdir("./server"))
+        load_dotenv("./server/.env")
+        self.client = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_ANON"))
         from server.E2FGVI.test import setup
         from server.mask import mask_setup
 
