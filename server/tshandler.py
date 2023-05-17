@@ -109,6 +109,7 @@ class InpaintHandler(BaseHandler):
         args.y = int(int(data['y'])*256/590)
         args.w = int(int(data['w'])*256/330)
         args.h = int(int(data['h'])*256/590)
+        print("args: ", args.x, ", ", args.y, ", ", args.w, ", ", args.h)
         args.data = data['data']
 
         ims, masks = mask(args, self.siammask, self.cfg)
