@@ -50,7 +50,7 @@ function BoxSelect({ navigation, route }: any) {
         //         notification: true
         //     }
         // })
-        RNFetchBlob.fetch("POST", "https://cc0d-96-248-107-65.ngrok-free.app/predictions/inpaint", 
+        RNFetchBlob.fetch("POST", "https://4143-96-248-107-65.ngrok-free.app/predictions/inpaint", 
             {
                 "content-type": "multipart/form-data"
             },
@@ -63,18 +63,22 @@ function BoxSelect({ navigation, route }: any) {
             ]
         ).then(res => {
             console.log("res: ", res.data)
-            console.log("received res")
+            console.log("received resbruh")
+
+            console.log("aiwuehfiadfhkj")
+
             RNFetchBlob.config({
                 fileCache: true,
-                addAndroidDownloads: {
-                    useDownloadManager: true,
-                    mime: "video/mp4",
-                    description: "video with object removed from download manager",
-                    path: `${RNFetchBlob.fs.dirs.DownloadDir}/video/vid.mp4`,
-                    notification: true
-                }
+                // addAndroidDownloads: {
+                //     useDownloadManager: true,
+                //     mime: "video/mp4",
+                //     description: "video with object removed from download manager",
+                //     path: `${RNFetchBlob.fs.dirs.DownloadDir}/video/vid.mp4`,
+                //     notification: true
+                // }
             }).fetch("GET", res.data.url)
                 .then(res => console.log("downloaded to:", res.path))
+                .catch(err => console.log("err: ", err))
         })
 
             // var Base64Code = res.data.split("data:video/mp4;base64,"); //base64Image is my image base64 string
