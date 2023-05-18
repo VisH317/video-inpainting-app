@@ -11,16 +11,18 @@ import uuid
 from supabase import create_client, Client
 from dotenv import load_dotenv
 
+SUPABASE_URL="https://uwepaxzzdeivpecslmyh.supabase.co"
+SUPABASE_ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV3ZXBheHp6ZGVpdnBlY3NsbXloIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM3NzgyODQsImV4cCI6MTk5OTM1NDI4NH0.07v00Ciub-z4glwaomfeNkm5OkPuSeo65NNJgDj5S3I"
+
 class InpaintHandler(BaseHandler):
 
     def __init__(self):
-        load_dotenv()
         self.initialized = False
         self.siammask = None
         self.model = None
         self.size = None
         self.device = None
-        self.client: Client = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_ANON"))
+        self.client: Client = create_client(SUPABASE_URL, SUPABASE_ANON)
 
     def initialize(self, context):
         properties = context.system_properties
@@ -119,10 +121,11 @@ class InpaintHandler(BaseHandler):
         with open("{}.mp4".format(id), 'wb') as f:
             f.write(args.data.getbuffer())
 
-        res = self.client.storage().upload(f"{uuid}.mp4", f"results/{uuid}.mp4")
+        print("storage: ", self.client.__dict__)
+        res = self.client.storage.from_('videos').upload(f"{id}.mp4", f"{id}.mp4")
         print(res)
         
-        url = self.client.storage().get_public_url(f"{uuid}.mp4")
+        url = self.client.storage.from_('videos').get_public_url(f"{id}.mp4")
 
         return url
         
