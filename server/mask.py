@@ -77,7 +77,7 @@ def get_frames(video_file):
     print("video file: ", video_file, flush=True)
     f = av.open(video_file, 'r', format="mp4")
     for frame in f.decode(video=0):
-        yield cv2.resize(cv2.cvtColor(np.array(frame.to_image()), cv2.COLOR_RGB2BGR), [256,256])
+        yield cv2.cvtColor(np.array(frame.to_image()), cv2.COLOR_RGB2BGR)
 
 def mask_setup(args):
     args.config = "./get_mask/experiments/siammask/config_davis.json"

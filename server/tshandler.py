@@ -80,13 +80,16 @@ class InpaintHandler(BaseHandler):
         self.size = size
 
     def preprocess(self, model_input):
+        print("model_input: ", str(model_input[0]['x']), ', ', model_input[0]['y'], ', ', model_input[0]['w'], ', ', model_input[0]['h'])
         preprocessed_input = {
             "data": io.BytesIO(model_input[0]['data']),
-            "x": int.from_bytes(model_input[0]['x'], byteorder=sys.byteorder),
-            "y": int.from_bytes(model_input[0]['y'], byteorder=sys.byteorder),
-            "w": int.from_bytes(model_input[0]['w'], byteorder=sys.byteorder),
-            "h": int.from_bytes(model_input[0]['h'], byteorder=sys.byteorder),
+            "x": int(str(model_input[0]['x']).split("'")[1]),
+            "y": int(str(model_input[0]['y']).split("'")[1]),
+            "w": int(str(model_input[0]['w']).split("'")[1]),
+            "h": int(str(model_input[0]['h']).split("'")[1]),
         }
+
+        print("test model input: ", preprocessed_input)
 
         return preprocessed_input
     
@@ -105,15 +108,16 @@ class InpaintHandler(BaseHandler):
         args = argparse.Namespace()
         args.resume = 'cp/SiamMask_DAVIS.pth'
         args.mask_dilation = 32
-        args.x = int(int(data['x'])*256/330)
-        args.y = int(int(data['y'])*256/590)
-        args.w = int(int(data['w'])*256/330)
-        args.h = int(int(data['h'])*256/590)
+        args.x = int(int(data['x'])*256/500)
+        args.y = int(int(data['y'])*256/650)
+        args.w = int(int(data['w'])*256/500)
+        args.h = int(int(data['h'])*256/650)
         print("preargs: ", data['x'], ", ", data['y'], ", ", data['w'], ", ", data['h'])
         print("args: ", args.x, ", ", args.y, ", ", args.w, ", ", args.h)
         args.data = data['data']
 
         ims, masks = mask(args, self.siammask, self.cfg)
+        print("im size: ", ims[0].shape, ', ', masks[0])
         
         ims = [Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB)) for image in ims]
         newmasks = []
