@@ -3,9 +3,11 @@ import { StyleSheet } from "react-native"
 const styles = StyleSheet.create({
     backgroundVideo: {
         zIndex: 0,
-        height: 635,
+        aspectRatio: 1,
         flex: 1,
-        width: "100%",
+        width: "95%",
+        borderWidth: 2,
+        borderColor: 'black',
     },
     button: {
         zIndex: 3,
@@ -35,6 +37,7 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         flex: 1,
         display: "flex",
+        // borderWidth: 2
 
     },
     btnContainer: {
