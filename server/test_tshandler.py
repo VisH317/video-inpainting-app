@@ -93,7 +93,7 @@ class InpaintHandler(BaseHandler):
         # out = base64.b64encode(input.read())
         # return [out]
         out = { 'url': input }
-        return [out]
+        return [json.dumps(out)]
     
 
     def inference(self, data):
