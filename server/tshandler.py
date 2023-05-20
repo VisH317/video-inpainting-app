@@ -13,6 +13,7 @@ import deepspeed
 import uuid
 from supabase import create_client, Client
 from dotenv import load_dotenv
+import json
 
 class InpaintHandler(BaseHandler):
 
@@ -96,7 +97,7 @@ class InpaintHandler(BaseHandler):
     
     def postprocess(self, input):
         ret = { "url": input }
-        return ret
+        return [json.dumps(ret)]
     
 
     def inference(self, data):
@@ -139,15 +140,15 @@ class InpaintHandler(BaseHandler):
 
         out = main_worker(self.model, args, self.device)
 
-        uuid = str(uuid.uuid4())
+        id = str(uuid.uuid4())
 
-        with open("results/{}.mp4".format(uuid), 'wb') as f:
+        with open("results/{}.mp4".format(id), 'wb') as f:
             f.write(out.getbuffer())
 
-        res = self.client.storage().upload(f"{uuid}.mp4", f"results/{uuid}.mp4")
+        res = self.client.storage.from_('videos').upload(f"{id}.mp4", f"{id}.mp4")
         print(res)
         
-        url = self.client.storage().get_public_url(f"{uuid}.mp4")
+        url = self.client.storage.from_('videos').get_public_url(f"{id}.mp4")
 
         return url
 
