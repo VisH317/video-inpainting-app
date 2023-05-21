@@ -119,6 +119,7 @@ class InpaintHandler(BaseHandler):
 
         ims, masks = mask(args, self.siammask, self.cfg)
         print("im size: ", ims[0].shape, ', ', masks[0])
+        print("vid length: ", len(ims), ', ', len(masks))
         
         ims = [Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB)) for image in ims]
         newmasks = []

@@ -110,7 +110,8 @@ def resize_frames(frames, size=None):
     if size is not None:
         frames = [f.resize(int(size)) for f in frames]
     else:
-        size = frames[0].size
+        height, width, channels = frames[0].shape
+        size = (width, height)
     # print("FRAME: ", frames[0])
     print("SIZE: ", size)
     return frames, size
@@ -122,13 +123,7 @@ def resize_frames(frames, size=None):
 def setup(args):
     # set up models
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-    if args.model == "e2fgvi":
-        size = (432, 240)
-    elif args.set_size:
-        size = (args.width, args.height)
-    else:
-        size = None
+    size = None
     # args.use_mp4 = True if args.video.endswith('.mp4') else False
     # print(
     #     f'Loading videos and masks from: {args.video} | INPUT MP4 format: {args.use_mp4}'
