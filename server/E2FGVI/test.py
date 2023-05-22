@@ -121,7 +121,7 @@ def resize_frames(frames, size=None):
 
 def setup(args):
     # set up models
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cpu" if torch.cuda.is_available() else "cpu")
     size = None
     # args.use_mp4 = True if args.video.endswith('.mp4') else False
     # print(
