@@ -14,6 +14,7 @@ import uuid
 from supabase import create_client, Client
 from dotenv import load_dotenv
 import json
+import numpy as np
 
 class InpaintHandler(BaseHandler):
 
@@ -101,6 +102,8 @@ class InpaintHandler(BaseHandler):
     
 
     def inference(self, data):
+        os.environ['CUDA_LAUNCH_BLOCKING'] = "1"
+        os.environ['TORCH_USE_CUDA_DSA'] = "1"
         # data params: video (mp4), x, y, w, h (bounding box to inpaint)
         print("LISTING DIR: ", os.listdir())
         from server.E2FGVI.test import main_worker
@@ -118,15 +121,19 @@ class InpaintHandler(BaseHandler):
         args.data = data['data']
 
         ims, masks = mask(args, self.siammask, self.cfg)
-        print("im size: ", ims[0].shape, ', ', masks[0])
+        print("im size: ", ims[0].shape, ', ', masks[0].shape)
         print("vid length: ", len(ims), ', ', len(masks))
         
         ims = [Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB)) for image in ims]
         newmasks = []
         for m in masks:
-            mp = cv2.dilate(m, cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3)), iterations=4)
+            img = Image.fromarray(np.uint8(m))
+            mp = np.array(img.convert("L"))
+            mp = np.array(mp > 0).astype(np.uint8)
+            print("shape: ", mp.shape)
+            mp = cv2.dilate(mp, cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3)), iterations=4)
             newmasks.append(mp*255)
-        newmasks = [Image.fromarray(cv2.cvtColor(mask, cv2.COLOR_BGR2RGB)) for mask in newmasks]
+        newmasks = [Image.fromarray(cv2.cvtColor(mask, cv2.COLOR_GRAY2RGB)) for mask in newmasks]
         print("NEWMASK: ", newmasks[0])
 
         # setup inpainting args

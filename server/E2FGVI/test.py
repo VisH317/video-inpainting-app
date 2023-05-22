@@ -110,8 +110,7 @@ def resize_frames(frames, size=None):
     if size is not None:
         frames = [f.resize(int(size)) for f in frames]
     else:
-        height, width, channels = frames[0].shape
-        size = (width, height)
+        size = frames[0].size
     # print("FRAME: ", frames[0])
     print("SIZE: ", size)
     return frames, size
@@ -185,6 +184,7 @@ def main_worker(model, args, device):
         ref_ids = get_ref_index(f, neighbor_ids, video_length)
         selected_imgs = imgs[:1, neighbor_ids + ref_ids, :, :, :]
         selected_masks = masks[:1, neighbor_ids + ref_ids, :, :, :]
+        print("sizes: ", selected_imgs.shape, ", ", selected_masks.shape)
         with torch.no_grad():
             masked_imgs = selected_imgs * (1 - selected_masks)
             mod_size_h = 60
@@ -197,6 +197,7 @@ def main_worker(model, args, device):
             masked_imgs = torch.cat(
                 [masked_imgs, torch.flip(masked_imgs, [4])],
                 4)[:, :, :, :, :w + w_pad]
+            print("misize: ", masked_imgs.shape)
             pred_imgs, _ = model(masked_imgs, len(neighbor_ids))
             pred_imgs = pred_imgs[:, :, :h, :w]
             pred_imgs = (pred_imgs + 1) / 2

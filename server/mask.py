@@ -144,7 +144,6 @@ def mask(args, siammask, cfg):
             cv2.imwrite('results/test_mask/{:05d}.png'.format(counter), mask)
             cv2.imwrite('results/test_frame/{:05d}.jpg'.format(counter), im)
             counter += 1
-            if f>10: break
 
             im[:, :, 2] = (mask > 0) * 255 + (mask == 0) * im[:, :, 2]
             # cv2.polylines(im, [np.int0(location).reshape((-1, 1, 2))], True, (0, 255, 0), 3)
