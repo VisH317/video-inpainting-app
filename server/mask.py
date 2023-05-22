@@ -141,8 +141,8 @@ def mask(args, siammask, cfg):
             mask = state['mask'] > state['p'].seg_thr
             mask = (mask * 255.).astype(np.uint8)
             masks.append(mask)
-            cv2.imwrite('results/test_mask/{:05d}.png'.format(counter), mask)
-            cv2.imwrite('results/test_frame/{:05d}.jpg'.format(counter), im)
+            cv2.imwrite('{:05d}.png'.format(counter), mask)
+            cv2.imwrite('{:05d}.jpg'.format(counter), im)
             counter += 1
 
             im[:, :, 2] = (mask > 0) * 255 + (mask == 0) * im[:, :, 2]

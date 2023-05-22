@@ -186,7 +186,7 @@ def main_worker(model, args, device):
         selected_masks = masks[:1, neighbor_ids + ref_ids, :, :, :]
         print("sizes: ", selected_imgs.shape, ", ", selected_masks.shape)
         with torch.no_grad():
-            masked_imgs = selected_imgs * (1 - selected_masks)
+            masked_imgs = selected_imgs * (1 - selected_masks) # probably error stuff
             mod_size_h = 60
             mod_size_w = 108
             h_pad = (mod_size_h - h % mod_size_h) % mod_size_h
@@ -199,14 +199,16 @@ def main_worker(model, args, device):
                 4)[:, :, :, :, :w + w_pad]
             print("misize: ", masked_imgs.shape)
             pred_imgs, _ = model(masked_imgs, len(neighbor_ids))
+            print("hola como esta!!!!!!!!!!!!!!!!!!!!!!")
             pred_imgs = pred_imgs[:, :, :h, :w]
             pred_imgs = (pred_imgs + 1) / 2
             pred_imgs = pred_imgs.cpu().permute(0, 2, 3, 1).numpy() * 255
             for i in range(len(neighbor_ids)):
+                print("getting here!!")
                 idx = neighbor_ids[i]
-                img = np.array(pred_imgs[i]).astype(
-                    np.uint8) * binary_masks[idx] + frames[idx] * (
-                        1 - binary_masks[idx])
+                img = np.array(pred_imgs[i].squeeze()).astype(
+                    np.uint8) * binary_masks[idx].squeeze() + frames[idx].squeeze() * (
+                        1 - binary_masks[idx].squeeze())
                 if comp_frames[idx] is None:
                     comp_frames[idx] = img
                 else:

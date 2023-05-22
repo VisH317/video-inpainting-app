@@ -133,7 +133,7 @@ class InpaintHandler(BaseHandler):
             print("shape: ", mp.shape)
             mp = cv2.dilate(mp, cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3)), iterations=4)
             newmasks.append(mp*255)
-        newmasks = [Image.fromarray(cv2.cvtColor(mask, cv2.COLOR_GRAY2RGB)) for mask in newmasks]
+        newmasks = [Image.fromarray(cv2.cvtColor(mask, cv2.COLOR_BGR2RGB)) for mask in newmasks]
         print("NEWMASK: ", newmasks[0])
 
         # setup inpainting args
@@ -143,10 +143,10 @@ class InpaintHandler(BaseHandler):
         args.model = "e2fgvi_hq"
         args.step = 10
         args.num_ref = -1
-        args.neighbor_stride = 5
+        args.neighbor_stride = 1
         args.savefps = 24
 
-        out = main_worker(self.model, args, self.device)
+        out = main_worker(self.model, args, torch.device("cuda"))
 
         id = str(uuid.uuid4())
 
