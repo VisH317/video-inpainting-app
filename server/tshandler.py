@@ -112,10 +112,10 @@ class InpaintHandler(BaseHandler):
         args = argparse.Namespace()
         args.resume = 'cp/SiamMask_DAVIS.pth'
         args.mask_dilation = 32
-        args.x = int(int(data['x'])*256/500)
-        args.y = int(int(data['y'])*256/650)
-        args.w = int(int(data['w'])*256/500)
-        args.h = int(int(data['h'])*256/650)
+        args.x = int(data['x'])/500
+        args.y = int(data['y'])/650
+        args.w = int(data['w'])/500
+        args.h = int(data['h'])/650
         print("preargs: ", data['x'], ", ", data['y'], ", ", data['w'], ", ", data['h'])
         print("args: ", args.x, ", ", args.y, ", ", args.w, ", ", args.h)
         args.data = data['data']
@@ -150,7 +150,10 @@ class InpaintHandler(BaseHandler):
 
         id = str(uuid.uuid4())
 
-        with open("results/{}.mp4".format(id), 'wb') as f:
+        if not os.path.exists(f"{id}.mp4"):
+            open(f"{id}.mp4", 'w+')
+
+        with open(f"{id}.mp4", 'wb') as f:
             f.write(out.getbuffer())
 
         res = self.client.storage.from_('videos').upload(f"{id}.mp4", f"{id}.mp4")

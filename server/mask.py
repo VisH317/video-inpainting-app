@@ -109,12 +109,15 @@ def mask(args, siammask, cfg):
     # print("IM: ", ims[0])
     print("hola: ", len(ims))
 
+    height, width, channels = ims[0].shape
+
     # Select ROI
     # cv2.setWindowProperty("SiamMask", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
-    x = int(args.x)
-    y = int(args.y)
-    w = int(args.w)
-    h = int(args.h)
+    x = int(args.x*width)
+    y = int(args.y*height)
+    w = int(args.w*width)
+    h = int(args.h*height)
+    print("x: ", x, ", y: ", y, ", w: ", w, ", h: ", h)
 
     toc = 0
     counter = 0
@@ -152,6 +155,7 @@ def mask(args, siammask, cfg):
             # if key > 0:
             #     break
         totalf+=1
+        if f>10: break
 
         toc += cv2.getTickCount() - tic
     toc = cv2.getTickCount()
@@ -159,7 +163,7 @@ def mask(args, siammask, cfg):
     print(toc)
     fps = totalf / toc
     print('SiamMask Time: {:02.1f}s Speed: {:3.1f}fps (with visulization!)'.format(toc, fps))
-    return ims, masks
+    return ims[:10], masks
 
 # if __name__=="__main__":
 #     args = argparse.Namespace()
