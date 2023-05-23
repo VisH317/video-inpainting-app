@@ -121,7 +121,7 @@ def resize_frames(frames, size=None):
 
 def setup(args):
     # set up models
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cpu" if torch.cuda.is_available() else "cpu")
     size = None
     # args.use_mp4 = True if args.video.endswith('.mp4') else False
     # print(
@@ -222,6 +222,8 @@ def main_worker(model, args, device):
     endtime = time.time()
     duration = endtime - starttime
 
+    print("comp_frames: ", len(comp_frames), comp_frames)
+
     # saving videos
     print('Saving videos...')
     # save_dir_name = 'results'
@@ -243,7 +245,7 @@ def main_worker(model, args, device):
     stream.height = h
     stream.pix_fmt = 'yuv444p'
     stream.options = {'crf': '17'}
-    for f in range(video_length):
+    for f in range(2): # change back to video_length
         comp = comp_frames[f].astype(np.uint8)
         # writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
         frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
@@ -257,7 +259,7 @@ def main_worker(model, args, device):
     output.mux(packet)
     output.close()
     
-    return output
+    return output_file
 
     # show results
     # print('Let us enjoy the result!')

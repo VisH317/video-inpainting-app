@@ -143,10 +143,10 @@ class InpaintHandler(BaseHandler):
         args.model = "e2fgvi_hq"
         args.step = 10
         args.num_ref = -1
-        args.neighbor_stride = 5
+        args.neighbor_stride = 1
         args.savefps = 24
 
-        out = main_worker(self.model, args, torch.device("cuda"))
+        out = main_worker(self.model, args, torch.device("cpu"))
 
         id = str(uuid.uuid4())
 
