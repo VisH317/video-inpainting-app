@@ -50,7 +50,7 @@ function BoxSelect({ navigation, route }: any) {
         //         notification: true
         //     }
         // })
-        RNFetchBlob.fetch("POST", "https://4a2f-96-248-107-65.ngrok-free.app/predictions/inpaint", 
+        RNFetchBlob.fetch("POST", "https://6b1e-96-248-107-65.ngrok-free.app/predictions/inpaint", 
             {
                 "content-type": "multipart/form-data"
             },
