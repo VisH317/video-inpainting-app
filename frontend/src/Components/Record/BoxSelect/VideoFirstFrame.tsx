@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Gesture, GestureDetector, GestureHandlerRootView } from 'react-native-gesture-handler'
 import { View, Text } from 'react-native'
 import Video from 'react-native-video'
@@ -43,6 +43,7 @@ export default function VideoFirstFrame(props: VideoFrameProps) {
             setabsyf(Math.round(g.absoluteY))
             console.log("alewsjfoiawj")
             props.setValues(x, y, Math.abs(Math.round(g.x)-x), Math.abs(Math.round(g.y)-y))
+            player?.measure((a: number, b: number, c: number, d: number, e: number, f: number) => console.log("helloooo"))
         })
 
     const boundingBoxStyle = {
@@ -62,49 +63,18 @@ export default function VideoFirstFrame(props: VideoFrameProps) {
         <GestureHandlerRootView style={{flex:1, zIndex:0}}>
             <View style={styles.videoCont}>
                 <View style={boundingBoxStyle}/>
-                
-                <GestureDetector gesture={pan} style={styles.videoCont}>
-                        <Video source={{uri: props.uri}} ref={ref=>player=ref} controls={false} paused={p}
-                            onBuffer={() => console.log("buffering")} onError={() => console.log("ERROR")}
-                            style={styles.backgroundVideo} resizeMode="contain" onLoad={() => {
-                                player.seek(0)
-                                setp(true)
-                        }}/>
-                        {/* <View style={{ flex: 1, backgroundColor: "black" }}>
-                        <Text
-                            style={{ color: "white", fontSize: 24 }}
-                        >{`Gesture started at:  ${absx}`}</Text>
-                        <Text
-                            style={{ color: "white", fontSize: 24 }}
-                        >{`Gesture moved to:  ${absy}`}</Text>
-                        <Text
-                            style={{ color: "white", fontSize: 24 }}
-                        >{`Gesture updated to:  ${absxf}`}</Text>
-                        <Text
-                            style={{ color: "white", fontSize: 24 }}
-                        >{`Gesture ended at:  ${absyf}`}</Text>
-                        </View> */}
-                        
+                <GestureDetector gesture={pan}>
+                    <Video source={{uri: props.uri}} ref={ref=>player=ref} controls={false} paused={p}
+                        onBuffer={() => console.log("buffering")} onError={() => console.log("ERROR")}
+                        style={styles.backgroundVideo} resizeMode="contain" onLoad={() => {
+                            // player.seek(5)
+                            // setp(true)
+                            console.log(Object.getOwnPropertyNames(player.state))
+                            player.seek(0)
+                    }} onEnd={() => {setp(true);player.seek(0)}}>
+                    </Video>
                 </GestureDetector>
             </View>
         </GestureHandlerRootView>
-    // <GestureHandlerRootView style={{ flex: 1 }}>
-    //   <GestureDetector gesture={pan}>
-    //     <View style={{...styles.videoCont, backgroundColor: "black"}}>
-    //       <Text
-    //         style={{ color: "white", fontSize: 24 }}
-    //       >{`Gesture started at:  ${absx}`}</Text>
-    //       <Text
-    //         style={{ color: "white", fontSize: 24 }}
-    //       >{`Gesture moved to:  ${absy}`}</Text>
-    //       <Text
-    //         style={{ color: "white", fontSize: 24 }}
-    //       >{`Gesture updated to:  ${absxf}`}</Text>
-    //       <Text
-    //         style={{ color: "white", fontSize: 24 }}
-    //       >{`Gesture ended at:  ${absyf}`}</Text>
-    //     </View>
-    //   </GestureDetector>
-    // </GestureHandlerRootView>
     )
 }

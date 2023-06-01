@@ -8,6 +8,9 @@ const styles = StyleSheet.create({
         width: "95%",
         borderWidth: 2,
         borderColor: 'black',
+        alignSelf: 'center',
+        height: "100%",
+        // resizeMode: "cover"
     },
     button: {
         zIndex: 3,
@@ -29,15 +32,15 @@ const styles = StyleSheet.create({
         flexDirection: "row",
     },
     videoCont: {
-        position: 'absolute',
-        height: 635,
+        // position: 'absolute',
+        height: "115%",
         zIndex: 0,
-        width: "100%",
+        // width: "100%",
         alignItems: 'center',
         borderColor: 'black',
-        flex: 1,
+        // flex: 1,
         display: "flex",
-        // borderWidth: 2
+        borderWidth: 2
 
     },
     btnContainer: {
