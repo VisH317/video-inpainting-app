@@ -175,6 +175,7 @@ def main_worker(model, args, device):
     print(f'Start test...')
     starttime = time.time()
     individual_times = []
+    i=0
     for f in tqdm(range(0, video_length, neighbor_stride)):
         tim = time.time()
         neighbor_ids = [
@@ -216,8 +217,12 @@ def main_worker(model, args, device):
                         np.float32) * 0.5 + img.astype(np.float32) * 0.5
         newtim = time.time()
         individual_times.append(newtim - tim)
+        i+=1
+        if i>=2: break
     endtime = time.time()
     duration = endtime - starttime
+
+    print("comp_frames: ", len(comp_frames), comp_frames)
 
     # saving videos
     print('Saving videos...')
@@ -240,7 +245,7 @@ def main_worker(model, args, device):
     stream.height = h
     stream.pix_fmt = 'yuv444p'
     stream.options = {'crf': '17'}
-    for f in range(video_length):
+    for f in range(2): # change back to video_length
         comp = comp_frames[f].astype(np.uint8)
         # writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
         frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
@@ -254,7 +259,7 @@ def main_worker(model, args, device):
     output.mux(packet)
     output.close()
     
-    return output
+    return output_file
 
     # show results
     # print('Let us enjoy the result!')
