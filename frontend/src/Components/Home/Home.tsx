@@ -20,6 +20,8 @@ import Action from './Action'
 import { launchImageLibrary } from 'react-native-image-picker'
 import LinearGradient from 'react-native-linear-gradient'
 import { Image } from 'react-native'
+import { faBars } from '@fortawesome/free-solid-svg-icons/faBars'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 
 async function getVideos() {
     const params = {
@@ -46,6 +48,9 @@ export default function Home({ navigation }: any) {
                 colors={["#FFA89C", "#FF8C67"]} 
                 start={{x: 0, y: 0}}
                 end={{x: 1, y: 1}}/> */}
+            <Pressable style={styles.menu} onPress={() => {console.log("hello: ", navigation.openDrawer);navigation.openDrawer()}}>
+                <FontAwesomeIcon icon={faBars} size={30} color="#3b82f6"/>
+            </Pressable>
             <LinearGradient style={styles.bottomRect} 
                 colors={["#e2e8f0", "#e2e8f0"]} 
                 start={{x: 0, y: 0}}
@@ -83,6 +88,14 @@ export default function Home({ navigation }: any) {
 }
 
 const styles = StyleSheet.create({
+    menu: {
+        position: "absolute",
+        top: 25,
+        left: 25,
+        borderColor: "black",
+        borderWidth: 2,
+        zIndex: 20
+    },
     topRect: {
         position: "absolute",
         width: 876.42,

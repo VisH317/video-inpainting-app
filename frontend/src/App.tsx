@@ -23,7 +23,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons/faBars"
 import GestureDemo from './Components/Record/Test';
 
 
-const Tab = createDrawerNavigator()
+const Drawer = createDrawerNavigator()
 const navigationRef = createNavigationContainerRef()
 
 const Hola = () => (
@@ -41,25 +41,14 @@ function App() {
     return (
         <View style={{flex:1}}> 
             <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} backgroundColor={backgroundStyle.backgroundColor}/>
-            <View style={styles.menu}>
+            {/* <View style={styles.menu}>
                 <FontAwesomeIcon icon={faBars}/>
-            </View>
+            </View> */}
             <NavigationContainer ref={navigationRef}>
-                <Tab.Navigator screenOptions={({ route }) => ({
-                    tabBarIcon: ({ focused, color, size }) => {
-                        let iconName;
-                        if(route.name==="Home") iconName = faHome
-                        if(route.name==="Camera") iconName = faCamera
-                        if(route.name==="Files") iconName = faFolder
-                        return <FontAwesomeIcon icon={iconName} color={color}/>
-                    },
-                    tabBarActiveTintColor: "#3b82f6",
-                    tabBarInactiveTintColor: "#979797",
-                    headerShown: false
-                })}>
-                    <Tab.Screen name="Home" options={{ title: "Home" }} component={Home}/>
-                    <Tab.Screen name="Camera" options={{ title: "Camera" }} component={RecordStack}/>
-                </Tab.Navigator>
+                <Drawer.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
+                    <Drawer.Screen name="Home" options={{ title: "Home" }} component={Home}/>
+                    <Drawer.Screen name="Camera" options={{ title: "Camera" }} component={RecordStack}/>
+                </Drawer.Navigator>
             </NavigationContainer>
         </View> 
     )
