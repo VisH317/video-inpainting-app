@@ -9,10 +9,9 @@ from torch.utils.data import DataLoader
 import numpy as np
 from PIL import Image
 
-from inference.data.test_datasets import LongTestDataset, DAVISTestDataset, YouTubeVOSTestDataset
-from inference.data.mask_mapper import MaskMapper
-from model.network import XMem
-from inference.inference_core import InferenceCore
+from .inference.data.mask_mapper import MaskMapper
+from .model.network import XMem
+from .inference.inference_core import InferenceCore
 
 from progressbar import progressbar
 
@@ -128,28 +127,27 @@ Data preparation
 # else:
 #     raise NotImplementedError
 
-torch.autograd.set_grad_enabled(False)
+def mask_setup(args):
+    torch.autograd.set_grad_enabled(False)
 
-# Set up loader
-meta_loader = meta_dataset.get_datasets()
+    # Load our checkpoint
+    network = XMem(config, args.model).cuda().eval()
+    if args.model is not None:
+        model_weights = torch.load(args.model)
+        network.load_weights(model_weights, init_as_zero_if_needed=True)
+    else:
+        print('No model loaded.')
 
-# Load our checkpoint
-network = XMem(config, args.model).cuda().eval()
-if args.model is not None:
-    model_weights = torch.load(args.model)
-    network.load_weights(model_weights, init_as_zero_if_needed=True)
-else:
-    print('No model loaded.')
-
-total_process_time = 0
-total_frames = 0
+    total_process_time = 0
+    total_frames = 0
+    return network
 
 # Start eval
 # for vid_reader in progressbar(meta_loader, max_value=len(meta_dataset), redirect_stdout=True):
 
 # setup initial mask, setup running
 
-def mask(args):
+def mask(args, network):
     # loader = DataLoader(vid_reader, batch_size=1, shuffle=False, num_workers=2)
     vid_name = "vid"
     vid_length = len(args.images)
@@ -168,7 +166,7 @@ def mask(args):
 
     ret_masks = []
 
-    for ti, data in enumerate(args.imgs):
+    for ti, data in enumerate(args.images):
         with torch.cuda.amp.autocast(enabled=not args.benchmark):
             rgb = data
             # msk = data.get('mask')
@@ -208,7 +206,7 @@ def mask(args):
             #     labels = None
 
             # Run the model on this frame
-            prob = processor.step(rgb, msk, labels, end=(ti==vid_length-1))
+            prob = processor.step(rgb, None, None, end=(ti==vid_length-1))
 
             # Upsample to original size if needed
             # if need_resize:
@@ -251,15 +249,15 @@ def mask(args):
     return ret_masks
 
 
-print(f'Total processing time: {total_process_time}')
-print(f'Total processed frames: {total_frames}')
-print(f'FPS: {total_frames / total_process_time}')
-print(f'Max allocated memory (MB): {torch.cuda.max_memory_allocated() / (2**20)}')
+# print(f'Total processing time: {total_process_time}')
+# print(f'Total processed frames: {total_frames}')
+# print(f'FPS: {total_frames / total_process_time}')
+# print(f'Max allocated memory (MB): {torch.cuda.max_memory_allocated() / (2**20)}')
 
-if not args.save_scores:
-    if is_youtube:
-        print('Making zip for YouTubeVOS...')
-        shutil.make_archive(path.join(args.output, path.basename(args.output)), 'zip', args.output, 'Annotations')
-    elif is_davis and args.split == 'test':
-        print('Making zip for DAVIS test-dev...')
-        shutil.make_archive(args.output, 'zip', args.output)
+# if not args.save_scores:
+#     if is_youtube:
+#         print('Making zip for YouTubeVOS...')
+#         shutil.make_archive(path.join(args.output, path.basename(args.output)), 'zip', args.output, 'Annotations')
+#     elif is_davis and args.split == 'test':
+#         print('Making zip for DAVIS test-dev...')
+#         shutil.make_archive(args.output, 'zip', args.output)
