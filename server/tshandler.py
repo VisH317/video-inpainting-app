@@ -89,6 +89,8 @@ class InpaintHandler(BaseHandler):
             "y": int(str(model_input[0]['y']).split("'")[1]),
             "w": int(str(model_input[0]['w']).split("'")[1]),
             "h": int(str(model_input[0]['h']).split("'")[1]),
+            "maxx": int(str(model_input[0]['maxx']).split("'")[1]),
+            "maxy": int(str(model_input[0]['maxy']).split("'")[1])
         }
 
         print("test model input: ", preprocessed_input)
@@ -109,13 +111,16 @@ class InpaintHandler(BaseHandler):
         from server.E2FGVI.test import main_worker
         from server.mask import mask
 
+        maxx = int(data['maxx'])
+        maxy = int(data['maxy'])
+
         args = argparse.Namespace()
         args.resume = 'cp/SiamMask_DAVIS.pth'
         args.mask_dilation = 32
-        args.x = int(data['x'])/500
-        args.y = int(data['y'])/650
-        args.w = int(data['w'])/500
-        args.h = int(data['h'])/650
+        args.x = int(data['x'])/maxx
+        args.y = int(data['y'])/maxy
+        args.w = int(data['w'])/maxx
+        args.h = int(data['h'])/maxy
         print("preargs: ", data['x'], ", ", data['y'], ", ", data['w'], ", ", data['h'])
         print("args: ", args.x, ", ", args.y, ", ", args.w, ", ", args.h)
         args.data = data['data']
