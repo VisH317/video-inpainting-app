@@ -50,8 +50,26 @@ class InpaintHandler(BaseHandler):
 
         # siammask setup args:
         args = argparse.Namespace()
-        args.resume = './server/cp/SiamMask_DAVIS.pth'
-        args.mask_dilation = 32
+        args.benchmark = False
+        args.model = './server/XMem/model/XMem.pth'
+        args.buffer_size = 100
+        args.num_objects = 1
+        args.max_mid_term_frames = 10
+        args.min_mid_term_frames = 5
+        args.max_long_term_elements = 10000
+        args.num_prototypes = 128
+        args.top_k = 30
+        args.mem_every = 10
+        args.deep_update_every = -1
+        args.no_amp = 'store_true'
+        args.size = -1
+        args.save_scores = False
+        args.flip = False
+        args.enable_long_term_count_usage = False
+        args.enable_long_term = True
+        args.mem_every=5
+        args.deep_update_every=-1
+        args.hidden_dim = 1
         siammask = mask_setup(args)
         tp_config = {
             "enabled": True,
@@ -115,7 +133,7 @@ class InpaintHandler(BaseHandler):
         maxy = int(data['maxy'])
 
         args = argparse.Namespace()
-        args.images = get_frames(data['data'])
+        args.images = list(get_frames(data['data']))
         height, width, channels = args.images[0].shape
         args.benchmark = False
         args.model = './saves/XMem.pth'
@@ -132,6 +150,8 @@ class InpaintHandler(BaseHandler):
         args.size = -1
         args.save_scores = False
         args.flip = False
+        args.enable_long_term_count_usage = False
+        args.enable_long_term = True
 
 
         # args.resume = 'cp/SiamMask_DAVIS.pth'
@@ -141,9 +161,9 @@ class InpaintHandler(BaseHandler):
         w = int((int(data['w'])/maxx)*width)
         h = int((int(data['h'])/maxy)*height)
         print("preargs: ", data['x'], ", ", data['y'], ", ", data['w'], ", ", data['h'])
-        print("args: ", x, ", ", y, ", ", w, ", ", h)
-        for ix in range(width):
-            for ix2 in range(height):
+        print("args: ", x, ", ", y, ", ", w, ", ", h, ", ", width, ", ", height)
+        for ix in range(height):
+            for ix2 in range(width):
                 if not (ix>=x and ix<=x+w and ix2>=y and ix2<=y+h): args.images[0][ix][ix2] = 0
 
         ims, masks = mask(args, self.siammask)

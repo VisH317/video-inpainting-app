@@ -13,62 +13,62 @@ from .inference.data.mask_mapper import MaskMapper
 from .model.network import XMem
 from .inference.inference_core import InferenceCore
 
-from progressbar import progressbar
+# from progressbar import progressbar
 
-try:
-    import hickle as hkl
-except ImportError:
-    print('Failed to import hickle. Fine if not using multi-scale testing.')
+# try:
+#     import hickle as hkl
+# except ImportError:
+#     print('Failed to import hickle. Fine if not using multi-scale testing.')
 
 
 """
 Arguments loading
 """
-parser = ArgumentParser()
-parser.add_argument('--model', default='./saves/XMem.pth')
+# parser = ArgumentParser()
+# parser.add_argument('--model', default='./saves/XMem.pth')
 
-# Data options
-parser.add_argument('--d16_path', default='../DAVIS/2016')
-parser.add_argument('--d17_path', default='../DAVIS/2017')
-parser.add_argument('--y18_path', default='../YouTube2018')
-parser.add_argument('--y19_path', default='../YouTube')
-parser.add_argument('--lv_path', default='../long_video_set')
-# For generic (G) evaluation, point to a folder that contains "JPEGImages" and "Annotations"
-parser.add_argument('--generic_path')
+# # Data options
+# parser.add_argument('--d16_path', default='../DAVIS/2016')
+# parser.add_argument('--d17_path', default='../DAVIS/2017')
+# parser.add_argument('--y18_path', default='../YouTube2018')
+# parser.add_argument('--y19_path', default='../YouTube')
+# parser.add_argument('--lv_path', default='../long_video_set')
+# # For generic (G) evaluation, point to a folder that contains "JPEGImages" and "Annotations"
+# parser.add_argument('--generic_path')
 
-parser.add_argument('--dataset', help='D16/D17/Y18/Y19/LV1/LV3/G', default='D17')
-parser.add_argument('--split', help='val/test', default='val')
-parser.add_argument('--output', default=None)
-parser.add_argument('--save_all', action='store_true', 
-            help='Save all frames. Useful only in YouTubeVOS/long-time video', )
+# parser.add_argument('--dataset', help='D16/D17/Y18/Y19/LV1/LV3/G', default='D17')
+# parser.add_argument('--split', help='val/test', default='val')
+# parser.add_argument('--output', default=None)
+# parser.add_argument('--save_all', action='store_true', 
+#             help='Save all frames. Useful only in YouTubeVOS/long-time video', )
 
-parser.add_argument('--benchmark', action='store_true', help='enable to disable amp for FPS benchmarking')
+# parser.add_argument('--benchmark', action='store_true', help='enable to disable amp for FPS benchmarking')
         
-# Long-term memory options
-parser.add_argument('--disable_long_term', action='store_true')
-parser.add_argument('--max_mid_term_frames', help='T_max in paper, decrease to save memory', type=int, default=10)
-parser.add_argument('--min_mid_term_frames', help='T_min in paper, decrease to save memory', type=int, default=5)
-parser.add_argument('--max_long_term_elements', help='LT_max in paper, increase if objects disappear for a long time', 
-                                                type=int, default=10000)
-parser.add_argument('--num_prototypes', help='P in paper', type=int, default=128)
+# # Long-term memory options
+# parser.add_argument('--disable_long_term', action='store_true')
+# parser.add_argument('--max_mid_term_frames', help='T_max in paper, decrease to save memory', type=int, default=10)
+# parser.add_argument('--min_mid_term_frames', help='T_min in paper, decrease to save memory', type=int, default=5)
+# parser.add_argument('--max_long_term_elements', help='LT_max in paper, increase if objects disappear for a long time', 
+#                                                 type=int, default=10000)
+# parser.add_argument('--num_prototypes', help='P in paper', type=int, default=128)
 
-parser.add_argument('--top_k', type=int, default=30)
-parser.add_argument('--mem_every', help='r in paper. Increase to improve running speed.', type=int, default=5)
-parser.add_argument('--deep_update_every', help='Leave -1 normally to synchronize with mem_every', type=int, default=-1)
+# parser.add_argument('--top_k', type=int, default=30)
+# parser.add_argument('--mem_every', help='r in paper. Increase to improve running speed.', type=int, default=5)
+# parser.add_argument('--deep_update_every', help='Leave -1 normally to synchronize with mem_every', type=int, default=-1)
 
-# Multi-scale options
-parser.add_argument('--save_scores', action='store_true')
-parser.add_argument('--flip', action='store_true')
-parser.add_argument('--size', default=480, type=int, 
-            help='Resize the shorter side to this size. -1 to use original resolution. ')
+# # Multi-scale options
+# parser.add_argument('--save_scores', action='store_true')
+# parser.add_argument('--flip', action='store_true')
+# parser.add_argument('--size', default=480, type=int, 
+#             help='Resize the shorter side to this size. -1 to use original resolution. ')
 
-args = parser.parse_args()
-config = vars(args)
-config['enable_long_term'] = not config['disable_long_term']
+# args = parser.parse_args()
+# config = vars(args)
+# config['enable_long_term'] = not config['disable_long_term']
 
-if args.output is None:
-    args.output = f'../output/{args.dataset}_{args.split}'
-    print(f'Output path not provided. Defaulting to {args.output}')
+# if args.output is None:
+#     args.output = f'../output/{args.dataset}_{args.split}'
+#     print(f'Output path not provided. Defaulting to {args.output}')
 
 """
 Data preparation
@@ -131,7 +131,7 @@ def mask_setup(args):
     torch.autograd.set_grad_enabled(False)
 
     # Load our checkpoint
-    network = XMem(config, args.model).cuda().eval()
+    network = XMem(vars(args), args.model).cuda().eval()
     if args.model is not None:
         model_weights = torch.load(args.model)
         network.load_weights(model_weights, init_as_zero_if_needed=True)
@@ -148,6 +148,7 @@ def mask_setup(args):
 # setup initial mask, setup running
 
 def mask(args, network):
+    config = vars(args)
     # loader = DataLoader(vid_reader, batch_size=1, shuffle=False, num_workers=2)
     vid_name = "vid"
     vid_length = len(args.images)
@@ -246,7 +247,7 @@ def mask(args, network):
             #         hkl.dump(mapper.remappings, path.join(np_path, f'backward.hkl'), mode='w')
             #     if args.save_all or info['save'][0]:
             #         hkl.dump(prob, path.join(np_path, f'{frame[:-4]}.hkl'), mode='w', compression='lzf')
-    return ret_masks
+    return args.images, ret_masks
 
 
 # print(f'Total processing time: {total_process_time}')

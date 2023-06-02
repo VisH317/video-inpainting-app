@@ -12,6 +12,7 @@ import torch.nn as nn
 from .aggregate import aggregate
 from .modules import *
 from .memory_util import *
+import os
 
 
 class XMem(nn.Module):
@@ -142,6 +143,8 @@ class XMem(nn.Module):
         if model_path is not None:
             # load the model and key/value/hidden dimensions with some hacks
             # config is updated with the loaded parameters
+            # print("test: ", os.listdir("../"))
+            print("test2: ", os.listdir("."))
             model_weights = torch.load(model_path, map_location=map_location)
             self.key_dim = model_weights['key_proj.key_proj.weight'].shape[0]
             self.value_dim = model_weights['value_encoder.fuser.block2.conv2.weight'].shape[0]

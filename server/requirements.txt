@@ -14,3 +14,4 @@ torchserve
 torch-model-archiver
 supabase
 python-dotenv
+progressbar
