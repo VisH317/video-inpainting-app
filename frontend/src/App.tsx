@@ -2,6 +2,7 @@ import 'react-native-gesture-handler';
 import React, { useState } from 'react'
 import { Button, StatusBar, Text, useColorScheme, View, StyleSheet, Pressable } from 'react-native'
 import { NavigationContainer, createNavigationContainerRef } from '@react-navigation/native';
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { launchImageLibrary } from 'react-native-image-picker'
 import { gestureHandlerRootHOC, GestureHandlerRootView } from 'react-native-gesture-handler'
@@ -18,6 +19,7 @@ import RecordStack from './Components/Record/RecordStack';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faBars } from "@fortawesome/free-solid-svg-icons/faBars"
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import GestureDemo from './Components/Record/Test';
 
 const navigationRef = createNavigationContainerRef()
 

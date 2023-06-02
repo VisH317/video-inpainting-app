@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Pressable, Text, TouchableNativeFeedback, ActivityIndicator } from 'react-native'
+import { View, Pressable, Text, TouchableNativeFeedback, ActivityIndicator, Dimensions } from 'react-native'
 import RNFetchBlob from 'rn-fetch-blob'
 
 import VideoFirstFrame from './VideoFirstFrame'
@@ -60,6 +60,8 @@ function BoxSelect({ navigation, route }: any) {
                 {name: 'y', data: String(y)},
                 {name: 'w', data: String(w)},
                 {name: 'h', data: String(h)},
+                {name: "maxx", data: String(Dimensions.get('window').width)},
+                {name: "maxy", data: String(Dimensions.get('window').height)}
             ]
         ).then(res => {
             const data = JSON.parse(res.data)
@@ -120,6 +122,7 @@ function BoxSelect({ navigation, route }: any) {
     ) : (
         <View style={styles.chooseImage}>
             <VideoFirstFrame uri={uri} setValues={set}/>
+            {/* <GestureDemo/> */}
             {/* <GestureDemo/> */}
             {/* <Text>Select an Area to Remove:</Text>
             <TextInput onChangeText={setx} value={x} placeholder="x:"/>

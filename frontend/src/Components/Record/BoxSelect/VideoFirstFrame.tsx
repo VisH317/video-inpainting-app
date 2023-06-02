@@ -20,8 +20,8 @@ export default function VideoFirstFrame(props: VideoFrameProps) {
     const [h, seth] = useState(0)
 
     // states for bounding box
-    const [absx, setabsx] = useState(10)
-    const [absy, setabsy] = useState(10)
+    const [absx, setabsx] = useState(-10)
+    const [absy, setabsy] = useState(-10)
     const [absxf, setabsxf] = useState(0)
     const [absyf, setabsyf] = useState(0)
 
@@ -60,10 +60,10 @@ export default function VideoFirstFrame(props: VideoFrameProps) {
     let player: any
 
     return (
-        <GestureHandlerRootView style={{position: "absolute", width: "100%", height: "100%", flex:1, zIndex:10}}>
+        <GestureHandlerRootView style={{flex:1,zIndex:0}}>
             <View style={styles.videoCont}>
                 <View style={boundingBoxStyle}/>
-                <GestureDetector gesture={pan} style={{flex: 1, borderWidth: 2, borderColor: "black"}}>
+                <GestureDetector gesture={pan} style={styles.videoCont}>
                     <Video source={{uri: props.uri}} ref={ref=>player=ref} controls={false} paused={p}
                         onBuffer={() => console.log("buffering")} onError={() => console.log("ERROR")}
                         style={styles.backgroundVideo} onLoad={() => {
@@ -72,6 +72,20 @@ export default function VideoFirstFrame(props: VideoFrameProps) {
                             console.log(Object.getOwnPropertyNames(player.state))
                             player.seek(0)
                     }} onEnd={() => {setp(true);player.seek(0)}} posterResizeMode='cover' resizeMode="stretch"/>
+                    {/* <View style={{ flex: 1, backgroundColor: "black" }}>
+                    <Text
+                        style={{ color: "white", fontSize: 24 }}
+                    >{`Gesture started at:  ${x}`}</Text>
+                    <Text
+                        style={{ color: "white", fontSize: 24 }}
+                    >{`Gesture moved to:  ${y}`}</Text>
+                    <Text
+                        style={{ color: "white", fontSize: 24 }}
+                    >{`Gesture updated to:  ${w}`}</Text>
+                    <Text
+                        style={{ color: "white", fontSize: 24 }}
+                    >{`Gesture ended at:  ${h}`}</Text>
+                    </View> */}
                 </GestureDetector>
             </View>
         </GestureHandlerRootView>

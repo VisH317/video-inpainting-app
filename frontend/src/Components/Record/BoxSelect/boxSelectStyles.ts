@@ -4,13 +4,11 @@ console.log(Dimensions.get("window"))
 
 const styles = StyleSheet.create({
     backgroundVideo: {
-        // zIndex: 100,
+        zIndex: 0,
         // aspectRatio: 1,
         flex: 1,
         // alignSelf: 'stretch',
         width: Dimensions.get('window').width,
-        borderWidth: 2,
-        borderColor: 'blue',
         // alignSelf: 'center',
         height: Dimensions.get('window').height,
         // resizeMode: "cover"
@@ -41,7 +39,7 @@ const styles = StyleSheet.create({
     videoCont: {
         position: 'absolute',
         height: "100%",
-        // zIndex: 90,
+        zIndex: 0,
         width: "100%",
         alignItems: 'center',
         // borderColor: 'black',
@@ -53,18 +51,18 @@ const styles = StyleSheet.create({
     btnContainer: {
         flex: 1, 
         flexDirection: "column-reverse", 
-        height: 100, 
+        height: 80, 
         width: "100%", 
         position: "absolute", 
         bottom: 0, 
         left: 0,
         // zIndex:-10,
-        borderWidth: 2,
-        borderColor: "black",
     },
     chooseImage: {
         flexDirection: 'column',
-        flex: 1
+        flex: 1,
+        // borderColor: "white",
+        // borderWidth: 2
     },
     text: {
         fontSize: 30
