@@ -89,8 +89,8 @@ class InpaintHandler(BaseHandler):
             "y": int(str(model_input[0]['y']).split("'")[1]),
             "w": int(str(model_input[0]['w']).split("'")[1]),
             "h": int(str(model_input[0]['h']).split("'")[1]),
-            "maxx": int(str(model_input[0]['maxx']).split("'")[1]),
-            "maxy": int(str(model_input[0]['maxy']).split("'")[1])
+            "maxx": int(float(str(model_input[0]['maxx']).split("'")[1])),
+            "maxy": int(float(str(model_input[0]['maxy']).split("'")[1]))
         }
 
         print("test model input: ", preprocessed_input)
@@ -136,7 +136,8 @@ class InpaintHandler(BaseHandler):
             mp = np.array(img.convert("L"))
             mp = np.array(mp > 0).astype(np.uint8)
             print("shape: ", mp.shape)
-            mp = cv2.dilate(mp, cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3)), iterations=4)
+            # cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3))
+            mp = cv2.dilate(mp, np.ones((5, 5), np.uint8), iterations=10)
             newmasks.append(mp*255)
         newmasks = [Image.fromarray(cv2.cvtColor(mask, cv2.COLOR_BGR2RGB)) for mask in newmasks]
         print("NEWMASK: ", newmasks[0])
@@ -146,7 +147,7 @@ class InpaintHandler(BaseHandler):
         args.mask = newmasks
         args.frames = ims
         args.model = "e2fgvi_hq"
-        args.step = 10
+        args.step = 5
         args.num_ref = -1
         args.neighbor_stride = 1
         args.savefps = 24
