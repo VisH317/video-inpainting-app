@@ -65,8 +65,8 @@ export default function Home({ navigation }: any) {
             </View>
             {/* <View style={styles.spacer}/> */}
             <View style={styles.actionContainer}>
-                <Action title="Upload a Video" desc="Edit a premade video" onClick=""/>
-                <Action title="Record a Video" desc="Record a video to edit" onClick="Record"/>
+                <Action title="Upload a Video" desc="Edit a premade video" onClick={() => {console.log("test: ", navigation);navigation.navigate("Record")}}/>
+                <Action title="Record a Video" desc="Record a video to edit" onClick={() => navigation.navigate("Record")}/>
             </View>
         </View>
     )

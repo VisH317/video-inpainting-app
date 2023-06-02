@@ -11,13 +11,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 
 const Stack = createNativeStackNavigator()
 
-export default function RecordStack({ navigation }) {
+export default function RecordStack({ navigation }: any) {
     return (
         <SafeAreaView>
-            <View style={styles.menu}>
+            {/* <View style={styles.menu}>
                 <FontAwesomeIcon icon={faBars} size={30} color="#3b82f6"/>
-            </View>
-            <Stack.Navigator screenOptions={{headerShown: false}}>
+            </View> */}
+            <Stack.Navigator screenOptions={{headerShown: true}}>
                 <Stack.Screen name="Record" component={Record}/>
                 <Stack.Screen name="Select" component={BoxSelect}/>
                 <Stack.Screen name="Completed" component={Completed}/>

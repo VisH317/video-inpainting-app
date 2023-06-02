@@ -2,8 +2,6 @@ import 'react-native-gesture-handler';
 import React, { useState } from 'react'
 import { Button, StatusBar, Text, useColorScheme, View, StyleSheet, Pressable } from 'react-native'
 import { NavigationContainer, createNavigationContainerRef } from '@react-navigation/native';
-// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import { launchImageLibrary } from 'react-native-image-picker'
 import { gestureHandlerRootHOC, GestureHandlerRootView } from 'react-native-gesture-handler'
@@ -11,6 +9,7 @@ import { Colors } from 'react-native/Libraries/NewAppScreen'
 
 // Components
 import Completed from './Components/Completed'
+import Record from './Components/Record/Record';
 import Home from './Components/Home/Home'
 import Loading from './Components/Loading'
 import BoxSelect from './Components/Record/BoxSelect/BoxSelect'
@@ -18,6 +17,7 @@ import RecordStack from './Components/Record/RecordStack';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faBars } from "@fortawesome/free-solid-svg-icons/faBars"
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const navigationRef = createNavigationContainerRef()
 
@@ -27,7 +27,7 @@ const Hola = () => (
 
 function App() {
 
-    const Drawer = createDrawerNavigator()
+    const Drawer = createNativeStackNavigator()
 
     const isDarkMode = useColorScheme() === 'dark';
 
@@ -42,9 +42,11 @@ function App() {
                 <FontAwesomeIcon icon={faBars}/>
             </View> */}
             <NavigationContainer ref={navigationRef}>
-                <Drawer.Navigator initialRouteName='Home' screenOptions={{ drawerStyle: { backgroundColor: 'white' }, drawerPosition: 'right' }}>
+                <Drawer.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
                     <Drawer.Screen name="Home" options={{ title: "Home" }} component={Home}/>
-                    <Drawer.Screen name="Camera" options={{ title: "Camera" }} component={RecordStack}/>
+                    <Drawer.Screen name="Record" component={Record}/>
+                    <Drawer.Screen name="Select" component={BoxSelect}/>
+                    <Drawer.Screen name="Completed" component={Completed}/>
                 </Drawer.Navigator>
             </NavigationContainer>
         </View> 

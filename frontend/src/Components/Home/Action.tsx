@@ -19,21 +19,21 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons/faArrowRight'
 interface ActionProps {
     title: string,
     desc: string,
-    onClick: string
+    onClick: () => void
 }
 
 export default function Action(props: ActionProps) {
 
     const [press, setPress] = useState(false)
-    const pressIn = () => setPress(true)
-    const pressOut = () => setPress(false)
+    const pressIn = () => {console.log(press);setPress(true)}
+    const pressOut = () => {console.log(press);setPress(false)}
 
     return (
-        <Pressable style={styles.container} onPressIn={pressIn} onPressOut={pressOut}>
+        <Pressable style={styles.container} onPressIn={pressIn} onPressOut={pressOut} >
             <TouchableNativeFeedback background={TouchableNativeFeedback.Ripple(
                 "#cbd5e1",
                 true
-            )}>
+            )} onPress={props.onClick}>
                 <View style={styles.innerContainer}>
                 <View style={styles.text}>
                     <Text style={styles.title}>{props.title}</Text>

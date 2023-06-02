@@ -80,8 +80,9 @@ export default function Record({ navigation }: any) {
     if(device==null) return <Text>LOADING</Text>
     return (
         <View>
+            <Text>HELLO?</Text>
             <Camera style={styles.camera} device={device} video={true} ref={camera} isActive>
-                <Text>HOLA</Text>
+                {/* <Text>HOLA</Text> */}
             </Camera>
             <View style={{flex: 1, flexDirection: "column-reverse", height: 635, width: "100%", position: "absolute", top: 0, left: 0}}>
             <View style={styles.btnContainer}>
@@ -98,7 +99,8 @@ export default function Record({ navigation }: any) {
 
 const styles = StyleSheet.create({
     camera: {
-        height: 635,
+        height: 685,
+        flex: 1,
         width: "100%",
         position: "absolute",
         top: 0,

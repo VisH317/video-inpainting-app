@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Gesture, GestureDetector, GestureHandlerRootView } from 'react-native-gesture-handler'
-import { View, Text } from 'react-native'
+import { View, Text, Dimensions } from 'react-native'
 import Video from 'react-native-video'
 
 import styles from './boxSelectStyles'
@@ -20,8 +20,8 @@ export default function VideoFirstFrame(props: VideoFrameProps) {
     const [h, seth] = useState(0)
 
     // states for bounding box
-    const [absx, setabsx] = useState(-10)
-    const [absy, setabsy] = useState(-10)
+    const [absx, setabsx] = useState(10)
+    const [absy, setabsy] = useState(10)
     const [absxf, setabsxf] = useState(0)
     const [absyf, setabsyf] = useState(0)
 
@@ -60,19 +60,18 @@ export default function VideoFirstFrame(props: VideoFrameProps) {
     let player: any
 
     return (
-        <GestureHandlerRootView style={{flex:1, zIndex:0}}>
+        <GestureHandlerRootView style={{position: "absolute", width: "100%", height: "100%", flex:1, zIndex:10}}>
             <View style={styles.videoCont}>
                 <View style={boundingBoxStyle}/>
-                <GestureDetector gesture={pan}>
+                <GestureDetector gesture={pan} style={{flex: 1, borderWidth: 2, borderColor: "black"}}>
                     <Video source={{uri: props.uri}} ref={ref=>player=ref} controls={false} paused={p}
                         onBuffer={() => console.log("buffering")} onError={() => console.log("ERROR")}
-                        style={styles.backgroundVideo} resizeMode="contain" onLoad={() => {
+                        style={styles.backgroundVideo} onLoad={() => {
                             // player.seek(5)
                             // setp(true)
                             console.log(Object.getOwnPropertyNames(player.state))
                             player.seek(0)
-                    }} onEnd={() => {setp(true);player.seek(0)}}>
-                    </Video>
+                    }} onEnd={() => {setp(true);player.seek(0)}} posterResizeMode='cover' resizeMode="stretch"/>
                 </GestureDetector>
             </View>
         </GestureHandlerRootView>
