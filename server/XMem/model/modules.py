@@ -15,7 +15,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from .group_modules import *
-import resnet
+from . import resnet
 from .cbam import CBAM
 
 
