@@ -5,8 +5,8 @@
 # --------------------------------------------------------
 import os
 import av
-from .get_mask.test import *
-from .get_mask.models.custom import Custom
+# from .get_mask.test import *
+# from .get_mask.models.custom import Custom
 import cv2
 import glob
 import json

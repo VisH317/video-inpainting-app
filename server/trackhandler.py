@@ -16,46 +16,63 @@ from dotenv import load_dotenv
 import json
 import numpy as np
 import av
+from TrackAnything.track_anything import TrackingAnything
 
-class InpaintHandler(BaseHandler):
+SUPABASE_URL="https://uwepaxzzdeivpecslmyh.supabase.co"
+SUPABASE_ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV3ZXBheHp6ZGVpdnBlY3NsbXloIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM3NzgyODQsImV4cCI6MTk5OTM1NDI4NH0.07v00Ciub-z4glwaomfeNkm5OkPuSeo65NNJgDj5S3I"
+
+def get_frames(video_file):
+    print("video file: ", video_file, flush=True)
+    f = av.open(video_file, 'r', format="mp4")
+    for frame in f.decode(video=0):
+        yield cv2.cvtColor(np.array(frame.to_image()), cv2.COLOR_RGB2BGR)
+
+class InpaintHandler():
 
     def __init__(self):
         self.initialized = False
         self.siammask = None
         self.model = None
-        self.size = None
+        self.size = None # uncomment the initialize, change the imports to include server, change other imports to include server in tracker and inpainter
         self.device = None
         self.client: Client = None  #create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_ANON"))
 
     def initialize(self, context):
-        properties = context.system_properties
-        model_dir = properties.get("model_dir")
-        if not torch.cuda.is_available() or properties.get("gpu_id") is None:
-            raise RuntimeError("This model is not supported on CPU machines.")
-        self.device = torch.device("cuda:" + str(properties.get("gpu_id")))
+        # properties = context.system_properties
+        # model_dir = properties.get("model_dir")
+        # if not torch.cuda.is_available() or properties.get("gpu_id") is None:
+        #     raise RuntimeError("This model is not supported on CPU machines.")
+        # self.device = torch.device("cuda:" + str(properties.get("gpu_id")))
 
-        with zipfile.ZipFile(model_dir + "/server.zip", "r") as zip_ref:
-            zip_ref.extractall(model_dir)
+        # with zipfile.ZipFile(model_dir + "/server.zip", "r") as zip_ref:
+        #     zip_ref.extractall(model_dir)
 
         # process = subprocess.call(["sudo", "./server/get_mask/make.sh"], shell=True)
         # process.wait()
 
-        print("LISTING DIR: ", os.listdir("./server"))
-        load_dotenv("./server/.env")
-        self.client = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_ANON"))
+        # print("LISTING DIR: ", os.listdir("./server"))
+        # load_dotenv("./server/.env")
+        self.client = create_client(SUPABASE_URL, SUPABASE_ANON)
         # from server.E2FGVI.test import setup
         # from server.XMem.eval import mask_setup
         # from server.mask import mask_setup
-        from server.TrackAnything.track_anything import TrackingAnything
+        # from server.TrackAnything.track_anything import TrackingAnything
 
-        sam_checkpoint = ''
-        xmem_checkpoint = ''
+        # sam_checkpoint = './server/saves/sam_vit_h_4b8939.pth'
+        # xmem_checkpoint = './server/saves/XMem-s012.pth'
+        # e2fgvi_checkpoint = './server/E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth'
+        sam_checkpoint = './saves/sam_vit_h_4b8939.pth'
+        xmem_checkpoint = './saves/XMem-s012.pth'
+        e2fgvi_checkpoint = './E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth'
 
         args = argparse.Namespace()
-        args.device = "cuda:0"
+        args.device = "cpu"
         args.sam_model_type = "vit_h"
 
-        self.model = TrackingAnything(sam_checkpoint, xmem_checkpoint, args)
+        self.model = TrackingAnything(sam_checkpoint, xmem_checkpoint, e2fgvi_checkpoint, args)
+
+        print("ready!!!")
+
 
     def preprocess(self, model_input):
         print("model_input: ", str(model_input[0]['x']), ', ', model_input[0]['y'], ', ', model_input[0]['w'], ', ', model_input[0]['h'])
@@ -84,14 +101,15 @@ class InpaintHandler(BaseHandler):
         os.environ['TORCH_USE_CUDA_DSA'] = "1"
         # data params: video (mp4), x, y, w, h (bounding box to inpaint)
         print("LISTING DIR: ", os.listdir())
-        from server.E2FGVI.test import main_worker
-        from server.mask import get_frames
+        # from server.E2FGVI.test import main_worker
         # from server.XMem.eval import mask
 
         maxx = int(data['maxx'])
         maxy = int(data['maxy'])
 
         ims = list(get_frames(data['data']))
+
+        ims = [torch.from_numpy(im).squeeze().numpy() for im in ims]
 
         height, width, _ = ims[0].shape
 
@@ -109,8 +127,12 @@ class InpaintHandler(BaseHandler):
         for ix in range(height):
             for ix2 in range(width):
                 if not (ix>=x and ix<=x+w and ix2>=y and ix2<=y+h): 
-                    mask[ix][ix2] = 0
+                    mask[ix][ix2][0] = 0
+                    mask[ix][ix2][1] = 0
+                    mask[ix][ix2][2] = 0
                 else: mask[ix][ix2] = 1
+
+        print("mask: ", mask.shape)
 
         masks, logits, images = self.model.generator(ims, mask)
         
@@ -124,7 +146,7 @@ class InpaintHandler(BaseHandler):
         stream.pix_fmt = 'yuv444p'
         stream.options = {'crf': '17'}
         for f in range(2): # change back to video_length
-            comp = ims[f].astype(np.uint8)
+            comp = images[f].astype(np.uint8)
             # writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
             frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
             packet = stream.encode(frame)
@@ -152,4 +174,16 @@ class InpaintHandler(BaseHandler):
 
 if __name__=="__main__":
     i = InpaintHandler()
-    i.initialize()
+    i.initialize(True)
+    with open("./TrackAnything/test_sample/test-sample1.mp4", "rb") as f:
+        data = {
+            'data': f,
+            "x": 100,
+            "y": 100,
+            "w": 100,
+            "h": 100,
+            "maxx": 720,
+            "maxy": 1280
+        }
+        url = i.inference(data)
+        print(url)
