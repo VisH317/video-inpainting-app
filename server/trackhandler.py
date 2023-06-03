@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 import json
 import numpy as np
 import av
-from TrackAnything.track_anything import TrackingAnything
+# from TrackAnything.track_anything import TrackingAnything
 
 SUPABASE_URL="https://uwepaxzzdeivpecslmyh.supabase.co"
 SUPABASE_ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV3ZXBheHp6ZGVpdnBlY3NsbXloIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM3NzgyODQsImV4cCI6MTk5OTM1NDI4NH0.07v00Ciub-z4glwaomfeNkm5OkPuSeo65NNJgDj5S3I"
@@ -27,7 +27,7 @@ def get_frames(video_file):
     for frame in f.decode(video=0):
         yield cv2.cvtColor(np.array(frame.to_image()), cv2.COLOR_RGB2BGR)
 
-class InpaintHandler():
+class InpaintHandler(BaseHandler):
 
     def __init__(self):
         self.initialized = False
@@ -38,32 +38,32 @@ class InpaintHandler():
         self.client: Client = None  #create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_ANON"))
 
     def initialize(self, context):
-        # properties = context.system_properties
-        # model_dir = properties.get("model_dir")
-        # if not torch.cuda.is_available() or properties.get("gpu_id") is None:
-        #     raise RuntimeError("This model is not supported on CPU machines.")
-        # self.device = torch.device("cuda:" + str(properties.get("gpu_id")))
+        properties = context.system_properties
+        model_dir = properties.get("model_dir")
+        if not torch.cuda.is_available() or properties.get("gpu_id") is None:
+            raise RuntimeError("This model is not supported on CPU machines.")
+        self.device = torch.device("cuda:" + str(properties.get("gpu_id")))
 
-        # with zipfile.ZipFile(model_dir + "/server.zip", "r") as zip_ref:
-        #     zip_ref.extractall(model_dir)
+        with zipfile.ZipFile(model_dir + "/server.zip", "r") as zip_ref:
+            zip_ref.extractall(model_dir)
 
-        # process = subprocess.call(["sudo", "./server/get_mask/make.sh"], shell=True)
-        # process.wait()
+        process = subprocess.call(["sudo", "./server/get_mask/make.sh"], shell=True)
+        process.wait()
 
-        # print("LISTING DIR: ", os.listdir("./server"))
-        # load_dotenv("./server/.env")
+        print("LISTING DIR: ", os.listdir("./server"))
+        load_dotenv("./server/.env")
         self.client = create_client(SUPABASE_URL, SUPABASE_ANON)
-        # from server.E2FGVI.test import setup
-        # from server.XMem.eval import mask_setup
-        # from server.mask import mask_setup
-        # from server.TrackAnything.track_anything import TrackingAnything
+        from server.E2FGVI.test import setup
+        from server.XMem.eval import mask_setup
+        from server.mask import mask_setup
+        from server.TrackAnything.track_anything import TrackingAnything
 
-        # sam_checkpoint = './server/saves/sam_vit_h_4b8939.pth'
-        # xmem_checkpoint = './server/saves/XMem-s012.pth'
-        # e2fgvi_checkpoint = './server/E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth'
-        sam_checkpoint = './saves/sam_vit_h_4b8939.pth'
-        xmem_checkpoint = './saves/XMem-s012.pth'
-        e2fgvi_checkpoint = './E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth'
+        sam_checkpoint = './server/saves/sam_vit_h_4b8939.pth'
+        xmem_checkpoint = './server/saves/XMem-s012.pth'
+        e2fgvi_checkpoint = './server/E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth'
+        # sam_checkpoint = './saves/sam_vit_h_4b8939.pth'
+        # xmem_checkpoint = './saves/XMem-s012.pth'
+        # e2fgvi_checkpoint = './E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth'
 
         args = argparse.Namespace()
         args.device = "cpu"
