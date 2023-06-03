@@ -13,3 +13,4 @@ test2
 server/.env
 server/XMem.pth
 server/XMem/model/XMem.pth
+cp

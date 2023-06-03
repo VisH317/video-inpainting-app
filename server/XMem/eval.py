@@ -167,9 +167,12 @@ def mask(args, network):
 
     ret_masks = []
 
+    mask = args.images[0]
+
     for ti, data in enumerate(args.images):
         with torch.cuda.amp.autocast(enabled=not args.benchmark):
             rgb = data
+            print("shape: ", rgb.shape)
             # msk = data.get('mask')
             # info = data['info']
             # frame = info['frame'][0]
@@ -207,7 +210,7 @@ def mask(args, network):
             #     labels = None
 
             # Run the model on this frame
-            prob = processor.step(rgb, None, None, end=(ti==vid_length-1))
+            prob = processor.step(torch.from_numpy(rgb).permute(2, 0, 1).cuda().half(), mask, None, end=(ti==vid_length-1))
 
             # Upsample to original size if needed
             # if need_resize:

@@ -65,7 +65,7 @@ class InpaintHandler(BaseHandler):
         args.size = -1
         args.save_scores = False
         args.flip = False
-        args.enable_long_term_count_usage = False
+        args.enable_long_term_count_usage = True
         args.enable_long_term = True
         args.mem_every=5
         args.deep_update_every=-1
@@ -150,8 +150,10 @@ class InpaintHandler(BaseHandler):
         args.size = -1
         args.save_scores = False
         args.flip = False
-        args.enable_long_term_count_usage = False
+        args.enable_long_term_count_usage = True
         args.enable_long_term = True
+        args.hidden_dim = 1
+        args.mask = args.images[0]
 
 
         # args.resume = 'cp/SiamMask_DAVIS.pth'
@@ -164,7 +166,10 @@ class InpaintHandler(BaseHandler):
         print("args: ", x, ", ", y, ", ", w, ", ", h, ", ", width, ", ", height)
         for ix in range(height):
             for ix2 in range(width):
-                if not (ix>=x and ix<=x+w and ix2>=y and ix2<=y+h): args.images[0][ix][ix2] = 0
+                if not (ix>=x and ix<=x+w and ix2>=y and ix2<=y+h): 
+                    args.images[0][ix][ix2] = 0
+                    args.mask[ix][ix2] = 0
+                else: args.mask[ix][ix2] = 1
 
         ims, masks = mask(args, self.siammask)
         print("im size: ", ims[0].shape, ', ', masks[0].shape)

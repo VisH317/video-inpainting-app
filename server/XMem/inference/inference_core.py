@@ -60,6 +60,7 @@ class InferenceCore:
         multi_scale_features = (f16, f8, f4)
 
         # segment the current frame is needed
+        print("executing!!")
         if need_segment:
             memory_readout = self.memory.match_memory(key, selection).unsqueeze(0)
             hidden, _, pred_prob_with_bg = self.network.segment(multi_scale_features, memory_readout, 
@@ -69,11 +70,9 @@ class InferenceCore:
             pred_prob_no_bg = pred_prob_with_bg[1:]
             if is_normal_update:
                 self.memory.set_hidden(hidden)
-        else:
-            pred_prob_no_bg = pred_prob_with_bg = None
 
         # use the input mask if any
-        if mask is not None:
+        if self.curr_ti==0:
             mask, _ = pad_divide_by(mask, 16)
 
             if pred_prob_no_bg is not None:
