@@ -120,16 +120,14 @@ class InpaintHandler():
         w = (int(data['w'])/maxx)*width
         h = (int(data['h'])/maxy)*height
 
-        mask = ims[0]
+        mask = ims[0][:,:,0]
 
         print("preargs: ", data['x'], ", ", data['y'], ", ", data['w'], ", ", data['h'])
         print("args: ", x, ", ", y, ", ", w, ", ", h, ", ")
         for ix in range(height):
             for ix2 in range(width):
                 if not (ix>=x and ix<=x+w and ix2>=y and ix2<=y+h): 
-                    mask[ix][ix2][0] = 0
-                    mask[ix][ix2][1] = 0
-                    mask[ix][ix2][2] = 0
+                    mask[ix][ix2] = 0
                 else: mask[ix][ix2] = 1
 
         print("mask: ", mask.shape)
@@ -162,7 +160,7 @@ class InpaintHandler():
             open(f"{id}.mp4", 'w+')
 
         with open(f"{id}.mp4", 'wb') as f:
-            f.write(output.getbuffer())
+            f.write(output_file.getbuffer())
 
         res = self.client.storage.from_('videos').upload(f"{id}.mp4", f"{id}.mp4")
         print(res)
