@@ -173,7 +173,7 @@ def mask(args, network):
         with torch.cuda.amp.autocast(enabled=not args.benchmark):
             rgb = data
             print("shape: ", rgb.shape)
-            # msk = data.get('mask')
+            msk = [mask] if ti==0 else None
             # info = data['info']
             # frame = info['frame'][0]
             # shape = data.shape
@@ -200,14 +200,12 @@ def mask(args, network):
                 # msk = torch.flip(msk, dims=[-1]) if msk is not None else None
 
             # Map possibly non-continuous labels to continuous ones
-            # if msk is not None:
-            #     msk, labels = mapper.convert_mask(msk[0].numpy())
-            #     msk = torch.Tensor(msk).cuda()
-            #     if need_resize:
-            #         msk = vid_reader.resize_mask(msk.unsqueeze(0))[0]
-            #     processor.set_all_labels(list(mapper.remappings.values()))
-            # else:
-            #     labels = None
+            if msk is not None:
+                msk, labels = mapper.convert_mask(msk[0].numpy())
+                msk = torch.Tensor(msk).cuda()
+                processor.set_all_labels(list(mapper.remappings.values()))
+            else:
+                labels = None
 
             # Run the model on this frame
             prob = processor.step(torch.from_numpy(rgb).permute(2, 0, 1).cuda().half(), mask, None, end=(ti==vid_length-1))
