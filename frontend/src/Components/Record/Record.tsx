@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { StyleSheet, Text,View, Pressable, Dimensions } from 'react-native'
 import videoURI from '../../data/video'
 import { useAtom } from 'jotai'
-import modalStyles from '../../styles/modalStyles'
+import modalStyles from './modalStyles'
 
 import { useCameraDevices, Camera } from 'react-native-vision-camera'
 import { launchImageLibrary } from 'react-native-image-picker'
