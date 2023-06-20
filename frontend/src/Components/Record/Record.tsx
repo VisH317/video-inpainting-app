@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { StyleSheet, Text,View, Pressable } from 'react-native'
+import { StyleSheet, Text,View, Pressable, Dimensions } from 'react-native'
 import Nav from '../Nav'
 import videoURI from '../../data/video'
 import { useAtom } from 'jotai'
@@ -81,17 +81,15 @@ export default function Record({ navigation }: any) {
     return (
         <View>
             <Text>HELLO?</Text>
-            <Camera style={styles.camera} device={device} video={true} ref={camera} isActive>
-                {/* <Text>HOLA</Text> */}
-            </Camera>
-            <View style={{flex: 1, flexDirection: "column-reverse", height: 635, width: "100%", position: "absolute", top: 0, left: 0}}>
-            <View style={styles.btnContainer}>
-                <Pressable style={styles.upload} onPressOut={updateVideos}>
-                    <Text><FontAwesomeIcon icon={faFileUpload} color="white" size={25}/></Text>
-                </Pressable>
-                <Pressable style={isRecording ? styles.startActive : styles.start} onPressOut={startRecording}><Text></Text></Pressable>
-                <Pressable><FontAwesomeIcon icon={faInfo} color="white" size={25}/></Pressable>
-            </View>
+            <Camera style={styles.camera} device={device} video={true} ref={camera} isActive/>
+            <View style={{flex: 1, flexDirection: "column-reverse", width: "100%", position: "absolute", top: 0, left: 0, height: Dimensions.get("screen").height-70}}>
+                <View style={styles.btnContainer}>
+                    <Pressable style={styles.upload} onPressOut={updateVideos}>
+                        <Text><FontAwesomeIcon icon={faFileUpload} color="white" size={25}/></Text>
+                    </Pressable>
+                    <Pressable style={isRecording ? styles.startActive : styles.start} onPressOut={startRecording}><Text></Text></Pressable>
+                    <Pressable><FontAwesomeIcon icon={faInfo} color="white" size={25}/></Pressable>
+                </View>
             </View>
         </View>
     )
@@ -111,7 +109,6 @@ const styles = StyleSheet.create({
     },
     btnContainer: {
         width: "100%",
-        height: 100,
         borderColor: "black",
         // borderWidth: 5,
         zIndex: 100,
@@ -120,6 +117,10 @@ const styles = StyleSheet.create({
         justifyContent: "space-around",
         padding: 5,
         alignItems: "center",
+        // position: "absolute",
+        // bottom: 0,
+        // left: 0,
+        // height: 100
     },
     start: {
         width: 60,

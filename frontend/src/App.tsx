@@ -44,8 +44,8 @@ function App() {
                 <FontAwesomeIcon icon={faBars}/>
             </View> */}
             <NavigationContainer ref={navigationRef}>
-                <Drawer.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
-                    <Drawer.Screen name="Home" options={{ title: "Home" }} component={Home}/>
+                <Drawer.Navigator initialRouteName='Record' screenOptions={{ headerShown: false }}>
+                    {/* <Drawer.Screen name="Home" options={{ title: "Home" }} component={Home}/> */}
                     <Drawer.Screen name="Record" component={Record}/>
                     <Drawer.Screen name="Select" component={BoxSelect}/>
                     <Drawer.Screen name="Completed" component={Completed}/>
