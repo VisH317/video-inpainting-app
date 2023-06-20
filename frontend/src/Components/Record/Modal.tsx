@@ -10,10 +10,10 @@ type props = PropsWithChildren<{
 
 export default function Modal({ children, open, close }: props) {
     return (
-        <Pressable style={open ? modalStyles.backdrop : modalStyles.invisible} onPress={close}>
-            <View style={open ? modalStyles.modal : modalStyles.invisible} onStartShouldSetResponder={e => true} onTouchEnd={e => e.stopPropagation()}>
+        <View style={open ? modalStyles.backdrop : modalStyles.invisible} onTouchEnd={close}>
+            <View style={open ? modalStyles.modal : modalStyles.invisible} onStartShouldSetResponder={e => true} onTouchEnd={e => {console.log("e");e.stopPropagation()}}>
                 {children}
             </View>
-        </Pressable>
+        </View>
     )
 }

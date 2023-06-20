@@ -8,14 +8,16 @@ export default StyleSheet.create({
         backgroundColor: "rgba(0, 0, 0, 0.5)",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        // zIndex: 10
     },
     modal: {
         width: "70%",
         height: "40%",
         backgroundColor: "white",
         padding: 10,
-        borderRadius: 10
+        borderRadius: 10,
+        // zIndex: 10
     },
     invisible: { display: "none" }
 })
