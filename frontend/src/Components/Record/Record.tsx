@@ -10,6 +10,7 @@ import { launchImageLibrary } from 'react-native-image-picker'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faFileUpload } from '@fortawesome/free-solid-svg-icons/faFileUpload'
 import { faInfo } from '@fortawesome/free-solid-svg-icons/faInfo'
+import Modal from './Modal'
 
 async function getVideos() {
     const params = {
@@ -77,6 +78,11 @@ export default function Record({ navigation }: any) {
         }
     }
 
+    // modal states
+    const [info, setInfo] = useState<boolean>(false)
+    const [settings, setSettings] = useState<boolean>(false)
+
+
     if(device==null) return <View style={modalStyles.backdrop}><View style={{display: "flex", justifyContent: "center", alignItems: "center"}}><Text>LOADING</Text></View></View>
     return (
         <View>
@@ -88,9 +94,11 @@ export default function Record({ navigation }: any) {
                         <Text><FontAwesomeIcon icon={faFileUpload} color="white" size={25}/></Text>
                     </Pressable>
                     <Pressable style={isRecording ? styles.startActive : styles.start} onPressOut={startRecording}><Text></Text></Pressable>
-                    <Pressable><FontAwesomeIcon icon={faInfo} color="white" size={25}/></Pressable>
+                    <Pressable onPress={() => setInfo(true)}><FontAwesomeIcon icon={faInfo} color="white" size={25}/></Pressable>
                 </View>
             </View>
+            <Modal open={info} close={() => setInfo(false)}><Text>HELLO</Text></Modal>
+            <Modal open={settings} close={() => setSettings(false)}><Text>SETTINGS</Text></Modal>
         </View>
     )
 }

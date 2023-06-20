@@ -1,19 +1,20 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 
 export default StyleSheet.create({
     backdrop: {
         position: "absolute",
-        width: "100%",
-        height: "100%",
-        backgroundColor: "rgba(0, 0, 0, 0.3)",
+        width: Dimensions.get("screen").width,
+        height: Dimensions.get("screen").height,
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
         display: "flex",
         justifyContent: "center",
         alignItems: "center"
     },
     modal: {
-        width: "50%",
-        height: "50%",
-        backgroundColor: "white"
+        width: "70%",
+        height: "40%",
+        backgroundColor: "white",
+        padding: 10
     },
     invisible: { display: "none" }
 })
