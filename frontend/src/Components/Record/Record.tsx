@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { StyleSheet, Text,View, Pressable, Dimensions } from 'react-native'
-import Nav from '../Nav'
 import videoURI from '../../data/video'
 import { useAtom } from 'jotai'
+import modalStyles from '../../styles/modalStyles'
 
 import { useCameraDevices, Camera } from 'react-native-vision-camera'
 import { launchImageLibrary } from 'react-native-image-picker'
@@ -77,7 +77,7 @@ export default function Record({ navigation }: any) {
         }
     }
 
-    if(device==null) return <Text>LOADING</Text>
+    if(device==null) return <View style={modalStyles.backdrop}><View style={{display: "flex", justifyContent: "center", alignItems: "center"}}><Text>LOADING</Text></View></View>
     return (
         <View>
             <Text>HELLO?</Text>
