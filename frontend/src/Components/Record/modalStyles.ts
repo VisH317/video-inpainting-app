@@ -14,7 +14,8 @@ export default StyleSheet.create({
         width: "70%",
         height: "40%",
         backgroundColor: "white",
-        padding: 10
+        padding: 10,
+        borderRadius: 10
     },
     invisible: { display: "none" }
 })
