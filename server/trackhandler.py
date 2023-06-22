@@ -74,19 +74,26 @@ class InpaintHandler(BaseHandler):
         print("ready!!!")
 
 
-    def preprocess(self, model_input):
-        print("model_input: ", str(model_input[0]['x']), ', ', model_input[0]['y'], ', ', model_input[0]['w'], ', ', model_input[0]['h'])
-        preprocessed_input = {
-            "data": io.BytesIO(model_input[0]['data']),
-            "x": int(str(model_input[0]['x']).split("'")[1]),
-            "y": int(str(model_input[0]['y']).split("'")[1]),
-            "w": int(str(model_input[0]['w']).split("'")[1]),
-            "h": int(str(model_input[0]['h']).split("'")[1]),
-            "maxx": int(float(str(model_input[0]['maxx']).split("'")[1])),
-            "maxy": int(float(str(model_input[0]['maxy']).split("'")[1]))
-        }
+    def preprocess(self, model_inputs):
 
-        print("test model input: ", preprocessed_input)
+        preprocessed_inputs = []
+
+        for ix, model_input in enumerate(model_inputs):
+
+            print("model_input: ", str(model_input[ix]['x']), ', ', model_input[ix]['y'], ', ', model_input[ix]['w'], ', ', model_input[ix]['h'])
+            preprocessed_input = {
+                "data": io.BytesIO(model_input[ix]['data']),
+                "x": int(str(model_input[ix]['x']).split("'")[1]),
+                "y": int(str(model_input[ix]['y']).split("'")[1]),
+                "w": int(str(model_input[ix]['w']).split("'")[1]),
+                "h": int(str(model_input[ix]['h']).split("'")[1]),
+                "maxx": int(float(str(model_input[ix]['maxx']).split("'")[1])),
+                "maxy": int(float(str(model_input[ix]['maxy']).split("'")[1]))
+            }
+
+            print("test model input: ", preprocessed_input)
+
+            preprocessed_inputs.append(preprocessed_input)
 
         return preprocessed_input
     
