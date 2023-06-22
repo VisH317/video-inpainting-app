@@ -99,8 +99,11 @@ class InpaintHandler(BaseHandler):
     
     
     def postprocess(self, input):
-        ret = { "url": input }
-        return [json.dumps(ret)]
+
+        rets = []
+        for url in input:
+            rets.append(json.dumps({ "url": url }))
+        return rets
     
 
     def inference(self, data_list):
