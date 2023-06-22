@@ -80,15 +80,15 @@ class InpaintHandler(BaseHandler):
 
         for ix, model_input in enumerate(model_inputs):
 
-            print("model_input: ", str(model_input[ix]['x']), ', ', model_input[ix]['y'], ', ', model_input[ix]['w'], ', ', model_input[ix]['h'])
+            print("model_input: ", str(model_input['x']), ', ', model_input['y'], ', ', model_input['w'], ', ', model_input['h'])
             preprocessed_input = {
-                "data": io.BytesIO(model_input[ix]['data']),
-                "x": int(str(model_input[ix]['x']).split("'")[1]),
-                "y": int(str(model_input[ix]['y']).split("'")[1]),
-                "w": int(str(model_input[ix]['w']).split("'")[1]),
-                "h": int(str(model_input[ix]['h']).split("'")[1]),
-                "maxx": int(float(str(model_input[ix]['maxx']).split("'")[1])),
-                "maxy": int(float(str(model_input[ix]['maxy']).split("'")[1]))
+                "data": io.BytesIO(model_input['data']),
+                "x": int(str(model_input['x']).split("'")[1]),
+                "y": int(str(model_input['y']).split("'")[1]),
+                "w": int(str(model_input['w']).split("'")[1]),
+                "h": int(str(model_input['h']).split("'")[1]),
+                "maxx": int(float(str(model_input['maxx']).split("'")[1])),
+                "maxy": int(float(str(model_input['maxy']).split("'")[1]))
             }
 
             print("test model input: ", preprocessed_input)
@@ -103,7 +103,16 @@ class InpaintHandler(BaseHandler):
         return [json.dumps(ret)]
     
 
-    def inference(self, data):
+    def inference(self, data_list):
+
+        """
+        Create inpainted video from the original in a batch
+        Args:
+            data (list[{file, bounding box, dimensions}]) - main data for each batch item to be processed
+        Returns:
+            list: of output file supabase uuids for the frontend to access in a subsequent request
+        """
+
         os.environ['CUDA_LAUNCH_BLOCKING'] = "1"
         os.environ['TORCH_USE_CUDA_DSA'] = "1"
         # data params: video (mp4), x, y, w, h (bounding box to inpaint)
@@ -111,70 +120,75 @@ class InpaintHandler(BaseHandler):
         # from server.E2FGVI.test import main_worker
         # from server.XMem.eval import mask
 
-        maxx = int(data['maxx'])
-        maxy = int(data['maxy'])
+        url_list = []
 
-        ims = list(get_frames(data['data']))
+        for idx, data in enumerate(data_list):
 
-        ims = [torch.from_numpy(im).squeeze().numpy() for im in ims]
+            maxx = int(data['maxx'])
+            maxy = int(data['maxy'])
 
-        height, width, _ = ims[0].shape
+            ims = list(get_frames(data['data']))
 
-        # args.resume = 'cp/SiamMask_DAVIS.pth'
-        # args.mask_dilation = 32
-        x = (int(data['x'])/maxx)*width
-        y = (int(data['y'])/maxy)*height
-        w = (int(data['w'])/maxx)*width
-        h = (int(data['h'])/maxy)*height
+            ims = [torch.from_numpy(im).squeeze().numpy() for im in ims]
 
-        mask = ims[0][:,:,0]
+            height, width, _ = ims[0].shape
 
-        print("preargs: ", data['x'], ", ", data['y'], ", ", data['w'], ", ", data['h'])
-        print("args: ", x, ", ", y, ", ", w, ", ", h, ", ")
-        for ix in range(height):
-            for ix2 in range(width):
-                if not (ix>=x and ix<=x+w and ix2>=y and ix2<=y+h): 
-                    mask[ix][ix2] = 0
-                else: mask[ix][ix2] = 1
+            # args.resume = 'cp/SiamMask_DAVIS.pth'
+            # args.mask_dilation = 32
+            x = (int(data['x'])/maxx)*width
+            y = (int(data['y'])/maxy)*height
+            w = (int(data['w'])/maxx)*width
+            h = (int(data['h'])/maxy)*height
 
-        print("mask: ", mask.shape)
+            mask = ims[0][:,:,0]
 
-        masks, logits, images = self.model.generator(ims, mask)
-        
-        output_file = io.BytesIO()
-        output = av.open(output_file, 'w', format="mp4")
+            print("preargs: ", data['x'], ", ", data['y'], ", ", data['w'], ", ", data['h'])
+            print("args: ", x, ", ", y, ", ", w, ", ", h, ", ")
+            for ix in range(height):
+                for ix2 in range(width):
+                    if not (ix>=x and ix<=x+w and ix2>=y and ix2<=y+h): 
+                        mask[ix][ix2] = 0
+                    else: mask[ix][ix2] = 1
 
-        FPS = 24
-        stream = output.add_stream('h264', str(FPS))
-        stream.width = w
-        stream.height = h
-        stream.pix_fmt = 'yuv444p'
-        stream.options = {'crf': '17'}
-        for f in range(2): # change back to video_length
-            comp = images[f].astype(np.uint8)
-            # writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
-            frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
-            packet = stream.encode(frame)
+            print("mask: ", mask.shape)
+
+            masks, logits, images = self.model.generator(ims, mask)
+            
+            output_file = io.BytesIO()
+            output = av.open(output_file, 'w', format="mp4")
+
+            FPS = 24
+            stream = output.add_stream('h264', str(FPS))
+            stream.width = w
+            stream.height = h
+            stream.pix_fmt = 'yuv444p'
+            stream.options = {'crf': '17'}
+            for f in range(2): # change back to video_length
+                comp = images[f].astype(np.uint8)
+                # writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
+                frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
+                packet = stream.encode(frame)
+                output.mux(packet)
+            # writer.release()
+            packet = stream.encode(None)
             output.mux(packet)
-        # writer.release()
-        packet = stream.encode(None)
-        output.mux(packet)
-        output.close()
+            output.close()
 
-        id = str(uuid.uuid4())
+            id = str(uuid.uuid4())
 
-        if not os.path.exists(f"{id}.mp4"):
-            open(f"{id}.mp4", 'w+')
+            if not os.path.exists(f"{id}.mp4"):
+                open(f"{id}.mp4", 'w+')
 
-        with open(f"{id}.mp4", 'wb') as f:
-            f.write(output_file.getbuffer())
+            with open(f"{id}.mp4", 'wb') as f:
+                f.write(output_file.getbuffer())
 
-        res = self.client.storage.from_('videos').upload(f"{id}.mp4", f"{id}.mp4")
-        print(res)
-        
-        url = self.client.storage.from_('videos').get_public_url(f"{id}.mp4")
+            res = self.client.storage.from_('videos').upload(f"{id}.mp4", f"{id}.mp4")
+            print(res)
+            
+            url = self.client.storage.from_('videos').get_public_url(f"{id}.mp4")
+            url_list.append(url)
 
-        return url
+        return url_list
 
 
 if __name__=="__main__":
