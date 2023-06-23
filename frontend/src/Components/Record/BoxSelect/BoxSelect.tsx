@@ -142,7 +142,7 @@ function BoxSelect({ navigation, route }: any) {
                     </TouchableNativeFeedback>
                     </View>
 
-                    <View style={{borderRadius: 32.5}}>
+                    {/* <View style={{borderRadius: 32.5}}>
                     <TouchableNativeFeedback background={TouchableNativeFeedback.Ripple(
                         "#00000000",
                         true
@@ -151,7 +151,7 @@ function BoxSelect({ navigation, route }: any) {
                             <FontAwesomeIcon icon={faInfo} color="white" size={35}/>
                         </View>
                     </TouchableNativeFeedback>
-                    </View>
+                    </View> */}
 
                     <LinearGradient colors={['#3b82f6', '#3b82f6']}
                         style={styles.button} 
