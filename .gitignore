@@ -14,3 +14,5 @@ server/.env
 server/XMem.pth
 server/XMem/model/XMem.pth
 cp
+XMem
+E2FGVI

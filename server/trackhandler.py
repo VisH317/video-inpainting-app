@@ -47,15 +47,15 @@ class InpaintHandler(BaseHandler):
         with zipfile.ZipFile(model_dir + "/server.zip", "r") as zip_ref:
             zip_ref.extractall(model_dir)
 
-        process = subprocess.call(["sudo", "./server/get_mask/make.sh"], shell=True)
-        process.wait()
+        # process = subprocess.call(["sudo", "./server/get_mask/make.sh"], shell=True)
+        # process.wait()
 
         print("LISTING DIR: ", os.listdir("./server"))
         load_dotenv("./server/.env")
         self.client = create_client(SUPABASE_URL, SUPABASE_ANON)
-        from server.E2FGVI.test import setup
-        from server.XMem.eval import mask_setup
-        from server.mask import mask_setup
+        # from server.E2FGVI.test import setup
+        # from server.XMem.eval import mask_setup
+        # from server.mask import mask_setup
         from server.TrackAnything.track_anything import TrackingAnything
 
         sam_checkpoint = './server/saves/sam_vit_h_4b8939.pth'
