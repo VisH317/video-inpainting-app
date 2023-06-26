@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         zIndex: 20,
         width: "100%",
         display: "flex",
-        justifyContent: "space-around",
+        justifyContent: "space-between",
         alignItems: "center",
         height: 80,
         flexDirection: "row",
@@ -35,6 +35,8 @@ const styles = StyleSheet.create({
         // borderColor: "red",
         position: "absolute",
         bottom: 0,
+        paddingLeft: 20,
+        paddingRight: 20,
     },
     videoCont: {
         position: 'absolute',
