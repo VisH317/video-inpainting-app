@@ -20,9 +20,9 @@ def get_frames(video_file):
 def inpaint_video(video_state):
     operation_log = [("",""), ("Removed the selected masks.","Normal")]
 
-    frames = np.asarray([video_state["origin_images"]])
+    frames = np.asarray(video_state["origin_images"])
     fps = video_state["fps"]
-    inpaint_masks = np.asarray([video_state["masks"]])
+    inpaint_masks = np.asarray(video_state["masks"])
     # for ix, f in enumerate(frames):
     #     frames[ix] = np.expand_dims(f, axis=0)
     # for ix, m in enumerate(inpaint_masks):
@@ -41,7 +41,7 @@ def inpaint_video(video_state):
     #     inpaint_masks[inpaint_masks==i] = 0
     # inpaint for videos
 
-    print("shapes: ", inpaint_masks[0].shape, ', ', frames[0].shape[:3], inpaint_masks[0].shape==frames[0].shape[:3])
+    print("shapes: ", inpaint_masks[0].shape, ', ', frames[0].shape[:3])
 
     inpainted_frames = model.baseinpainter.inpaint(frames, inpaint_masks)   # numpy array, T, H, W, 3 ratio=video_state["resize_ratio"]
     # except:
