@@ -8,6 +8,7 @@ import uuid
 import av
 import numpy as np
 import os
+from mask import mask_setup, mask
 # from TrackAnything.app import inpaint_video
 
 def get_frames(video_file):
@@ -68,39 +69,57 @@ args.sam_model_type = "vit_h"
 
 model = TrackingAnything(sam_checkpoint, xmem_checkpoint, e2fgvi_checkpoint, args)
 
+ar = argparse.Namespace()
+ar.resume = './cp/SiamMask_DAVIS.pth'
+ar.mask_dilation = 32
+siammask, cfg = mask_setup(ar)
+
+
 with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
 
     i = {
         "data": f.buffer,
-        "x": 300,
-        "y": 700,
-        "w": 600,
-        "h": 1100,
+        "x": 250,
+        "y": 600,
+        "w": 700,
+        "h": 1250,
         "maxx": 720,
         "maxy": 1080
     }
 
     ims = list(get_frames(i['data']))
 
-    height, width, _ = ims[0].shape
-    print("shape: ", height, ", ", width)
+    height, width, c = ims[0].shape
+    print("shape: ", height, ", ", width, ', ', c)
 
     x = i['x']
     y = i['y']
     w = i['w']
     h = i['h']
 
-    mask = ims[0][:,:,0]
+    # mask = ims[0][:,:,0]
 
-    for ix in range(width):
-        for ix2 in range(height):
-            if not (ix>=x and ix<=x+w and ix2>=y and ix2<=y+h): 
-                mask[ix2][ix] = 0
-            else: mask[ix2][ix] = 1
+    # for ix in range(width):
+    #     for ix2 in range(height):
+    #         if not (ix>=x and ix<=x+w and ix2>=y and ix2<=y+h): 
+    #             mask[ix2][ix] = 0
+    #         else: mask[ix2][ix] = 1
 
-    cv2.imwrite("im.png", mask*255)
+    # cv2.imwrite("im.png", mask*255)
 
-    masks, logits, images = model.generator(ims, mask)
+    args = argparse.Namespace()
+    args.data = [ims[0]]
+    args.x = x
+    args.y = y
+    args.w = w
+    args.h = h
+
+    not_ims, pre_mask = mask(args, siammask, cfg)
+    print("mask?: ", pre_mask, ", ", pre_mask[0].shape)
+
+    cv2.imwrite("mask.png", pre_mask[0])
+
+    masks, logits, images = model.generator(ims, pre_mask[0])
 
     video_state = {
         "masks": masks,
@@ -108,7 +127,7 @@ with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
         "fps": 30
     }
 
-    video, log = inpaint_video(video_state)
+    # video, log = inpaint_video(video_state)
 
 
     output_file = io.BytesIO()
@@ -121,7 +140,7 @@ with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
     stream.pix_fmt = 'yuv444p'
     stream.options = {'crf': '17'}
     for f in range(2): # change back to video_length
-        comp = video[f].astype(np.uint8)
+        comp = cv2.cvtColor(masks[f], cv2.COLOR_GRAY2BGR).astype(np.uint8)
         # writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
         frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
         packet = stream.encode(frame)

@@ -5,11 +5,12 @@
 # --------------------------------------------------------
 import os
 import av
-# from .get_mask.test import *
-# from .get_mask.models.custom import Custom
+from get_mask.test import *
+from get_mask.models.custom import Custom
 import cv2
 import glob
 import json
+import torch
 
 def local_load_config(args):
     # assert os.path.exists(args.config), '"{}" not exists'.format(args.config)
@@ -102,21 +103,20 @@ def mask(args, siammask, cfg):
 
     # Parse Image file
     # img_files = sorted(glob.glob(join(args.base_path, '*.jp*')))
-    print("args: ",args)
-    img_files = get_frames(args.data)
+    img_files = args.data
     ims = [imf for imf in img_files]
     # print("SIZE: ", ims[0].size)
     # print("IM: ", ims[0])
     print("hola: ", len(ims))
 
-    height, width, channels = ims[0].shape
+    # height, width, channels = ims[0].shape
 
     # Select ROI
     # cv2.setWindowProperty("SiamMask", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
-    x = int(args.x*width)
-    y = int(args.y*height)
-    w = int(args.w*width)
-    h = int(args.h*height)
+    x = int(args.x)
+    y = int(args.y)
+    w = int(args.w)
+    h = int(args.h)
     print("x: ", x, ", y: ", y, ", w: ", w, ", h: ", h)
 
     toc = 0
@@ -137,6 +137,16 @@ def mask(args, siammask, cfg):
             target_sz = np.array([w, h])
             print("shape:",im.shape)
             state = siamese_init(im, target_pos, target_sz, siammask, cfg['hp'])  # init tracker
+
+            state = siamese_track(state, im, mask_enable=True, refine_enable=True)  # track
+            location = state['ploygon'].flatten()
+            mask = state['mask'] > state['p'].seg_thr
+            mask = (mask * 255.).astype(np.uint8)
+            masks.append(mask)
+            # cv2.imwrite('{:05d}.png'.format(counter), mask)
+            # cv2.imwrite('{:05d}.jpg'.format(counter), im)
+            counter += 1
+            
         elif f > 0:  # tracking
             print(f)
             state = siamese_track(state, im, mask_enable=True, refine_enable=True)  # track
@@ -145,7 +155,7 @@ def mask(args, siammask, cfg):
             mask = (mask * 255.).astype(np.uint8)
             masks.append(mask)
             # cv2.imwrite('{:05d}.png'.format(counter), mask)
-            cv2.imwrite('{:05d}.jpg'.format(counter), im)
+            # cv2.imwrite('{:05d}.jpg'.format(counter), im)
             counter += 1
 
             im[:, :, 2] = (mask > 0) * 255 + (mask == 0) * im[:, :, 2]
@@ -163,7 +173,7 @@ def mask(args, siammask, cfg):
     print(toc)
     fps = totalf / toc
     print('SiamMask Time: {:02.1f}s Speed: {:3.1f}fps (with visulization!)'.format(toc, fps))
-    return ims[:10], masks
+    return ims, masks
 
 # if __name__=="__main__":
 #     args = argparse.Namespace()
