@@ -17,6 +17,7 @@ from ..tools.painter import mask_painter
 from ..tools.base_segmenter import BaseSegmenter
 from torchvision.transforms import Resize
 import progressbar
+import cv2
 
 
 class BaseTracker:
@@ -83,11 +84,16 @@ class BaseTracker:
         probs, _ = self.tracker.step(frame_tensor, mask, labels)   # logits 2 (bg fg) H W
         # # refine
         # if first_frame_annotation is None:
-        #     out_mask = self.sam_refinement(frame, logits[1], ti)    
+        #     out_mask = self.sam_refinement(frame, logits[1], ti) 
+
+        print("probs: ", probs)
+        for ix, prob in enumerate(probs):
+            cv2.imwrite(f"hello_{ix}.png", (prob.detach().cpu().numpy()).astype(np.uint8)*255)
 
         # convert to mask
         out_mask = torch.argmax(probs, dim=0)
         out_mask = (out_mask.detach().cpu().numpy()).astype(np.uint8)
+        cv2.imwrite("hello.png", out_mask*255)
 
         final_mask = np.zeros_like(out_mask)
         

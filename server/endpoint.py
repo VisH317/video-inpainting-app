@@ -60,7 +60,7 @@ device = torch.device("cuda")
 client = create_client(SUPABASE_URL, SUPABASE_ANON)
 
 sam_checkpoint = './saves/sam_vit_h_4b8939.pth'
-xmem_checkpoint = './saves/XMem-s012.pth'
+xmem_checkpoint = './saves/XMem.pth'
 e2fgvi_checkpoint = './saves/E2FGVI-HQ-CVPR22.pth'
 
 args = argparse.Namespace()
@@ -132,7 +132,7 @@ with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
 
     # cv2.imwrite("mask.png", pre_mask[0])
 
-    masks, logits, images = model.generator(ims, ma.astype(np.uint8)*255)
+    masks, logits, images = model.generator(ims, ma.astype(np.uint8))
 
     # video_state = {
     #     "masks": masks,
@@ -154,7 +154,7 @@ with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
     stream.options = {'crf': '17'}
     for f in range(len(masks)): # change back to video_length
         # comp = video[f].astype(np.uint8)
-        comp = cv2.cvtColor(masks[f], cv2.COLOR_GRAY2BGR).astype(np.uint8)
+        comp = cv2.cvtColor(masks[f]*255, cv2.COLOR_GRAY2BGR).astype(np.uint8)
         # writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
         frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
         packet = stream.encode(frame)
