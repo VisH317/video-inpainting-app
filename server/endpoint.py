@@ -71,7 +71,7 @@ model = TrackingAnything(sam_checkpoint, xmem_checkpoint, e2fgvi_checkpoint, arg
 
 ar = argparse.Namespace()
 ar.resume = './cp/SiamMask_DAVIS.pth'
-ar.mask_dilation = 32
+ar.mask_dilation = 16
 siammask, cfg = mask_setup(ar)
 
 
