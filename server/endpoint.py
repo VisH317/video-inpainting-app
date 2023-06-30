@@ -121,13 +121,13 @@ with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
 
     masks, logits, images = model.generator(ims, pre_mask[0])
 
-    # video_state = {
-    #     "masks": masks,
-    #     "origin_images": ims[:4],
-    #     "fps": 30
-    # }
+    video_state = {
+        "masks": masks,
+        "origin_images": ims[:4],
+        "fps": 30
+    }
 
-    # video, log = inpaint_video(video_state, [])
+    video, log = inpaint_video(video_state, [])
 
 
     output_file = io.BytesIO()
@@ -140,7 +140,7 @@ with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
     stream.pix_fmt = 'yuv444p'
     stream.options = {'crf': '17'}
     for f in range(2): # change back to video_length
-        comp = images[f].astype(np.uint8)
+        comp = video[f].astype(np.uint8)
         # writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
         frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
         packet = stream.encode(frame)
