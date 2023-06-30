@@ -118,7 +118,7 @@ with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
 
     print("bruh type: ", type(im), ", ", type(ma), ', ', ma.shape)
 
-    cv2.imwrite("im2.png", ma)
+    cv2.imwrite("im2.png", cv2.cvtColor(ma.astype(np.uint8)*255, cv2.COLOR_GRAY2BGR))
 
     # args = argparse.Namespace()
     # args.data = [ims[0]]
