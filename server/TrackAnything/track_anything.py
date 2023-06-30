@@ -40,7 +40,7 @@ class TrackingAnything():
     #     return mask, logit, painted_image
 
     def generator(self, images: list, template_mask:np.ndarray):
-        
+        self.xmem.clear_memory()
         masks = []
         logits = []
         painted_images = []
@@ -57,7 +57,7 @@ class TrackingAnything():
                 logits.append(logit)
                 painted_images.append(painted_image)
             
-            if i>=30: break
+            if i>=10: break
         return masks, logits, painted_images
     
         

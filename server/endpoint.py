@@ -132,7 +132,7 @@ with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
 
     # cv2.imwrite("mask.png", pre_mask[0])
 
-    # masks, logits, images = model.generator(ims, test_mask*255)
+    masks, logits, images = model.generator(ims, ma.astype(np.uint8)*255)
 
     # video_state = {
     #     "masks": masks,
@@ -143,34 +143,34 @@ with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
     # video, log = inpaint_video(video_state, [])
 
 
-    # output_file = io.BytesIO()
-    # output = av.open(output_file, 'w', format="mp4")
+    output_file = io.BytesIO()
+    output = av.open(output_file, 'w', format="mp4")
 
-    # FPS = 24
-    # stream = output.add_stream('h264', str(FPS))
-    # stream.width = w
-    # stream.height = h
-    # stream.pix_fmt = 'yuv444p'
-    # stream.options = {'crf': '17'}
-    # for f in range(2): # change back to video_length
-    #     # comp = video[f].astype(np.uint8)
-    #     comp = cv2.cvtColor(masks[f], cv2.COLOR_GRAY2BGR).astype(np.uint8)
-    #     # writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
-    #     frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
-    #     packet = stream.encode(frame)
-    #     output.mux(packet)
-    # # writer.release()
-    # packet = stream.encode(None)
-    # output.mux(packet)
-    # output.close()
+    FPS = 24
+    stream = output.add_stream('h264', str(FPS))
+    stream.width = w
+    stream.height = h
+    stream.pix_fmt = 'yuv444p'
+    stream.options = {'crf': '17'}
+    for f in range(len(masks)): # change back to video_length
+        # comp = video[f].astype(np.uint8)
+        comp = cv2.cvtColor(masks[f], cv2.COLOR_GRAY2BGR).astype(np.uint8)
+        # writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
+        frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
+        packet = stream.encode(frame)
+        output.mux(packet)
+    # writer.release()
+    packet = stream.encode(None)
+    output.mux(packet)
+    output.close()
 
-    # id = str(uuid.uuid4())
+    id = str(uuid.uuid4())
 
-    # if not os.path.exists(f"mask_test_{id}.mp4"):
-    #     open(f"mask_test_{id}.mp4", 'w+')
+    if not os.path.exists(f"mask_test_{id}.mp4"):
+        open(f"mask_test_{id}.mp4", 'w+')
 
-    # with open(f"mask_test_{id}.mp4", 'wb') as f:
-    #     f.write(output_file.getbuffer())
+    with open(f"mask_test_{id}.mp4", 'wb') as f:
+        f.write(output_file.getbuffer())
 
     
     
