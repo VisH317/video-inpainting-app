@@ -60,7 +60,7 @@ device = torch.device("cuda")
 client = create_client(SUPABASE_URL, SUPABASE_ANON)
 
 sam_checkpoint = './saves/sam_vit_h_4b8939.pth'
-xmem_checkpoint = './saves/XMem.pth'
+xmem_checkpoint = './saves/XMem-s012.pth'
 e2fgvi_checkpoint = './saves/E2FGVI-HQ-CVPR22.pth'
 
 args = argparse.Namespace()
@@ -69,25 +69,39 @@ args.sam_model_type = "vit_h"
 
 model = TrackingAnything(sam_checkpoint, xmem_checkpoint, e2fgvi_checkpoint, args)
 
-ar = argparse.Namespace()
-ar.resume = './cp/SiamMask_DAVIS.pth'
-ar.mask_dilation = 64
-siammask, cfg = mask_setup(ar)
+# ar = argparse.Namespace()
+# ar.resume = './cp/SiamMask_DAVIS.pth'
+# ar.mask_dilation = 64
+# siammask, cfg = mask_setup(ar)
 
 
 with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
 
+    # i = {
+    #     "data": f.buffer,
+    #     "x": 350,
+    #     "y": 700,
+    #     "w": 550,
+    #     "h": 1000,
+    #     "maxx": 720,
+    #     "maxy": 1080
+    # }
     i = {
         "data": f.buffer,
-        "x": 350,
-        "y": 700,
-        "w": 550,
-        "h": 1000,
+        "x": 175,
+        "y": 350,
+        "w": 275,
+        "h": 500,
         "maxx": 720,
         "maxy": 1080
     }
 
     ims = list(get_frames(i['data']))
+
+    height, width, c = ims[-1].shape
+
+    for ix, im in enumerate(ims):
+        ims[ix] = cv2.resize(im, (0, 0), fx=0.5, fy=0.5)
 
     height, width, c = ims[0].shape
     print("shape: ", height, ", ", width, ', ', c)
@@ -152,9 +166,9 @@ with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
     stream.height = h
     stream.pix_fmt = 'yuv444p'
     stream.options = {'crf': '17'}
-    for f in range(len(masks)): # change back to video_length
+    for f in range(len(images)): # change back to video_length
         # comp = video[f].astype(np.uint8)
-        comp = cv2.cvtColor(masks[f]*255, cv2.COLOR_GRAY2BGR).astype(np.uint8)
+        comp = images[f].astype(np.uint8)
         # writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
         frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
         packet = stream.encode(frame)

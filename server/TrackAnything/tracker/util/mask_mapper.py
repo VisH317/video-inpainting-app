@@ -63,6 +63,8 @@ class MaskMapper:
         self.labels.extend(new_labels)
         mask = torch.from_numpy(all_to_onehot(mask, self.labels)).float()
 
+        print('mask: ', mask.shape)
+        
         # mask num_objects*H*W
         return mask, new_mapped_labels
 

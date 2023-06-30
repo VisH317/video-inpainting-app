@@ -86,7 +86,7 @@ class BaseTracker:
         # if first_frame_annotation is None:
         #     out_mask = self.sam_refinement(frame, logits[1], ti) 
 
-        print("probs: ", probs)
+        # print("probs: ", probs)
         for ix, prob in enumerate(probs):
             cv2.imwrite(f"hello_{ix}.png", (prob.detach().cpu().numpy()).astype(np.uint8)*255)
 
@@ -104,10 +104,10 @@ class BaseTracker:
         num_objs = final_mask.max()
         print("num objs: ", num_objs)
         painted_image = frame
-        # for obj in range(1, num_objs+1):
-        #     if np.max(final_mask==obj) == 0:
-        #         continue
-        #     painted_image = mask_painter(painted_image, (final_mask==obj).astype('uint8'), mask_color=obj+1)
+        for obj in range(1, num_objs+1):
+            if np.max(final_mask==obj) == 0:
+                continue
+            painted_image = mask_painter(painted_image, (final_mask==obj).astype('uint8'), mask_color=obj+1)
 
         # print(f'max memory allocated: {torch.cuda.max_memory_allocated()/(2**20)} MB')
 
