@@ -57,7 +57,7 @@ class TrackingAnything():
                 logits.append(logit)
                 painted_images.append(painted_image)
             
-            if i>=3: break
+            if i>=30: break
         return masks, logits, painted_images
     
         

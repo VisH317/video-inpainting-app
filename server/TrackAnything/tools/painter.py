@@ -113,7 +113,8 @@ def point_painter(input_image, input_points, point_color=5, point_alpha=0.9, poi
 	h, w = input_image.shape[:2]
 	point_mask = np.zeros((h, w)).astype('uint8')
 	for point in input_points:
-		point_mask[point[1], point[0]] = 1
+		print("point: ", point[0], point[1], type(point[0]))
+		point_mask[int(point[1]), int(point[0])] = 1
 
 	kernel = cv2.getStructuringElement(2, (point_radius, point_radius))
 	point_mask = cv2.dilate(point_mask, kernel)

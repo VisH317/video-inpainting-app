@@ -71,7 +71,7 @@ model = TrackingAnything(sam_checkpoint, xmem_checkpoint, e2fgvi_checkpoint, arg
 
 ar = argparse.Namespace()
 ar.resume = './cp/SiamMask_DAVIS.pth'
-ar.mask_dilation = 16
+ar.mask_dilation = 64
 siammask, cfg = mask_setup(ar)
 
 
@@ -97,66 +97,80 @@ with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
     w = i['w']
     h = i['h']
 
-    mask = ims[0][:,:,0]
+    test_mask = ims[0][:,:,0]
 
     for ix in range(width):
         for ix2 in range(height):
             if not (ix>=x and ix<=x+w and ix2>=y and ix2<=y+h): 
-                mask[ix2][ix] = 0
-            else: mask[ix2][ix] = 1
+                test_mask[ix2][ix] = 0
+            else: test_mask[ix2][ix] = 1
 
-    cv2.imwrite("im.png", mask*255)
+    cv2.imwrite("im.png", test_mask*255)
 
-    args = argparse.Namespace()
-    args.data = [ims[0]]
-    args.x = x
-    args.y = y
-    args.w = w
-    args.h = h
+    point = np.array([[x+w/2, y+h/2]])
+    label = np.array([1])
 
-    not_ims, pre_mask = mask(args, siammask, cfg)
-    print("mask?: ", pre_mask, ", ", pre_mask[0].shape)
+    print("shapeeeee: ", point.shape, ", ", label.shape)
 
-    cv2.imwrite("mask.png", pre_mask[0])
+    model.samcontroler.sam_controler.set_image(ims[0])
 
-    masks, logits, images = model.generator(ims, pre_mask[0])
+    ma, log, im = model.first_frame_click(ims[0], point, label, False)
 
-    video_state = {
-        "masks": masks,
-        "origin_images": ims[:4],
-        "fps": 30
-    }
+    print("bruh type: ", type(im), ", ", type(ma), ', ', ma.shape)
 
-    video, log = inpaint_video(video_state, [])
+    cv2.imwrite("im2.png", cv2.cvtColor(np.array(im), cv2.COLOR_RGB2BGR))
+
+    # args = argparse.Namespace()
+    # args.data = [ims[0]]
+    # args.x = x
+    # args.y = y
+    # args.w = w
+    # args.h = h
+
+    # not_ims, pre_mask = mask(args, siammask, cfg)
+    # print("mask?: ", pre_mask, ", ", pre_mask[0].shape)
+
+    # cv2.imwrite("mask.png", pre_mask[0])
+
+    # masks, logits, images = model.generator(ims, test_mask*255)
+
+    # video_state = {
+    #     "masks": masks,
+    #     "origin_images": ims[:4],
+    #     "fps": 30
+    # }
+
+    # video, log = inpaint_video(video_state, [])
 
 
-    output_file = io.BytesIO()
-    output = av.open(output_file, 'w', format="mp4")
+    # output_file = io.BytesIO()
+    # output = av.open(output_file, 'w', format="mp4")
 
-    FPS = 24
-    stream = output.add_stream('h264', str(FPS))
-    stream.width = w
-    stream.height = h
-    stream.pix_fmt = 'yuv444p'
-    stream.options = {'crf': '17'}
-    for f in range(2): # change back to video_length
-        comp = video[f].astype(np.uint8)
-        # writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
-        frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
-        packet = stream.encode(frame)
-        output.mux(packet)
-    # writer.release()
-    packet = stream.encode(None)
-    output.mux(packet)
-    output.close()
+    # FPS = 24
+    # stream = output.add_stream('h264', str(FPS))
+    # stream.width = w
+    # stream.height = h
+    # stream.pix_fmt = 'yuv444p'
+    # stream.options = {'crf': '17'}
+    # for f in range(2): # change back to video_length
+    #     # comp = video[f].astype(np.uint8)
+    #     comp = cv2.cvtColor(masks[f], cv2.COLOR_GRAY2BGR).astype(np.uint8)
+    #     # writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
+    #     frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
+    #     packet = stream.encode(frame)
+    #     output.mux(packet)
+    # # writer.release()
+    # packet = stream.encode(None)
+    # output.mux(packet)
+    # output.close()
 
-    id = str(uuid.uuid4())
+    # id = str(uuid.uuid4())
 
-    if not os.path.exists(f"{id}.mp4"):
-        open(f"{id}.mp4", 'w+')
+    # if not os.path.exists(f"mask_test_{id}.mp4"):
+    #     open(f"mask_test_{id}.mp4", 'w+')
 
-    with open(f"{id}.mp4", 'wb') as f:
-        f.write(output_file.getbuffer())
+    # with open(f"mask_test_{id}.mp4", 'wb') as f:
+    #     f.write(output_file.getbuffer())
 
     
     

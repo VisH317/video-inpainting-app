@@ -52,7 +52,7 @@ class SamControler():
         return: mask, logit, painted image(mask+point)
         '''
         # self.sam_controler.set_image(image)
-        origal_image = self.sam_controler.orignal_image
+        # origal_image = self.sam_controler.orignal_image
         neg_flag = labels[-1]
         if neg_flag==1:
             #find neg
