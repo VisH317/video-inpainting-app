@@ -18,7 +18,7 @@ def get_frames(video_file):
         yield cv2.cvtColor(np.array(frame.to_image()), cv2.COLOR_RGB2BGR)
 
 
-def inpaint_video(video_state):
+def inpaint_video(video_state, mask_dropdown):
     operation_log = [("",""), ("Removed the selected masks.","Normal")]
 
     frames = np.asarray(video_state["origin_images"])
@@ -28,18 +28,18 @@ def inpaint_video(video_state):
     #     frames[ix] = np.expand_dims(f, axis=0)
     # for ix, m in enumerate(inpaint_masks):
     #     inpaint_masks[ix] = np.expand_dims(m, axis=0)
-    # if len(mask_dropdown) == 0:
-    #     mask_dropdown = ["mask_001"]
-    # mask_dropdown.sort()
-    # # convert mask_dropdown to mask numbers
-    # inpaint_mask_numbers = [int(mask_dropdown[i].split("_")[1]) for i in range(len(mask_dropdown))]
-    # # interate through all masks and remove the masks that are not in mask_dropdown
-    # unique_masks = np.unique(inpaint_masks)
-    # num_masks = len(unique_masks) - 1
-    # for i in range(1, num_masks + 1):
-    #     if i in inpaint_mask_numbers:
-    #         continue
-    #     inpaint_masks[inpaint_masks==i] = 0
+    if len(mask_dropdown) == 0:
+        mask_dropdown = ["mask_001"]
+    mask_dropdown.sort()
+    # convert mask_dropdown to mask numbers
+    inpaint_mask_numbers = [int(mask_dropdown[i].split("_")[1]) for i in range(len(mask_dropdown))]
+    # interate through all masks and remove the masks that are not in mask_dropdown
+    unique_masks = np.unique(inpaint_masks)
+    num_masks = len(unique_masks) - 1
+    for i in range(1, num_masks + 1):
+        if i in inpaint_mask_numbers:
+            continue
+        inpaint_masks[inpaint_masks==i] = 0
     # inpaint for videos
 
     print("shapes: ", inpaint_masks[0].shape, ', ', frames[0].shape[:3])
@@ -79,10 +79,10 @@ with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
 
     i = {
         "data": f.buffer,
-        "x": 250,
-        "y": 600,
-        "w": 700,
-        "h": 1250,
+        "x": 350,
+        "y": 700,
+        "w": 550,
+        "h": 1000,
         "maxx": 720,
         "maxy": 1080
     }
@@ -97,15 +97,15 @@ with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
     w = i['w']
     h = i['h']
 
-    # mask = ims[0][:,:,0]
+    mask = ims[0][:,:,0]
 
-    # for ix in range(width):
-    #     for ix2 in range(height):
-    #         if not (ix>=x and ix<=x+w and ix2>=y and ix2<=y+h): 
-    #             mask[ix2][ix] = 0
-    #         else: mask[ix2][ix] = 1
+    for ix in range(width):
+        for ix2 in range(height):
+            if not (ix>=x and ix<=x+w and ix2>=y and ix2<=y+h): 
+                mask[ix2][ix] = 0
+            else: mask[ix2][ix] = 1
 
-    # cv2.imwrite("im.png", mask*255)
+    cv2.imwrite("im.png", mask*255)
 
     args = argparse.Namespace()
     args.data = [ims[0]]
@@ -121,13 +121,13 @@ with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
 
     masks, logits, images = model.generator(ims, pre_mask[0])
 
-    video_state = {
-        "masks": masks,
-        "origin_images": ims[:4],
-        "fps": 30
-    }
+    # video_state = {
+    #     "masks": masks,
+    #     "origin_images": ims[:4],
+    #     "fps": 30
+    # }
 
-    # video, log = inpaint_video(video_state)
+    # video, log = inpaint_video(video_state, [])
 
 
     output_file = io.BytesIO()
@@ -140,7 +140,7 @@ with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
     stream.pix_fmt = 'yuv444p'
     stream.options = {'crf': '17'}
     for f in range(2): # change back to video_length
-        comp = cv2.cvtColor(masks[f], cv2.COLOR_GRAY2BGR).astype(np.uint8)
+        comp = images[f].astype(np.uint8)
         # writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
         frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
         packet = stream.encode(frame)
