@@ -185,17 +185,17 @@ class InpaintHandler(BaseHandler):
             w = int(((int(data['w'])/maxx)*width))
             h = int(((int(data['h'])/maxy)*height))
 
-            mask = ims[0][:,:,0]
+            # mask = ims[0][:,:,0]
 
-            print("preargs: ", data['x'], ", ", data['y'], ", ", data['w'], ", ", data['h'])
-            print("args: ", x, ", ", y, ", ", w, ", ", h, ", ")
-            for ix in range(height):
-                for ix2 in range(width):
-                    if not (ix>=x and ix<=x+w and ix2>=y and ix2<=y+h): 
-                        mask[ix][ix2] = 0
-                    else: mask[ix][ix2] = 1
+            # print("preargs: ", data['x'], ", ", data['y'], ", ", data['w'], ", ", data['h'])
+            # print("args: ", x, ", ", y, ", ", w, ", ", h, ", ")
+            # for ix in range(height):
+            #     for ix2 in range(width):
+            #         if not (ix>=x and ix<=x+w and ix2>=y and ix2<=y+h): 
+            #             mask[ix][ix2] = 0
+            #         else: mask[ix][ix2] = 1
 
-            print("mask: ", mask.shape)
+            # print("mask: ", mask.shape)
 
             point = np.array([[x+w/2, y+h/2]])
             label = np.array([1])
