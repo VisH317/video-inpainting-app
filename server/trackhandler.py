@@ -90,14 +90,16 @@ class InpaintHandler(BaseHandler):
         self.client = create_client(SUPABASE_URL, SUPABASE_ANON)
 
         os.chdir("./server")
+        print("CWD: ", os.getcwd())
+        print("LISTDIR: ", os.listdir())
         # from server.E2FGVI.test import setup
         # from server.XMem.eval import mask_setup
         # from server.mask import mask_setup
-        from TrackAnything.track_anything import TrackingAnything
+        from server.TrackAnything.track_anything import TrackingAnything
 
-        sam_checkpoint = './server/saves/sam_vit_h_4b8939.pth'
-        xmem_checkpoint = './server/saves/XMem-s012.pth'
-        e2fgvi_checkpoint = './server/E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth'
+        sam_checkpoint = './saves/sam_vit_h_4b8939.pth'
+        xmem_checkpoint = './saves/XMem-s012.pth'
+        e2fgvi_checkpoint = './saves/E2FGVI-HQ-CVPR22.pth'
         # sam_checkpoint = './saves/sam_vit_h_4b8939.pth'
         # xmem_checkpoint = './saves/XMem-s012.pth'
         # e2fgvi_checkpoint = './E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth'
