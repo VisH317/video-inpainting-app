@@ -27,6 +27,41 @@ def get_frames(video_file):
     for frame in f.decode(video=0):
         yield cv2.cvtColor(np.array(frame.to_image()), cv2.COLOR_RGB2BGR)
 
+
+def inpaint_video(video_state, mask_dropdown, model):
+    operation_log = [("",""), ("Removed the selected masks.","Normal")]
+
+    frames = np.asarray(video_state["origin_images"])
+    fps = video_state["fps"]
+    inpaint_masks = np.asarray(video_state["masks"])
+    # for ix, f in enumerate(frames):
+    #     frames[ix] = np.expand_dims(f, axis=0)
+    # for ix, m in enumerate(inpaint_masks):
+    #     inpaint_masks[ix] = np.expand_dims(m, axis=0)
+    if len(mask_dropdown) == 0:
+        mask_dropdown = ["mask_001"]
+    mask_dropdown.sort()
+    # convert mask_dropdown to mask numbers
+    inpaint_mask_numbers = [int(mask_dropdown[i].split("_")[1]) for i in range(len(mask_dropdown))]
+    # interate through all masks and remove the masks that are not in mask_dropdown
+    unique_masks = np.unique(inpaint_masks)
+    num_masks = len(unique_masks) - 1
+    for i in range(1, num_masks + 1):
+        if i in inpaint_mask_numbers:
+            continue
+        inpaint_masks[inpaint_masks==i] = 0
+    # inpaint for videos
+
+    print("shapes: ", inpaint_masks[0].shape, ', ', frames[0].shape[:3])
+
+    inpainted_frames = model.baseinpainter.inpaint(frames, inpaint_masks)   # numpy array, T, H, W, 3 ratio=video_state["resize_ratio"]
+    # except:
+    #     operation_log = [("Error! You are trying to inpaint without masks input. Please track the selected mask first, and then press inpaint. If VRAM exceeded, please use the resize ratio to scaling down the image size.","Error"), ("","")]
+    #     inpainted_frames = video_state["origin_images"]
+
+    return inpainted_frames, operation_log
+
+
 class InpaintHandler(BaseHandler):
 
     def __init__(self):
@@ -53,10 +88,12 @@ class InpaintHandler(BaseHandler):
         print("LISTING DIR: ", os.listdir("./server"))
         load_dotenv("./server/.env")
         self.client = create_client(SUPABASE_URL, SUPABASE_ANON)
+
+        os.chdir("./server")
         # from server.E2FGVI.test import setup
         # from server.XMem.eval import mask_setup
         # from server.mask import mask_setup
-        from server.TrackAnything.track_anything import TrackingAnything
+        from TrackAnything.track_anything import TrackingAnything
 
         sam_checkpoint = './server/saves/sam_vit_h_4b8939.pth'
         xmem_checkpoint = './server/saves/XMem-s012.pth'
@@ -134,14 +171,17 @@ class InpaintHandler(BaseHandler):
 
             ims = [torch.from_numpy(im).squeeze().numpy() for im in ims]
 
-            height, width, _ = ims[0].shape
+            for ix, im in enumerate(ims):
+                ims[ix] = cv2.resize(im, (0, 0), fx=0.5, fy=0.5)
+
+            height, width, c = ims[0].shape
 
             # args.resume = 'cp/SiamMask_DAVIS.pth'
             # args.mask_dilation = 32
-            x = (int(data['x'])/maxx)*width
-            y = (int(data['y'])/maxy)*height
-            w = (int(data['w'])/maxx)*width
-            h = (int(data['h'])/maxy)*height
+            x = int(((int(data['x'])/maxx)*width))
+            y = int(((int(data['y'])/maxy)*height))
+            w = int(((int(data['w'])/maxx)*width))
+            h = int(((int(data['h'])/maxy)*height))
 
             mask = ims[0][:,:,0]
 
@@ -155,7 +195,25 @@ class InpaintHandler(BaseHandler):
 
             print("mask: ", mask.shape)
 
-            masks, logits, images = self.model.generator(ims, mask)
+            point = np.array([[x+w/2, y+h/2]])
+            label = np.array([1])
+
+            print("shapeeeee: ", point.shape, ", ", label.shape)
+
+            self.model.samcontroler.sam_controler.set_image(ims[0])
+
+            ma, log, im = self.model.first_frame_click(ims[0], point, label, False)
+
+            masks, logits, images = self.model.generator(ims, ma.astype(np.uint8))
+
+
+            video_state = {
+                "masks": masks,
+                "origin_images": ims[:4],
+                "fps": 30
+            }
+
+            video, log = inpaint_video(video_state, [], self.model)
             
             output_file = io.BytesIO()
             output = av.open(output_file, 'w', format="mp4")
@@ -166,8 +224,8 @@ class InpaintHandler(BaseHandler):
             stream.height = h
             stream.pix_fmt = 'yuv444p'
             stream.options = {'crf': '17'}
-            for f in range(2): # change back to video_length
-                comp = images[f].astype(np.uint8)
+            for f in range(len(video)): # change back to video_length
+                comp = video[f].astype(np.uint8)
                 # writer.write(cv2.cvtColor(comp, cv2.COLOR_BGR2RGB))
                 frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
                 packet = stream.encode(frame)

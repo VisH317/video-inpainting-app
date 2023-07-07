@@ -148,13 +148,13 @@ with open("./TrackAnything/test_sample/test-sample1.mp4") as f:
 
     masks, logits, images = model.generator(ims, ma.astype(np.uint8))
 
-    # video_state = {
-    #     "masks": masks,
-    #     "origin_images": ims[:4],
-    #     "fps": 30
-    # }
+    video_state = {
+        "masks": masks,
+        "origin_images": ims[:4],
+        "fps": 30
+    }
 
-    # video, log = inpaint_video(video_state, [])
+    video, log = inpaint_video(video_state, [])
 
 
     output_file = io.BytesIO()
