@@ -31,7 +31,7 @@ class BaseTracker:
         with open("./TrackAnything/tracker/config/config.yaml", 'r') as stream: #change back
             config = yaml.safe_load(stream) 
         # initialise XMem
-        network = XMem(config, xmem_checkpoint).to(device).eval()
+        network = torch.compile(XMem(config, xmem_checkpoint).to(device).eval())
         # initialise IncerenceCore
         self.tracker = InferenceCore(network, config)
         # data transformation
@@ -58,6 +58,7 @@ class BaseTracker:
                     mode='nearest')
 
     @torch.no_grad()
+    @torch.compile
     def track(self, frame, first_frame_annotation=None):
         """
         Input: 

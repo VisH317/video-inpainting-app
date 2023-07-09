@@ -18,7 +18,7 @@ class BaseInpainter:
 		E2FGVI_checkpoint: checkpoint of inpainter (version hq, with multi-resolution support)
 		"""
 		net = importlib.import_module('server.TrackAnything.inpainter.model.e2fgvi_hq')
-		self.model = net.InpaintGenerator().to(device)
+		self.model = torch.compile(net.InpaintGenerator().to(device))
 		self.model.load_state_dict(torch.load(E2FGVI_checkpoint, map_location=device))
 		self.model.eval()
 		self.device = device
@@ -50,6 +50,7 @@ class BaseInpainter:
 					ref_index.append(i)
 		return ref_index
 
+	@torch.compile
 	def inpaint_efficient(self, frames, masks, num_tcb, num_tca, dilate_radius=15, ratio=1):
 		"""
 		Perform Inpainting for video subsets
@@ -173,6 +174,7 @@ class BaseInpainter:
 		inpainted_frames = np.stack(comp_frames, 0)
 		return inpainted_frames.astype(np.uint8)
 
+	@torch.compile
 	def inpaint(self, frames, masks, dilate_radius=15, ratio=1):
 		"""
 		Perform Inpainting for video subsets
@@ -247,6 +249,7 @@ class BaseInpainter:
 
 		return inpainted_frames.astype(np.uint8)
 
+	@torch.compile
 	def inpaint_ori(self, frames, masks, dilate_radius=15, ratio=1):
 		"""
 		frames: numpy array, T, H, W, 3

@@ -105,7 +105,7 @@ class InpaintHandler(BaseHandler):
         # e2fgvi_checkpoint = './E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth'
 
         args = argparse.Namespace()
-        args.device = "cpu"
+        args.device = "cuda:0"
         args.sam_model_type = "vit_h"
 
         self.model = TrackingAnything(sam_checkpoint, xmem_checkpoint, e2fgvi_checkpoint, args)
@@ -211,7 +211,7 @@ class InpaintHandler(BaseHandler):
 
             video_state = {
                 "masks": masks,
-                "origin_images": ims[:4],
+                "origin_images": ims[:11],
                 "fps": 30
             }
 
