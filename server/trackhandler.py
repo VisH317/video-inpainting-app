@@ -134,7 +134,7 @@ class InpaintHandler(BaseHandler):
 
             preprocessed_inputs.append(preprocessed_input)
 
-        return preprocessed_input
+        return preprocessed_inputs
     
     
     def postprocess(self, input):
