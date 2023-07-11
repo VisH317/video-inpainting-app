@@ -38,18 +38,18 @@ def inpaint_video(video_state, mask_dropdown, model):
     #     frames[ix] = np.expand_dims(f, axis=0)
     # for ix, m in enumerate(inpaint_masks):
     #     inpaint_masks[ix] = np.expand_dims(m, axis=0)
-    if len(mask_dropdown) == 0:
-        mask_dropdown = ["mask_001"]
-    mask_dropdown.sort()
-    # convert mask_dropdown to mask numbers
-    inpaint_mask_numbers = [int(mask_dropdown[i].split("_")[1]) for i in range(len(mask_dropdown))]
-    # interate through all masks and remove the masks that are not in mask_dropdown
-    unique_masks = np.unique(inpaint_masks)
-    num_masks = len(unique_masks) - 1
-    for i in range(1, num_masks + 1):
-        if i in inpaint_mask_numbers:
-            continue
-        inpaint_masks[inpaint_masks==i] = 0
+    # if len(mask_dropdown) == 0:
+    #     mask_dropdown = ["mask_001"]
+    # mask_dropdown.sort()
+    # # convert mask_dropdown to mask numbers
+    # inpaint_mask_numbers = [int(mask_dropdown[i].split("_")[1]) for i in range(len(mask_dropdown))]
+    # # interate through all masks and remove the masks that are not in mask_dropdown
+    # unique_masks = np.unique(inpaint_masks)
+    # num_masks = len(unique_masks) - 1
+    # for i in range(1, num_masks + 1):
+    #     if i in inpaint_mask_numbers:
+    #         continue
+    #     inpaint_masks[inpaint_masks==i] = 0
     # inpaint for videos
 
     print("shapes: ", inpaint_masks[0].shape, ', ', frames[0].shape[:3])
@@ -211,14 +211,18 @@ class InpaintHandler(BaseHandler):
 
             video_state = {
                 "masks": masks,
-                "origin_images": ims[:11],
+                "origin_images": ims[:4],
                 "fps": 30
             }
 
             video, log = inpaint_video(video_state, [], self.model)
+
+            print("Inapinted")
             
             output_file = io.BytesIO()
             output = av.open(output_file, 'w', format="mp4")
+
+            print("Generating video")
 
             FPS = 24
             stream = output.add_stream('h264', str(FPS))
@@ -232,6 +236,7 @@ class InpaintHandler(BaseHandler):
                 frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
                 packet = stream.encode(frame)
                 output.mux(packet)
+                print("Writing")
             # writer.release()
             packet = stream.encode(None)
             output.mux(packet)
@@ -239,11 +244,15 @@ class InpaintHandler(BaseHandler):
 
             id = str(uuid.uuid4())
 
+            print("Written: ", id)
+
             if not os.path.exists(f"{id}.mp4"):
                 open(f"{id}.mp4", 'w+')
 
             with open(f"{id}.mp4", 'wb') as f:
                 f.write(output_file.getbuffer())
+            
+            print("Written to disk: ")
 
             res = self.client.storage.from_('videos').upload(f"{id}.mp4", f"{id}.mp4")
             print(res)

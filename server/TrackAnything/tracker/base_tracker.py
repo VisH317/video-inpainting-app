@@ -31,7 +31,8 @@ class BaseTracker:
         with open("./TrackAnything/tracker/config/config.yaml", 'r') as stream: #change back
             config = yaml.safe_load(stream) 
         # initialise XMem
-        network = torch.compile(XMem(config, xmem_checkpoint).to(device).eval())
+        network = torch.compile(XMem(config, xmem_checkpoint).to(device)).eval()
+        # network = XMem(config, xmem_checkpoint).eval()
         # initialise IncerenceCore
         self.tracker = InferenceCore(network, config)
         # data transformation

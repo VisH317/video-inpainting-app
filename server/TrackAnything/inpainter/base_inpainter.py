@@ -19,6 +19,7 @@ class BaseInpainter:
 		"""
 		net = importlib.import_module('server.TrackAnything.inpainter.model.e2fgvi_hq')
 		self.model = torch.compile(net.InpaintGenerator().to(device))
+		# self.model = net.InpaintGenerator()
 		self.model.load_state_dict(torch.load(E2FGVI_checkpoint, map_location=device))
 		self.model.eval()
 		self.device = device
