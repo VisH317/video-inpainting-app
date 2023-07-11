@@ -2,3 +2,11 @@ frontend
 DAVIS_demo
 image
 results/*
+TrackAnything/test_sample/*
+TrackAnything/doc/*
+TrackAnything/assets/*
+logs
+get_mask
+lib
+image
+*.png
