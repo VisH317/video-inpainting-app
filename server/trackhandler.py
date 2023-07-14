@@ -38,18 +38,18 @@ def inpaint_video(video_state, mask_dropdown, model):
     #     frames[ix] = np.expand_dims(f, axis=0)
     # for ix, m in enumerate(inpaint_masks):
     #     inpaint_masks[ix] = np.expand_dims(m, axis=0)
-    if len(mask_dropdown) == 0:
-        mask_dropdown = ["mask_001"]
-    mask_dropdown.sort()
-    # convert mask_dropdown to mask numbers
-    inpaint_mask_numbers = [int(mask_dropdown[i].split("_")[1]) for i in range(len(mask_dropdown))]
-    # interate through all masks and remove the masks that are not in mask_dropdown
-    unique_masks = np.unique(inpaint_masks)
-    num_masks = len(unique_masks) - 1
-    for i in range(1, num_masks + 1):
-        if i in inpaint_mask_numbers:
-            continue
-        inpaint_masks[inpaint_masks==i] = 0
+    # if len(mask_dropdown) == 0:
+    #     mask_dropdown = ["mask_001"]
+    # mask_dropdown.sort()
+    # # convert mask_dropdown to mask numbers
+    # inpaint_mask_numbers = [int(mask_dropdown[i].split("_")[1]) for i in range(len(mask_dropdown))]
+    # # interate through all masks and remove the masks that are not in mask_dropdown
+    # unique_masks = np.unique(inpaint_masks)
+    # num_masks = len(unique_masks) - 1
+    # for i in range(1, num_masks + 1):
+    #     if i in inpaint_mask_numbers:
+    #         continue
+    #     inpaint_masks[inpaint_masks==i] = 0
     # inpaint for videos
 
     print("shapes: ", inpaint_masks[0].shape, ', ', frames[0].shape[:3])
@@ -105,7 +105,7 @@ class InpaintHandler(BaseHandler):
         # e2fgvi_checkpoint = './E2FGVI/release_model/E2FGVI-HQ-CVPR22.pth'
 
         args = argparse.Namespace()
-        args.device = "cpu"
+        args.device = "cuda:0"
         args.sam_model_type = "vit_h"
 
         self.model = TrackingAnything(sam_checkpoint, xmem_checkpoint, e2fgvi_checkpoint, args)
@@ -134,7 +134,7 @@ class InpaintHandler(BaseHandler):
 
             preprocessed_inputs.append(preprocessed_input)
 
-        return preprocessed_input
+        return preprocessed_inputs
     
     
     def postprocess(self, input):
@@ -185,17 +185,17 @@ class InpaintHandler(BaseHandler):
             w = int(((int(data['w'])/maxx)*width))
             h = int(((int(data['h'])/maxy)*height))
 
-            mask = ims[0][:,:,0]
+            # mask = ims[0][:,:,0]
 
-            print("preargs: ", data['x'], ", ", data['y'], ", ", data['w'], ", ", data['h'])
-            print("args: ", x, ", ", y, ", ", w, ", ", h, ", ")
-            for ix in range(height):
-                for ix2 in range(width):
-                    if not (ix>=x and ix<=x+w and ix2>=y and ix2<=y+h): 
-                        mask[ix][ix2] = 0
-                    else: mask[ix][ix2] = 1
+            # print("preargs: ", data['x'], ", ", data['y'], ", ", data['w'], ", ", data['h'])
+            # print("args: ", x, ", ", y, ", ", w, ", ", h, ", ")
+            # for ix in range(height):
+            #     for ix2 in range(width):
+            #         if not (ix>=x and ix<=x+w and ix2>=y and ix2<=y+h): 
+            #             mask[ix][ix2] = 0
+            #         else: mask[ix][ix2] = 1
 
-            print("mask: ", mask.shape)
+            # print("mask: ", mask.shape)
 
             point = np.array([[x+w/2, y+h/2]])
             label = np.array([1])
@@ -216,9 +216,13 @@ class InpaintHandler(BaseHandler):
             }
 
             video, log = inpaint_video(video_state, [], self.model)
+
+            print("Inapinted")
             
             output_file = io.BytesIO()
             output = av.open(output_file, 'w', format="mp4")
+
+            print("Generating video")
 
             FPS = 24
             stream = output.add_stream('h264', str(FPS))
@@ -232,6 +236,7 @@ class InpaintHandler(BaseHandler):
                 frame = av.VideoFrame.from_ndarray(comp, format='bgr24')
                 packet = stream.encode(frame)
                 output.mux(packet)
+                print("Writing")
             # writer.release()
             packet = stream.encode(None)
             output.mux(packet)
@@ -239,11 +244,15 @@ class InpaintHandler(BaseHandler):
 
             id = str(uuid.uuid4())
 
+            print("Written: ", id)
+
             if not os.path.exists(f"{id}.mp4"):
                 open(f"{id}.mp4", 'w+')
 
             with open(f"{id}.mp4", 'wb') as f:
                 f.write(output_file.getbuffer())
+            
+            print("Written to disk: ")
 
             res = self.client.storage.from_('videos').upload(f"{id}.mp4", f"{id}.mp4")
             print(res)
