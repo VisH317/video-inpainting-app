@@ -40,16 +40,6 @@ function BoxSelect({ navigation, route }: any) {
         formdata.append('y', String(y))
         formdata.append('w', String(w))
         formdata.append('h', String(h))
-        // RNFetchBlob.config({
-        //     fileCache: true,
-        //     addAndroidDownloads: {
-        //         useDownloadManager: true,
-        //         mime: "video/mp4",
-        //         description: "video with object removed from download manager",
-        //         path: `${RNFetchBlob.fs.dirs.DownloadDir}/video/vid.mp4`,
-        //         notification: true
-        //     }
-        // })
         RNFetchBlob.fetch("POST", "https://a542-96-248-107-65.ngrok-free.app/predictions/inpaint", 
             {
                 "content-type": "multipart/form-data"
@@ -83,28 +73,6 @@ function BoxSelect({ navigation, route }: any) {
                 .then(res => void navigation.navigate("Completed"))
                 .catch(err => console.log("err: ", err))
         })
-
-            // var Base64Code = res.data.split("data:video/mp4;base64,"); //base64Image is my image base64 string
-
-            // const dirs = RNFetchBlob.fs.dirs;
-
-            // var path = dirs.DCIMDir + "/vid.mp4";
-
-            // RNFetchBlob.fs.writeFile(path, res.data, 'base64')
-            // // .then((res: any) => {
-            // //     console.log("finished...", res)
-            // //     setSub(false)
-            // //     navigation.navigate("Completed")
-            // // }).catch(reason => {
-            // //     console.log("not working!!!!!!")
-            // //     console.log(reason)
-            // // })
-            // // console.log("finished: ", res)
-            // // console.log("path: ", res.path)
-            // // const dir = RNFetchBlob.fs.dirs.DocumentDir + "/vid.mp4"
-            // // RNFetchBlob.fs.writeFile(dir, res.data)
-            // // setSub(false)
-            // // navigation.navigate("Completed")
     }
 
     const set = (x: number, y: number, w: number, h: number) => {

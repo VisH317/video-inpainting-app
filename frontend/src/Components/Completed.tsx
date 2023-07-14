@@ -21,15 +21,10 @@ import Action from './Home/Action';
 function Completed({ navigation, route }) {
     return (
         <View style={{backgroundColor: "white", height: "100%"}}>
-            {/* <LinearGradient style={styles.topRect} 
-                colors={["#FFA89C", "#FF8C67"]} 
-                start={{x: 0, y: 0}}
-                end={{x: 1, y: 1}}/> */}
             <LinearGradient style={styles.bottomRect} 
                 colors={["#e2e8f0", "#e2e8f0"]} 
                 start={{x: 0, y: 0}}
                 end={{x: 1, y: 1}}/>
-            {/* <ImgStack/> */}
             <View style={styles.imgContainer}>
                 <Image source={require("./video.png")} style={{ width: 300, height: 300 }}/>
             </View>
@@ -40,7 +35,6 @@ function Completed({ navigation, route }) {
             {/* <View style={styles.spacer}/> */}
             <View style={styles.actionContainer}>
                 <Action title="Make a new Video" desc="Upload and alter another video" onClick={() => {console.log("test: ", navigation);navigation.navigate("Record")}}/>
-                {/* <Action title="Record a Video" desc="Record a video to edit" onClick={() => navigation.navigate("Record")}/> */}
             </View>
         </View>
     )
