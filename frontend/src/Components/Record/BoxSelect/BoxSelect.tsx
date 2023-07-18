@@ -40,17 +40,7 @@ function BoxSelect({ navigation, route }: any) {
         formdata.append('y', String(y))
         formdata.append('w', String(w))
         formdata.append('h', String(h))
-        // RNFetchBlob.config({
-        //     fileCache: true,
-        //     addAndroidDownloads: {
-        //         useDownloadManager: true,
-        //         mime: "video/mp4",
-        //         description: "video with object removed from download manager",
-        //         path: `${RNFetchBlob.fs.dirs.DownloadDir}/video/vid.mp4`,
-        //         notification: true
-        //     }
-        // })
-        RNFetchBlob.fetch("POST", "https://2423-96-248-107-65.ngrok-free.app/predictions/inpaint", 
+        RNFetchBlob.fetch("POST", "https://a542-96-248-107-65.ngrok-free.app/predictions/inpaint", 
             {
                 "content-type": "multipart/form-data"
             },
@@ -80,31 +70,9 @@ function BoxSelect({ navigation, route }: any) {
                     notification: true
                 }
             }).fetch("GET", data.url)
-                .then(res => console.log("downloaded to:", res.path()))
+                .then(res => void navigation.navigate("Completed"))
                 .catch(err => console.log("err: ", err))
         })
-
-            // var Base64Code = res.data.split("data:video/mp4;base64,"); //base64Image is my image base64 string
-
-            // const dirs = RNFetchBlob.fs.dirs;
-
-            // var path = dirs.DCIMDir + "/vid.mp4";
-
-            // RNFetchBlob.fs.writeFile(path, res.data, 'base64')
-            // // .then((res: any) => {
-            // //     console.log("finished...", res)
-            // //     setSub(false)
-            // //     navigation.navigate("Completed")
-            // // }).catch(reason => {
-            // //     console.log("not working!!!!!!")
-            // //     console.log(reason)
-            // // })
-            // // console.log("finished: ", res)
-            // // console.log("path: ", res.path)
-            // // const dir = RNFetchBlob.fs.dirs.DocumentDir + "/vid.mp4"
-            // // RNFetchBlob.fs.writeFile(dir, res.data)
-            // // setSub(false)
-            // // navigation.navigate("Completed")
     }
 
     const set = (x: number, y: number, w: number, h: number) => {
@@ -122,37 +90,18 @@ function BoxSelect({ navigation, route }: any) {
     ) : (
         <View style={styles.chooseImage}>
             <VideoFirstFrame uri={uri} setValues={set}/>
-            {/* <GestureDemo/> */}
-            {/* <GestureDemo/> */}
-            {/* <Text>Select an Area to Remove:</Text>
-            <TextInput onChangeText={setx} value={x} placeholder="x:"/>
-            <TextInput onChangeText={sety} value={y} placeholder="y:"/>
-            <TextInput onChangeText={setw} value={w} placeholder="w:"/>
-            <TextInput onChangeText={seth} value={h} placeholder="h:"/> */}
             <View style={styles.btnContainer}/>
                 <View style={styles.actions}>
                     <View style={{borderRadius: 32.5}}>
                     <TouchableNativeFeedback background={TouchableNativeFeedback.Ripple(
                         "#00000000",
                         true
-                    )} onPress={() => console.log("hola")}>
+                    )} onPress={() => void navigation.navigate("Record")}>
                         <View style={{width: 65, height: 65, overflow: "hidden", borderRadius: 32.5, display: "flex", justifyContent: "center", alignItems: "center"}}>
                             <FontAwesomeIcon icon={faArrowLeft} color="white" size={35}/>
                         </View>
                     </TouchableNativeFeedback>
                     </View>
-
-                    {/* <View style={{borderRadius: 32.5}}>
-                    <TouchableNativeFeedback background={TouchableNativeFeedback.Ripple(
-                        "#00000000",
-                        true
-                    )} onPress={() => console.log("hola")}>
-                        <View style={{width: 65, height: 65, overflow: "hidden", borderRadius: 32.5, display: "flex", justifyContent: "center", alignItems: "center"}}>
-                            <FontAwesomeIcon icon={faInfo} color="white" size={35}/>
-                        </View>
-                    </TouchableNativeFeedback>
-                    </View> */}
-
                     <LinearGradient colors={['#3b82f6', '#3b82f6']}
                         style={styles.button} 
                         start={{ y: 0.0, x: 0.0 }} end={{ y: 1.0, x: 1.0 }}>
